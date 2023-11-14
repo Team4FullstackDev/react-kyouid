@@ -3,6 +3,9 @@
 .section__10_filter-tittle {
   padding-top: 50px;
   font-size: 20px;
+  font-family: "Nunito", sans-serif;
+  color: #1b1b1b;
+  font-weight: 600;
 }
 
 .section__10_filter {
@@ -81,7 +84,7 @@
   height: 165px;
 }
 
-.section__10_card-late-pre-order {
+.section__10_btn_status {
   font-size: small;
   font-weight: bold;
   background: var(--late-pre-order);
