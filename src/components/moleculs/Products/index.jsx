@@ -14,6 +14,7 @@ const Products = ({ data, loadMore, visibleItems }) => {
             key={product.id}
             img={product.img}
             title={product.title}
+            titleDate={product.titleDate}
             reviews={product.reviews}
             prevPrice={product.prevPrice}
             newPrice={product.newPrice}
