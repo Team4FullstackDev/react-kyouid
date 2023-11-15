@@ -46,9 +46,9 @@ const Section10 = ({ handleClick, selectedCategory }) => {
   };
 
   return (
-    <section class="section__10">
-      <h3 class="section__10_filter-tittle">Newest Items</h3>
-      <div class="section__10_filter">
+    <section className="section__10">
+      <h3 className="section__10_filter-tittle">Newest Items</h3>
+      <div className="section__10_filter">
         <FilterButtons
           handleClick={handleClick}
           selectedCategory={selectedCategory}

@@ -1,10 +1,11 @@
 import React from "react";
 import "../../styles/section10.css";
 
-const Card = ({ img, title, reviews, prevPrice, newPrice }) => {
+const Card = ({ img, title, titleDate, reviews, prevPrice, newPrice }) => {
   const reviewStyle = {
     backgroundColor: reviews.backgroundColor,
   };
+
   return (
     <div className="section__10_card">
       <img src={img} alt={title} className="section__10_image" />
@@ -15,6 +16,7 @@ const Card = ({ img, title, reviews, prevPrice, newPrice }) => {
           </span>
         </section>
         <h3 className="section__10_card-tittle">{title}</h3>
+        <p className="section__10_card-date">{titleDate}</p>
         <section className="section__10_card-price">
           <div className="section__10_price">
             <span>{prevPrice}</span>
