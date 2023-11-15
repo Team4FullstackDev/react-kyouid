@@ -3,7 +3,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { section__2Settings } from "./components/js-slicks/section2";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   ButtonCarouselType,
   section2,
@@ -14,9 +14,11 @@ import ImageCarousels from "./components/moleculs/ImageCarousels";
 import ButtonCarousel from "./components/atoms/ButtonCarousel";
 import StoreItem from "./components/atoms/StoreItem";
 import ListStoreItem from "./components/moleculs/ListStoreItem";
+import Section10 from "./components/organism/Section10";
 
 function App() {
   const sliderRef = useRef(null);
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const nextSlide = () => {
     console.log("test");
@@ -27,6 +29,9 @@ function App() {
     sliderRef.current.slickPrev();
   };
 
+  const handleFilterClick = (e) => {
+    setSelectedCategory(e.target.value);
+  };
   return (
     <>
       {/* <!-- Header By Harymahayana07 --> */}
@@ -424,6 +429,16 @@ function App() {
           </div>
         </section>
         {/* <!-- End Section 2--> */}
+
+        {/* <!-- container for section 3 through 10 --> */}
+        <div className="container">
+          {/* <!-- Section 10 created by Endri Nastiar --> */}
+          <Section10
+            handleClick={handleFilterClick}
+            selectedCategory={selectedCategory}
+          />
+          {/* <!-- End Section 10 by Endri Nastiar --> */}
+        </div>
       </main>
     </>
   );
