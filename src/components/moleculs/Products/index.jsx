@@ -8,19 +8,17 @@ const Products = ({ data, loadMore, visibleItems }) => {
   };
   return (
     <>
-      <div className="section__10_filterable-card">
-        {data.map((product) => (
-          <Card
-            key={product.id}
-            img={product.img}
-            title={product.title}
-            titleDate={product.titleDate}
-            reviews={product.reviews}
-            prevPrice={product.prevPrice}
-            newPrice={product.newPrice}
-          />
-        ))}
-      </div>
+      {data.map((product) => (
+        <Card
+          key={product.id}
+          img={product.img}
+          title={product.title}
+          titleDate={product.titleDate}
+          reviews={product.reviews}
+          prevPrice={product.prevPrice}
+          newPrice={product.newPrice}
+        />
+      ))}
     </>
   );
 };

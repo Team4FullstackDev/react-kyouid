@@ -1,11 +1,12 @@
 // js untuk section 7 created by ahmad fahmi faza
 
-$(document).ready(function () {
-  $(".section__7-container-card").slick({
-    arrows: false,
-    infinite: true,
-    slidesToShow: 6,
-    slidesToScroll: 6,
-    variableWidth: true,
-  });
-});
+export const settingsSection7 = {
+  infinite: true,
+  autoplaySpeed: 1500,
+  autoplay: true,
+  slidesToShow: 1,
+  focusOnSelect: true,
+  centerMode: true,
+  nextArrow: false,
+  prevArrow: false,
+};

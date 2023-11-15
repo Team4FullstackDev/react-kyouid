@@ -53,11 +53,13 @@ const Section10 = ({ handleClick, selectedCategory }) => {
           handleClick={handleClick}
           selectedCategory={selectedCategory}
         />
-        <Products
-          data={filteredProducts.slice(0, visibleItems)}
-          loadMore={loadMore}
-          visibleItems={visibleItems}
-        />
+        <div className="section__10_filterable-card">
+          <Products
+            data={filteredProducts.slice(0, visibleItems)}
+            loadMore={loadMore}
+            visibleItems={visibleItems}
+          />
+        </div>
         <div className="section__10_btnn-next">
           {noMoreItems ? (
             <button className="section__10_btnn-load" onClick={resetView}>

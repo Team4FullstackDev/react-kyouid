@@ -16,6 +16,9 @@ import StoreItem from "./components/atoms/StoreItem";
 import ListStoreItem from "./components/moleculs/ListStoreItem";
 import Section10 from "./components/organism/Section10";
 import Section2 from "./components/organism/Section2";
+import Section7 from "./components/organism/Section7";
+import Section8 from "./components/organism/Section8";
+import Section9 from "./components/organism/Section9";
 
 function App() {
   const sliderRef = useRef(null);
@@ -371,11 +374,19 @@ function App() {
         </section>
         {/* <!-- End Section --> */}
         {/* <!-- section 2 By Mujahid Ansori Majid --> */}
-        <Section2 sliderRef={sliderRef} nextSlide={nextSlide} prevSlide={prevSlide} />
+        <Section2
+          sliderRef={sliderRef}
+          nextSlide={nextSlide}
+          prevSlide={prevSlide}
+        />
         {/* <!-- End Section 2--> */}
 
         {/* <!-- container for section 3 through 10 --> */}
         <div className="container">
+          {/* section 7 */}
+          <Section7 />
+          <Section8 />
+          <Section9 />
           {/* <!-- Section 10 created by Endri Nastiar --> */}
           <Section10
             handleClick={handleFilterClick}
