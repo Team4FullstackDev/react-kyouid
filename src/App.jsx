@@ -15,6 +15,7 @@ import ButtonCarousel from "./components/atoms/ButtonCarousel";
 import StoreItem from "./components/atoms/StoreItem";
 import ListStoreItem from "./components/moleculs/ListStoreItem";
 import Section10 from "./components/organism/Section10";
+import Section2 from "./components/organism/Section2";
 
 function App() {
   const sliderRef = useRef(null);
@@ -370,64 +371,7 @@ function App() {
         </section>
         {/* <!-- End Section --> */}
         {/* <!-- section 2 By Mujahid Ansori Majid --> */}
-        <section className="section__2">
-          <div className="section__2-container">
-            <article className="section__2-container-shopping">
-              <div className="section__2-container-shopping-left">
-                <span className="section__2-shopping-caption">
-                  Ngaku2 Waifu Keqing
-                  <br />
-                  Ehh, besoknya pake Ayaka mau adain Community Gathering?
-                  <br />
-                  Gath di Alpha Store jawabannya!
-                </span>
-                <button className="section__2-button">
-                  <a href="https://kyou.id/stores">Cakep! Shelok Kyou!</a>
-                </button>
-              </div>
-              <div className="section__2-container-shopping-right">
-                <ButtonCarousel
-                  type={ButtonCarouselType.PREV}
-                  className={
-                    "section__2-button-prev section__2-button-carousel"
-                  }
-                  onClickHandler={prevSlide}
-                />
-                <ImageCarousels
-                  ref={sliderRef}
-                  data={section2}
-                  sliderSetting={section__2Settings}
-                />
-                <ButtonCarousel
-                  type={ButtonCarouselType.NEXT}
-                  className={
-                    "section__2-button-prev section__2-button-carousel"
-                  }
-                  onClickHandler={nextSlide}
-                />
-              </div>
-            </article>
-            <article className="section__2-container-shopping">
-              <a href="#" className="section__2-title-button">
-                UNIQUE REQUEST
-                <img
-                  src="	https://kyou.id/static/img/icon/urtick.svg"
-                  alt="badge"
-                  className="section__2-badge"
-                />
-              </a>
-              <h3 className="section__2-title-description">
-                Belanja barang dari jepang semudah copy link!
-              </h3>
-              <div className="section__2-container-list-store">
-                <ListStoreItem data={storeData} />
-              </div>
-              <button className="section__2-store-button">
-                Cobain Unique Request
-              </button>
-            </article>
-          </div>
-        </section>
+        <Section2 sliderRef={sliderRef} nextSlide={nextSlide} prevSlide={prevSlide} />
         {/* <!-- End Section 2--> */}
 
         {/* <!-- container for section 3 through 10 --> */}
