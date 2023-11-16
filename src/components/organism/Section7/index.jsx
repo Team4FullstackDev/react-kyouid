@@ -1,8 +1,44 @@
-import Products from "../../moleculs/Products";
 import { productSection7 } from "../../../utils/constant/DataSection7";
 import Slider from "react-slick";
-import { settingsSection7 } from "../../js-slicks/section7";
+import Card from "../../atoms/Card";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
 const Section7 = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    arrows: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <section id="section__7">
       <div className="section__7-gallery-slider">
@@ -31,9 +67,19 @@ const Section7 = () => {
           </div>
         </div>
         <div className="section__7-gallery-slider__content">
-          <div className="section__7-container-card">
-            <Products data={productSection7} />
-          </div>
+          <Slider className="section__7-container-card" {...settings}>
+            {productSection7.map((product) => (
+              <Card
+                key={product.id}
+                img={product.img}
+                title={product.title}
+                titleDate={product.titleDate}
+                reviews={product.reviews}
+                prevPrice={product.prevPrice}
+                newPrice={product.newPrice}
+              />
+            ))}
+          </Slider>
         </div>
       </div>
     </section>

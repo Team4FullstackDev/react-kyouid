@@ -1,4 +1,5 @@
-import React from "react";
+/* eslint-disable react/prop-types */
+
 import "../../styles/section10.css";
 
 const Card = ({ img, title, titleDate, reviews, prevPrice, newPrice }) => {

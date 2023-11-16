@@ -37,7 +37,9 @@
 
 .section__7-container-card {
   display: flex;
+  align-items: center;
   overflow: hidden;
+  justify-content: center;
   width: 100vw;
 }
 .section__7-content_card {
