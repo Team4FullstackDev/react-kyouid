@@ -34,9 +34,13 @@ form .nav__input_search {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   box-sizing: border-box;
+  
   height: 36px;
   width: 36px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .nav__button {
   width: 46px;
@@ -48,6 +52,27 @@ form .nav__input_search {
   justify-content: center;
   background: none;
   border: none;
+  text-decoration: none;
+}
+.nav__cart-badge {
+  &::after {
+    content: attr(data-count);
+    display: flex;
+    position: relative;
+    min-width: 20px;
+    height: 20px;
+    font-size: 10px;
+    background: #FC4C02;
+    border-radius: 20px;
+    color: #ffffff;
+    align-items: center;
+    justify-content: center;
+    right: 8px;
+    bottom: 10px;
+    /* content: "10"; */
+    justify-content: center;
+    align-items: center;
+  }
 }
 a.nav__icons {
   display: flex;
@@ -60,14 +85,12 @@ a.nav__icons .nav__mascot {
   object-fit: cover;
 }
 .nav__logo-kyou {
-  width: 100%;
   height: 100%;
   object-fit: contain;
 }
 .nav__img-kyou {
   width: 103px;
   height: 48px;
-  margin-top: 5px;
 }
 .nav__links {
   display: flex;
@@ -107,11 +130,12 @@ a.nav__icons .nav__mascot {
   display: none;
 }
 .nav__modal__hamburger {
-  display:none;
+  display: none;
 }
 .nav__modal__search {
-  display:none;
+  display: none;
 }
+
 
 @media screen and (max-width: 1024px) {
   .nav__navigation {
@@ -160,8 +184,9 @@ a.nav__icons .nav__mascot {
     width: 64px;
     height: 32px;
   }
-  
-  .nav__modal__hamburger , .nav__modal__search {
+
+  .nav__modal__hamburger,
+  .nav__modal__search {
     background: rgba(0, 0, 0, 0.75);
     display: none;
     align-items: flex-start;
@@ -177,7 +202,8 @@ a.nav__icons .nav__mascot {
     transition: opacity 5.3s ease-in-out, transform 5.3s ease-in-out;
   }
 
-  .nav__modal-container, .nav__modal__search-container {
+  .nav__modal-container,
+  .nav__modal__search-container {
     max-width: 800px;
     position: relative;
     padding: 1.2rem;
@@ -186,7 +212,8 @@ a.nav__icons .nav__mascot {
     box-shadow: 0 12px 15px 0 rgba(0, 0, 0, 0.25);
     margin: 0 auto;
   }
-  .nav__modal__menu , .nav__modal__search_menu {
+  .nav__modal__menu,
+  .nav__modal__search_menu {
     width: 100%;
     height: 100%;
     border-radius: 0px;
@@ -198,7 +225,6 @@ a.nav__icons .nav__mascot {
   }
   .nav__modal_mobile_top {
     padding: 18px 24px;
-    position: fixed;
     top: 0px;
     width: 100%;
     background: var(--white-color);
@@ -209,7 +235,6 @@ a.nav__icons .nav__mascot {
   .nav__modal__search_mobile_top {
     padding: 0px 24px;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-    position: fixed;
     top: 0px;
     left: 0px;
     width: 100%;
@@ -219,8 +244,9 @@ a.nav__icons .nav__mascot {
     align-items: center;
     z-index: 10;
   }
- 
-  .nav__modal_button-back, .nav__modal_button-search-back {
+
+  .nav__modal_button-back,
+  .nav__modal_button-search-back {
     background: transparent;
     border: none;
     margin-right: 20px;
@@ -274,19 +300,17 @@ a.nav__icons .nav__mascot {
     position: relative;
   }
   .nav__modal__search_form input {
-        height: 100%;
+    height: 100%;
+    width: -webkit-fill-available;
     box-sizing: border-box;
     border: none;
-    font-size: 16px;
+    font-size: 13px;
     font-family: "Nunito", sans-serif;
-    transform: scale(calc(14/16));
     margin-top: 1px;
     transform-origin: left center;
-    padding-right: 24px;
   }
   .nav__modal__search-content {
     padding: 16px 20px;
-    margin-top: 52px;
   }
   .nav__modal__search-content-label {
     font-size: 12px;
@@ -294,7 +318,7 @@ a.nav__icons .nav__mascot {
     display: block;
     margin-bottom: 8px;
   }
-   .nav__modal__search-content-entry {
+  .nav__modal__search-content-entry {
     background: none;
     border: none;
     font-family: "Nunito", sans-serif;
