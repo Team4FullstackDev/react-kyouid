@@ -1,6 +1,42 @@
-import Products from "../../moleculs/Products";
 import { productSection8 } from "../../../utils/constant/DataSection8";
+import Slider from "react-slick";
+import Card from "../../atoms/Card";
 const Section8 = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    arrows: true,
+
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 5,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
   return (
     <section id="section__8">
       <div className="section__8-gallery-slider">
@@ -29,9 +65,19 @@ const Section8 = () => {
           </div>
         </div>
         <div className="section__8-gallery-slider__content">
-          <div className="section__8-container-card">
-            <Products data={productSection8} />
-          </div>
+          <Slider className="section__8-container-card" {...settings}>
+            {productSection8.map((product) => (
+              <Card
+                key={product.id}
+                img={product.img}
+                title={product.title}
+                titleDate={product.titleDate}
+                reviews={product.reviews}
+                prevPrice={product.prevPrice}
+                newPrice={product.newPrice}
+              />
+            ))}
+          </Slider>
         </div>
       </div>
     </section>
