@@ -1,0 +1,16 @@
+{
+  "users": {
+    "data": [
+      {
+        "id": 1,
+        "name": "Leanne Graham",
+        "username": "Bret",
+        "email": "kxj5i@example.com",
+        "password": 123345
+      }
+    ],
+    "carts": [],
+    "orders": [],
+    "wishlist": []
+  }
+}
