@@ -31,9 +31,9 @@ const Section7 = () => {
           </div>
         </div>
         <div className="section__7-gallery-slider__content">
-          <div className="section__7-container-card">
+          <Slider {...settingsSection7} className="section__7-container-card">
             <Products data={productSection7} />
-          </div>
+          </Slider>
         </div>
       </div>
     </section>
