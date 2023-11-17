@@ -53,7 +53,7 @@ const Section7 = () => {
             Flash Pre Order | Arrives in 2-5 Weeks
           </h3>
           <div className="section__7-gallery-slider__more">
-            <a className="" href="wishlist.html">
+            <Link className="" to="/wishlist">
               Lihat Semua
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,7 +69,7 @@ const Section7 = () => {
                   transform="translate(0 -4.674)"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
         <div className="section__7-gallery-slider__content">
@@ -83,7 +83,7 @@ const Section7 = () => {
                   reviews={product.reviews}
                   prevPrice={product.prevPrice}
                   newPrice={product.newPrice}
-                  onClickHandler={()=>dispatch(getProductDetail(product))}
+                  onClickHandler={() => dispatch(getProductDetail(product))}
                 />
               </Link>
             ))}

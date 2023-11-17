@@ -1120,3 +1120,13 @@ const products = [
 ];
 
 export default products;
+
+export const getPaginatedData = (data, pageNumber, pageSize) => {
+  const startIndex = (pageNumber - 1) * pageSize;
+  const endIndex = startIndex + pageSize;
+  return data.slice(startIndex, endIndex);
+};
+
+export const getTotalPages = (totalItems, pageSize) => {
+  return Math.ceil(totalItems / pageSize);
+};
