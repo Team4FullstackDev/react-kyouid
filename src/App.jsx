@@ -11,6 +11,7 @@ import Section9 from "./components/organism/Section9";
 import { section__1Settings } from "./components/js-slicks/section1";
 import Section__1 from "./components/organism/Section1";
 import { Section1 } from "./utils/constant/DataSection1";
+import Section3 from "./components/organism/Section3";
 
 function App() {
   const sliderRef = useRef(null);
@@ -32,10 +33,7 @@ function App() {
     <>
       <main>
         {/* <!-- section 1 By Harymahayana07 --> */}
-        <Section__1 
-          data={ Section1 } 
-          sliderSetting={ section__1Settings } 
-        />
+        <Section__1 data={Section1} sliderSetting={section__1Settings} />
         {/* <!-- End Section --> */}
 
         {/* <!-- section 2 By Mujahid Ansori Majid --> */}
@@ -48,13 +46,16 @@ function App() {
 
         {/* <!-- container for section 3 through 10 --> */}
         <div className="container">
-          {/* section 7 */}
-          <Section4
-          sliderRef={sliderRef}
-          nextSlide={nextSlide}
-          prevSlide={prevSlide}
-        />
           
+          <Section3 />
+
+          <Section4
+            sliderRef={sliderRef}
+            nextSlide={nextSlide}
+            prevSlide={prevSlide}
+          />
+
+          {/* section 7 */}
           <Section7 />
           <Section8 />
           <Section9 />
