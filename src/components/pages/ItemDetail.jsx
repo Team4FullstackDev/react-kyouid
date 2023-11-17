@@ -1,59 +1,59 @@
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../../redux/actions/carts.action";
 
 export default function ItemDetail() {
-
+  const product = useSelector((state) => state.itemDetail.detailProducts);
+  const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
 
   const onChangeQuantity = (e) => {
     const value = e.target.value;
-    if(value >= 1 && value <= 3) {
+    if (value >= 1 && value <= 3) {
       setQuantity(value);
     }
   };
 
   const increment = () => {
-    if(quantity < 3) {
+    if (quantity < 3) {
       setQuantity(quantity + 1);
     }
   };
 
   const decrement = () => {
-    if(quantity > 1) {
+    if (quantity > 1) {
       setQuantity(quantity - 1);
     }
-  }
+  };
 
   return (
     <div className="itemDetail_parent_container">
       <div className="itemDetail_child_first">
         <div className="itemDetail_first_imageContainer">
-          <img
-            src="https://cdn.kyou.id/items/152074-relax-time-figure-hinana-ichikawa-the-idolm-at-ster-shiny-colors-20cm.jpg.webp"
-            alt="image item"
-          />
+          <img src={product.img} alt="image item" />
         </div>
       </div>
       <div className="itemDetail_child_second">
         <div className="itemDetail_status_container">
-          <div className="itemDetail_status">
-            <span>Late Pre-order</span>
+          <div
+            className="itemDetail_status"
+            style={{ backgroundColor: product.reviews?.backgroundColor }}
+          >
+            <span>{product.reviews?.text}</span>
           </div>
           <div className="itemDetail_share">
             <p>Share</p>
           </div>
         </div>
 
-        <h2 className="itemDetail_title">
-          [REVIVE] Relax Time Figure Hinana Ichikawa - The iDOLM@STER Shiny
-          Colors (20cm)
-        </h2>
+        <h2 className="itemDetail_title">{product.title}</h2>
 
         <p className="itemDetail_by">By Bandai Spirits</p>
 
         <hr />
 
         <div className="itemDetail_price_container">
-          <h3 className="itemDetail_price">IDR 280.000</h3>
+          <h3 className="itemDetail_price">{product.prevPrice}</h3>
           <span className="itemDetail_pointFriendship">
             Earn 140 Friendship point
           </span>
@@ -62,7 +62,7 @@ export default function ItemDetail() {
         <div className="itemDetail_dp_container">
           <div className="itemDetail_dp">
             <p className="itemDetail_dp_title">Minumun DP</p>
-            <p className="itemDetail_dp_price">IDR 100.000</p>
+            <p className="itemDetail_dp_price">{product.newPrice}</p>
           </div>
           <div className="itemDetail_fullpayment_discount">
             <p className="itemDetail_fullpayment_discount_title">
@@ -88,7 +88,7 @@ export default function ItemDetail() {
         <div className="itemDetail_release_eta">
           <div className="itemDetail_release">
             <span className="release_key">Releases</span>
-            <span className="release_value">November 2023</span>
+            <span className="release_value">{product.titleDate}</span>
           </div>
           <div className="itemDetail_eta">
             <span className="eta_key">Estimated Arrival</span>
@@ -109,7 +109,10 @@ export default function ItemDetail() {
               <span>&nbsp;Wishlist</span>
             </span>
           </button>
-          <button className="itemDetail_addtocart">
+          <button
+            className="itemDetail_addtocart"
+            onClick={() => dispatch(addToCart(product))}
+          >
             <span>Add to Cart</span>
           </button>
         </div>

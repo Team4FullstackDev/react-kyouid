@@ -4,6 +4,8 @@ import Card from "../../atoms/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
 
 const Section7 = () => {
   const settings = {
@@ -40,6 +42,9 @@ const Section7 = () => {
       },
     ],
   };
+
+  const dispatch = useDispatch();
+
   return (
     <section id="section__7">
       <div className="section__7-gallery-slider">
@@ -78,6 +83,7 @@ const Section7 = () => {
                   reviews={product.reviews}
                   prevPrice={product.prevPrice}
                   newPrice={product.newPrice}
+                  onClickHandler={()=>dispatch(getProductDetail(product))}
                 />
               </Link>
             ))}
