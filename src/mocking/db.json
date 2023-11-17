@@ -1,0 +1,55 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Leanne Graham",
+      "username": "Bret",
+      "email": "kxj5i@example.com",
+      "password": 123345
+    }
+  ],
+  "carts": [
+    {
+      "id": 1,
+      "img": "https://cdn.kyou.id/thumbnail/items/62070-nendoroid-chuya-nakahara-bungou-stray-dogs.jpg",
+      "title": "[FLASH PO] Nendoroid Chuya Nakahara - Bungo / Bungou Stray Dogs (Re-Release)",
+      "titleDate": "27 September 2023",
+      "prevPrice": "IDR 740.000",
+      "newPrice": "DP IDR 100.000",
+      "reviews": {
+        "text": "Late Pre Order",
+        "backgroundColor": "#D3647A"
+      }
+    },
+    {
+      "id": 3,
+      "img": "https://cdn.kyou.id/thumbnail/items/184050-artist-master-piece-figure-albedo-black-dress-ver-overlord-20cm-912556288.jpg",
+      "alt": "img-1",
+      "status": "Late Pre Order",
+      "title": "[FLASH PO] Artist Master Piece Figure Albedo - Black",
+      "titleDate": "27 September 2023",
+      "prevPrice": "IDR 350.000",
+      "newPrice": "DP IDR 100.000",
+      "reviews": {
+        "text": "Late Pre Order",
+        "backgroundColor": "#D3647A"
+      }
+    },
+    {
+      "id": 2,
+      "img": "https://cdn.kyou.id/thumbnail/items/134803-pvc-figure-17-kitagawa-marin-sono-bisque-doll-wa-koi-wo-suru.jpg",
+      "alt": "img-1",
+      "status": "Late Pre Order",
+      "title": "[FLASH PO] PVC Figure 1/7 Kitagawa Marin - Sono Bisque",
+      "titleDate": "27 September 2023",
+      "prevPrice": "IDR 2.750.000",
+      "newPrice": "DP IDR 900.000",
+      "reviews": {
+        "text": "Late Pre Order",
+        "backgroundColor": "#D3647A"
+      }
+    }
+  ],
+  "orders": [],
+  "wishlist": []
+}

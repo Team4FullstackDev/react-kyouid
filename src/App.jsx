@@ -1,19 +1,7 @@
 import "./App.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
-import { section__2Settings } from "./components/js-slicks/section2";
-import { useEffect, useRef, useState } from "react";
-import {
-  ButtonCarouselType,
-  section2,
-  storeData,
-} from "./utils/constant/DataSection2";
-import ImageCarousel from "./components/atoms/ImageCarousel";
-import ImageCarousels from "./components/moleculs/ImageCarousels";
-import ButtonCarousel from "./components/atoms/ButtonCarousel";
-import StoreItem from "./components/atoms/StoreItem";
-import ListStoreItem from "./components/moleculs/ListStoreItem";
+import {  useRef, useState } from "react";
 import Section10 from "./components/organism/Section10";
 import Section2 from "./components/organism/Section2";
 import Section7 from "./components/organism/Section7";
@@ -22,7 +10,6 @@ import Section9 from "./components/organism/Section9";
 import { section__1Settings } from "./components/js-slicks/section1";
 import Section__1 from "./components/organism/Section1";
 import { Section1 } from "./utils/constant/DataSection1";
-import { ModalHamburger, ModalSearch, Navigation } from "./components/organism/Navbar";
 
 function App() {
   const sliderRef = useRef(null);
@@ -42,14 +29,6 @@ function App() {
   };
   return (
     <>
-      {/* <!-- Header By Harymahayana07 --> */}
-      <header>
-        <ModalHamburger />
-        <ModalSearch />
-        <Navigation />
-      </header>
-      {/* <!-- End Header --> */}
-
       <main>
         {/* <!-- section 1 By Harymahayana07 --> */}
         <Section__1 

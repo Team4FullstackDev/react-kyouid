@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavButton,
   NavForm,
@@ -17,6 +17,8 @@ import {
 } from "../../moleculs/Navbar";
 import { SearchEntries } from "../../../utils/constant/RiwayatSearching";
 import { NavModalFormSearch } from "../../atoms/Navbar";
+import { useDispatch, useSelector } from "react-redux";
+import { getProductsCart } from "../../../redux/actions/carts.action";
 
 // ModalHamburger Organism
 export const ModalHamburger = ({ isVisible, onToggle }) => {
@@ -45,7 +47,7 @@ export const ModalSearch = ({ isVisible, onToggle }) => {
   return (
     <nav className="nav__modal__search" style={searchStyle}>
       <div className="nav__modal__search-container nav__modal__search_menu">
-        <ModalSearchForm onBack={onToggle}/>
+        <ModalSearchForm onBack={onToggle} />
         <ModalSearchContent entries={SearchEntries} />
       </div>
     </nav>
@@ -64,12 +66,21 @@ export const Navigation = () => {
   const toggleSearch = () => {
     setSearchVisible(!isSearchVisible);
   };
-  
+
   // Jika User Ada Cart Testing
   // const [cartItems, setCartItems] = useState(3);
-  
+
   // Jika User Tidak Ada Cart Testing
-  const [cartItems, setCartItems] = useState(0);
+  const dispatch = useDispatch();
+  const cartItems = useSelector((state) => state.user.carts);
+
+  useEffect(() => {
+    // Fetch data only if the cart is not already loaded
+    if (!cartItems.length) {
+      dispatch(getProductsCart());
+    }
+  }, [dispatch, cartItems]);
+
 
   return (
     <nav className="nav__navigation">
@@ -128,7 +139,7 @@ export const Navigation = () => {
           />
         </NavButton>
         {/*  */}
-        <CartBadge NavItemCount={cartItems} />
+        <CartBadge NavItemCount={cartItems.length} />
         <a className="nav__button" href="/login">
           <NavImage
             src="https://kyou.id/static/img/icon/transactions.svg"
