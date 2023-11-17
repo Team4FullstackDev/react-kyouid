@@ -1,11 +1,18 @@
 
-# React + Vite
+# Kyou.id
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A platform for you who like anime action figures.
 
-Currently, two official plugins are available:
+we currently have no backend application yet, but we make a mocking api.
+to run it you need to install `json-server` globally. if you already install then run the commands
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+```
+json-server --watch ./src/mocking/db.json
+```
 
-# react-kyouid
+after the mocking api running you can run the react app by using command
+
+```
+npm run dev
+```
+
