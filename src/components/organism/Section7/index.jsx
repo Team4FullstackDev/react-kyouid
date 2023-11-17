@@ -109,6 +109,8 @@ const Section7 = () => {
                   prevPrice={product.prevPrice}
                   newPrice={product.newPrice}
                   onClickHandler={() => dispatch(getProductDetail(product))}
+                  dp="DP"
+                  idr="IDR"
                 />
               </Link>
             ))}
