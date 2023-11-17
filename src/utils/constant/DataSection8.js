@@ -6,8 +6,8 @@ export const productSection8 = [
     status: "Late Pre Order",
     title: "[REVIVE] Inuzaka Mug with Stir - Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 250000,
-    newPrice: 100000,
+    prevPrice: "IDR 250.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -21,8 +21,8 @@ export const productSection8 = [
     title:
       "[REVIVE] PVC Figure 1/8 Kyojuro Rengoku - Honou no Kokyuu Ougi Ku no Kata: Rengoku Ver.",
     titleDate: "27 September 2023",
-    prevPrice: 540000,
-    newPrice: 100000,
+    prevPrice: "IDR 540.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -35,8 +35,8 @@ export const productSection8 = [
     status: "Late Pre Order",
     title: "[REVIVE] Grand Ship Collection Going Merry - One Piece",
     titleDate: "27 September 2023",
-    prevPrice: 300000,
-    newPrice: 100000,
+    prevPrice: "IDR 300.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -50,8 +50,8 @@ export const productSection8 = [
     title:
       "[REVIVE] Portrait Of Pirates POP P.O.P Warriors Alliance 1/8 Sanji - Osoba Soba Mask",
     titleDate: "27 September 2023",
-    prevPrice: 450000,
-    newPrice: 100000,
+    prevPrice: "IDR 450.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -64,8 +64,8 @@ export const productSection8 = [
     status: "Late Pre Order",
     title: "[REVIVE] [Limited Production] figma Gojo Satoru - Jujutsu Kaisen",
     titleDate: "27 September 2023",
-    prevPrice: 3600000,
-    newPrice: 1000000,
+    prevPrice: "IDR 3.600.000",
+    newPrice: "DP IDR 1.000.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -79,8 +79,8 @@ export const productSection8 = [
     title:
       "[REVIVE] Ichiban Kuji Figure Masterlise Expiece Monkey D. Luffy - Gear Fourth Ver. One Piece Wano Kuni Hen ~Act      3~ B Prize (20cm)",
     titleDate: "27 September 2023",
-    prevPrice: 230000,
-    newPrice: 100000,
+    prevPrice: "IDR 230.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -94,8 +94,8 @@ export const productSection8 = [
     title:
       "[REVIVE] PVC Figure 1/7 Hatsune Miku - Cheongsam / Chinese / China Dress Ver.",
     titleDate: "27 September 2023",
-    prevPrice: 1000000,
-    newPrice: 900000,
+    prevPrice: "IDR 1.000.000",
+    newPrice: "DP IDR 900.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -108,8 +108,8 @@ export const productSection8 = [
     status: "Late Pre Order",
     title: "[REVIVE] Shibuya Scramble Figure 1/7 Gojo Satoru - Jujutsu Kaisen",
     titleDate: "27 September 2023",
-    prevPrice: 500000,
-    newPrice: 100000,
+    prevPrice: "IDR 500.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -122,8 +122,8 @@ export const productSection8 = [
     status: "Late Pre Order",
     title: "[FLASH PO] Fashion Figure Hatsune Miku - Subculture Ver. (18cm)",
     titleDate: "27 September 2023",
-    prevPrice: 1200000,
-    newPrice: 500000,
+    prevPrice: "IDR 1.200.000",
+    newPrice: "DP IDR 500.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -137,8 +137,8 @@ export const productSection8 = [
     title:
       "[FLASH PO] Nendoroid Kei Karuizawa - Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
     titleDate: "27 September 2023",
-    prevPrice: 450000,
-    newPrice: 100000,
+    prevPrice: "IDR 450.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -152,8 +152,8 @@ export const productSection8 = [
     title:
       "[FLASH PO] Nendoroid Kei Karuizawa - Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
     titleDate: "27 September 2023",
-    prevPrice: 760000,
-    newPrice: 200000,
+    prevPrice: "IDR 760.000",
+    newPrice: "DP IDR 200.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",
@@ -166,8 +166,8 @@ export const productSection8 = [
     status: "Late Pre Order",
     title: "[FLASH PO] Pop Up Parade Nagito Komaeda - Danganronpa",
     titleDate: "27 September 2023",
-    prevPrice: 850000,
-    newPrice: 200000,
+    prevPrice: "IDR 850.000",
+    newPrice: "DP IDR 200.000",
     reviews: {
       text: "Late Pre Order",
       backgroundColor: "#D3647A",

@@ -5,11 +5,11 @@ export const productSection9 = [
 
     title: "Hu Tao Ghost Night Lamp (15x14cm) - Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 200000,
-    newPrice: 100000,
+    prevPrice: "IDR 200.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -18,11 +18,11 @@ export const productSection9 = [
 
     title: "Jumpy Dumpty Klee Mug - Genshin Impact (360ml 11x15cm)",
     titleDate: "27 September 2023",
-    prevPrice: 540000,
-    newPrice: 100000,
+    prevPrice: "IDR 540.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -31,11 +31,11 @@ export const productSection9 = [
 
     title: "Taroumaru Thoma Inazuma Plush - Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 300000,
-    newPrice: 100000,
+    prevPrice: "IDR 300.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -45,11 +45,11 @@ export const productSection9 = [
     title:
       "Raiden Shogun Figure - Statue of Her Excellency, the Almighty Narukami Ogosho, God of Thunder (11cm)",
     titleDate: "27 September 2023",
-    prevPrice: 450000,
-    newPrice: 100000,
+    prevPrice: "IDR 450.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -58,11 +58,11 @@ export const productSection9 = [
 
     title: "PVC Figure 1/7 Ganyu - Plenilune Gaze Ver. Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 3600000,
-    newPrice: 1000000,
+    prevPrice: "IDR 3.600.000",
+    newPrice: "DP IDR 1.000.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -72,11 +72,11 @@ export const productSection9 = [
     title:
       "Zhongli Rex Lapis / Morax Azhdaha BIG Plush (67cm) - Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 230000,
-    newPrice: 100000,
+    prevPrice: "IDR 230.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -85,11 +85,11 @@ export const productSection9 = [
 
     title: ">[Limited Production] Nendoroid Venti - Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 1000000,
-    newPrice: 900000,
+    prevPrice: "IDR 1.000.000",
+    newPrice: "DP IDR 900.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -98,11 +98,11 @@ export const productSection9 = [
 
     title: "Childe / Tartaglia Whale BIG Plush (70cm) - Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 500000,
-    newPrice: 100000,
+    prevPrice: "IDR 500.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -111,11 +111,11 @@ export const productSection9 = [
 
     title: "[FLASH PO] Fashion Figure Hatsune Miku - Subculture Ver. (18cm)",
     titleDate: "27 September 2023",
-    prevPrice: 1200000,
-    newPrice: 500000,
+    prevPrice: "IDR 1.200.000",
+    newPrice: "DP IDR 500.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -125,11 +125,11 @@ export const productSection9 = [
     title:
       "[FLASH PO] Nendoroid Kei Karuizawa - Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
     titleDate: "27 September 2023",
-    prevPrice: 450000,
-    newPrice: 100000,
+    prevPrice: "IDR 450.000",
+    newPrice: "DP IDR 100.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -139,11 +139,11 @@ export const productSection9 = [
     title:
       "[FLASH PO] Nendoroid Kei Karuizawa - Youkoso Jitsuryoku Shijou Shugi no Kyoushitsu e",
     titleDate: "27 September 2023",
-    prevPrice: 760000,
-    newPrice: 200000,
+    prevPrice: "IDR 760.000",
+    newPrice: "DP IDR 200.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -152,11 +152,11 @@ export const productSection9 = [
 
     title: "[FLASH PO] Pop Up Parade Nagito Komaeda - Danganronpa",
     titleDate: "27 September 2023",
-    prevPrice: 850000,
-    newPrice: 200000,
+    prevPrice: "IDR 850.000",
+    newPrice: "DP IDR 200.000",
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
 ];

@@ -1,15 +1,30 @@
 import { productSection8 } from "../../../utils/constant/DataSection8";
 import Slider from "react-slick";
 import Card from "../../atoms/Card";
+import ButtonSlider from "../../atoms/ButtonSlider";
+import { useRef } from "react";
 const Section8 = () => {
+  const sliderRef = useRef(null);
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
   const settings = {
     dots: false,
     infinite: true,
     arrows: true,
-
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -46,7 +61,7 @@ const Section8 = () => {
           </h3>
           <div className="section__8-gallery-slider__more">
             <a className="" href="wishlist.html">
-              Lihat Semua
+              Lihat Semua {""}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
@@ -65,7 +80,17 @@ const Section8 = () => {
           </div>
         </div>
         <div className="section__8-gallery-slider__content">
-          <Slider className="section__8-container-card" {...settings}>
+          <ButtonSlider
+            onClickHandler={previous}
+            classname="section__8-button-slider-prev
+            "
+            text="‹"
+          />
+          <Slider
+            className="section__8-container-card"
+            ref={sliderRef}
+            {...settings}
+          >
             {productSection8.map((product) => (
               <Card
                 key={product.id}
@@ -78,6 +103,12 @@ const Section8 = () => {
               />
             ))}
           </Slider>
+          <ButtonSlider
+            onClickHandler={next}
+            classname="section__8-button-slider-next
+            "
+            text="›"
+          />
         </div>
       </div>
     </section>

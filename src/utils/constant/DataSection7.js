@@ -174,3 +174,7 @@ export const productSection7 = [
     },
   },
 ];
+export const ButtonCarouselType = {
+  PREV: "prev",
+  NEXT: "next",
+};
