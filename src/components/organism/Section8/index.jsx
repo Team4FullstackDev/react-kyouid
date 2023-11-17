@@ -3,6 +3,9 @@ import Slider from "react-slick";
 import Card from "../../atoms/Card";
 import ButtonSlider from "../../atoms/ButtonSlider";
 import { useRef } from "react";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
 const Section8 = () => {
   const sliderRef = useRef(null);
 
@@ -52,6 +55,8 @@ const Section8 = () => {
       },
     ],
   };
+
+  const dispatch = useDispatch();
   return (
     <section id="section__8">
       <div className="section__8-gallery-slider">
@@ -92,15 +97,18 @@ const Section8 = () => {
             {...settings}
           >
             {productSection8.map((product) => (
-              <Card
-                key={product.id}
-                img={product.img}
-                title={product.title}
-                titleDate={product.titleDate}
-                reviews={product.reviews}
-                prevPrice={product.prevPrice}
-                newPrice={product.newPrice}
-              />
+              <Link key={product.id} to={`/items/${product.id}`}>
+                <Card
+                  key={product.id}
+                  img={product.img}
+                  title={product.title}
+                  titleDate={product.titleDate}
+                  reviews={product.reviews}
+                  prevPrice={product.prevPrice}
+                  newPrice={product.newPrice}
+                  onClickHandler={() => dispatch(getProductDetail(product))}
+                />
+              </Link>
             ))}
           </Slider>
           <ButtonSlider

@@ -2,13 +2,13 @@
 
 import "../../styles/section10.css";
 
-const Card = ({ img, title, titleDate, reviews, prevPrice, newPrice }) => {
+const Card = ({ img, title, titleDate, reviews, prevPrice, newPrice, onClickHandler }) => {
   const reviewStyle = {
     backgroundColor: reviews.backgroundColor,
   };
 
   return (
-    <div className="section__10_card">
+    <div className="section__10_card" onClick={onClickHandler}>
       <img src={img} alt={title} className="section__10_image" />
       <div className="section__10_card-boody">
         <section className="card-btn">
