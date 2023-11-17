@@ -4,6 +4,7 @@ import { addToCart } from "../../redux/actions/carts.action";
 
 export default function ItemDetail() {
   const product = useSelector((state) => state.itemDetail.detailProducts);
+  const loading = useSelector((state) => state.user.loading);
   const dispatch = useDispatch();
   const [quantity, setQuantity] = useState(1);
 
@@ -113,7 +114,9 @@ export default function ItemDetail() {
             className="itemDetail_addtocart"
             onClick={() => dispatch(addToCart(product))}
           >
-            <span>Add to Cart</span>
+            <span>
+              Add to Cart <img src="/Spinner-1s-100px.gif" alt="spinner" className="itemDetail_spinner" style={{ display: loading ? "block" : "none" }} />
+            </span>
           </button>
         </div>
 

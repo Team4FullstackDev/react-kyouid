@@ -7,6 +7,9 @@ import ItemDetail from "./components/pages/ItemDetail.jsx";
 import NavbarFooter from "./components/templates/NavbarFooter/index.jsx";
 import { Provider } from "react-redux";
 import { store } from "./redux/store.js";
+import LoginPage from "./components/pages/LoginPage.jsx";
+import RegisterPage from "./components/pages/RegisterPage.jsx";
+import ResetPasswordPage from "./components/pages/ResetPasswordPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,18 @@ const router = createBrowserRouter([
         element: <ItemDetail />,
       },
     ],
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/register",
+    element: <RegisterPage />,
+  },
+  {
+    path: "/resetpassword",
+    element: <ResetPasswordPage />,
   },
 ]);
 

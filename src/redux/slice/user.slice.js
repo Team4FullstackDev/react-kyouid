@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addToCart } from "../actions/carts.action";
+import { addToCart, getProductsCart } from "../actions/carts.action";
 
 const initialState = {
   user: {
@@ -11,6 +11,7 @@ const initialState = {
   carts: [],
   wishlist: [],
   orders: [],
+  loading: false
 };
 
 const userSlice = createSlice({
@@ -20,7 +21,14 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(addToCart.fulfilled, (state, action) => {
       state.carts = action.payload;
-    })  
+      state.loading = false
+    }) 
+    builder.addCase(addToCart.pending, (state) => {
+      state.loading = true
+    })
+    builder.addCase(getProductsCart.fulfilled, (state, action) => {
+      state.carts = action.payload;
+    })
   }
 });
 

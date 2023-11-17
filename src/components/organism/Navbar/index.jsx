@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   NavButton,
   NavForm,
@@ -72,10 +72,15 @@ export const Navigation = () => {
 
   // Jika User Tidak Ada Cart Testing
   const dispatch = useDispatch();
-  dispatch(getProductsCart());
-  const cartItems1 = useSelector((state) => state.user.carts);
-  console.log(cartItems1.length);
-  const [cartItems, setCartItems] = useState(0);
+  const cartItems = useSelector((state) => state.user.carts);
+
+  useEffect(() => {
+    // Fetch data only if the cart is not already loaded
+    if (!cartItems.length) {
+      dispatch(getProductsCart());
+    }
+  }, [dispatch, cartItems]);
+
 
   return (
     <nav className="nav__navigation">
@@ -134,7 +139,7 @@ export const Navigation = () => {
           />
         </NavButton>
         {/*  */}
-        <CartBadge NavItemCount={cartItems} />
+        <CartBadge NavItemCount={cartItems.length} />
         <a className="nav__button" href="/login">
           <NavImage
             src="https://kyou.id/static/img/icon/transactions.svg"
