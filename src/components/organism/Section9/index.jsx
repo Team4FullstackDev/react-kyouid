@@ -1,14 +1,33 @@
 import { productSection9 } from "../../../utils/constant/DataSection9";
 import Slider from "react-slick";
 import Card from "../../atoms/Card";
+import { useRef } from "react";
+import ButtonSlider from "../../atoms/ButtonSlider";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
 const Section9 = () => {
+  const sliderRef = useRef(null);
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
   const settings = {
     dots: false,
     infinite: true,
     arrows: true,
     speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -36,6 +55,8 @@ const Section9 = () => {
       },
     ],
   };
+
+  const dispatch = useDispatch();
   return (
     <section id="section__9">
       <div className="section__9-gallery-slider">
@@ -45,7 +66,7 @@ const Section9 = () => {
           </h3>
           <div className="section__9-gallery-slider__more">
             <a className="" href="wishlist.html">
-              Lihat Semua
+              Lihat Semua {""}
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
@@ -63,20 +84,41 @@ const Section9 = () => {
             </a>
           </div>
         </div>
-        <div className="section__8-gallery-slider__content">
-          <Slider className="section__8-container-card" {...settings}>
+        <div className="section__9-gallery-slider__content">
+          <ButtonSlider
+            onClickHandler={previous}
+            classname="section__9-button-slider-prev
+            "
+            text="‹"
+          />
+          <Slider
+            className="section__9-container-card"
+            ref={sliderRef}
+            {...settings}
+          >
             {productSection9.map((product) => (
-              <Card
-                key={product.id}
-                img={product.img}
-                title={product.title}
-                titleDate={product.titleDate}
-                reviews={product.reviews}
-                prevPrice={product.prevPrice}
-                newPrice={product.newPrice}
-              />
+              <Link key={product.id} to={`/items/${product.id}`}>
+                <Card
+                  key={product.id}
+                  img={product.img}
+                  title={product.title}
+                  titleDate={product.titleDate}
+                  reviews={product.reviews}
+                  prevPrice={product.prevPrice}
+                  newPrice={product.newPrice}
+                  onClickHandler={() => dispatch(getProductDetail(product))}
+                  dp="DP"
+                  idr="IDR"
+                />
+              </Link>
             ))}
           </Slider>
+          <ButtonSlider
+            onClickHandler={next}
+            classname="section__9-button-slider-next
+            "
+            text="›"
+          />
         </div>
       </div>
     </section>
