@@ -269,10 +269,17 @@
   .section__2-shopping-caption {
     font-size: 24px;
   }
+
 }
 
 @media screen and (max-width: 434px) {
   .section__2-shopping-caption {
     font-size: 18px;
+  }
+    .section__2-list-store {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 16px;
+    margin-top: 1rem;
   }
 }
