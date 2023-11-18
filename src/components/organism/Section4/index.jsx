@@ -3,8 +3,19 @@ import { ButtonCarouselType4 } from "../../../utils/constant/DataSection4";
 import ImageCarousels4 from "../../moleculs/SeriesCarousels";
 import { section__4Settings } from "../../js-slicks/section4";
 import { section4 } from "../../../utils/constant/DataSection4";
+import { useRef } from "react";
 
-export default function Section4({ sliderRef, nextSlide, prevSlide }) {
+export default function Section4() {
+  const sliderRef = useRef(null);
+
+  const nextSlide = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const prevSlide = () => {
+    sliderRef.current.slickPrev();
+  };
+
   return (
     <section className="section4">
       <h3 className="section__4-title">Top Series</h3>
