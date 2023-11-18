@@ -27,7 +27,6 @@
 	text-align: right;
 	color: rgb(252, 76, 2);
 	font-size: 14px;
-	font-weight: 600;
 }
 
 .section_6_lazyload_wrapper {
@@ -37,7 +36,7 @@
 	padding: 24px;
 	display: flex;
 	flex-direction: row;
-	overflow-x: scroll;
+	overflow-x: hidden;
 }
 
 .section_6_lazyload_wrapper.dragging {
@@ -50,8 +49,8 @@
 }
 
 .section_6_lazyload_wrapper img {
-	width: 280px;
-	height: 280px;
+	width: 100%;
+	height: 100%;
 }
 
 .overlay_image_section_6 {
@@ -79,10 +78,10 @@
 	text-align: center;
 	text-decoration: underline;
 	font-weight: 700;
+
 	width: 100%;
 	position: absolute;
 	bottom: 0;
-	padding: 5px inherit;
 	background-color: transparent;
 	color: transparent;
 }
