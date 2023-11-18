@@ -15,18 +15,7 @@ import { Section1 } from "./utils/constant/DataSection1";
 import Section3 from "./components/organism/Section3";
 
 function App() {
-  const sliderRef = useRef(null);
   const [selectedCategory, setSelectedCategory] = useState(null);
-
-  const nextSlide = () => {
-    console.log("test");
-    sliderRef.current.slickNext();
-  };
-
-  const prevSlide = () => {
-    sliderRef.current.slickPrev();
-  };
-
   const handleFilterClick = (e) => {
     setSelectedCategory(e.target.value);
   };
@@ -45,11 +34,7 @@ function App() {
         <div className="container">
           <Section3 />
 
-          <Section4
-            sliderRef={sliderRef}
-            nextSlide={nextSlide}
-            prevSlide={prevSlide}
-          />
+          <Section4 />
           {/* Effenril Agung Section 6 */}
           <Section6 />
           {/* End Section 6 Effenril Agung */}
