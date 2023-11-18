@@ -3,18 +3,32 @@ import Slider from "react-slick";
 import Card from "../../atoms/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom";
+import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
+import ButtonSlider from "../../atoms/ButtonSlider";
 
 const Section7 = () => {
+  const sliderRef = useRef(null);
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
   const settings = {
-    dots: false,
-    infinite: true,
     arrows: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -72,8 +86,19 @@ const Section7 = () => {
             </Link>
           </div>
         </div>
+
         <div className="section__7-gallery-slider__content">
-          <Slider className="section__7-container-card" {...settings}>
+          <ButtonSlider
+            onClickHandler={previous}
+            classname="section__7-button-slider-prev
+            "
+            text="‹"
+          />
+          <Slider
+            className="section__7-container-card"
+            ref={sliderRef}
+            {...settings}
+          >
             {productSection7.map((product) => (
               <Link key={product.id} to={`/items/${product.id}`}>
                 <Card
@@ -84,10 +109,19 @@ const Section7 = () => {
                   prevPrice={product.prevPrice}
                   newPrice={product.newPrice}
                   onClickHandler={() => dispatch(getProductDetail(product))}
+                  dp="DP"
+                  idr="IDR"
                 />
               </Link>
             ))}
           </Slider>
+
+          <ButtonSlider
+            onClickHandler={next}
+            classname="section__7-button-slider-next
+            "
+            text="›"
+          />
         </div>
       </div>
     </section>
