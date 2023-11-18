@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
-import {
-  NavSpan,
-  NavForm,
-  NavButton,
-  NavImage,
-  NavInput,
-  NavSVG,
-  NavModalFormSearch,
-} from "../../atoms/Navbar";
+import { NavSpan, NavForm, NavButton, NavImage, NavInput, NavModalFormSearch } from "../../atoms/Navbar";
 import React, { useState } from "react";
+import { LoginSVG,LogoutSVG, AdressBookSVG, MyAccountSVG, OrderHistorySVG, UniqueRequestSVG } from "../../atoms/Svg";
 
 // ModalButtonBack Molecule
 export const ModalButtonBack = ({ onBack }) => {
@@ -47,18 +40,9 @@ export const ModalInfoCard = () => {
 // ModalLinkMenu Molecule
 export const ModalLinkMenu = () => {
   return (
-    <a className="nav__modal_link_menu" href="/login">
-      <NavSVG
-        xmlns="http://www.w3.org/2000/svg"
-        width="67"
-        height="67"
-        viewBox="0 0 67 67"
-        fill="none"
-        className="nav__modal_svg"
-        path="M4.25 35H44.149L33.86 45.4781C33.079 46.2581 33.079 47.6201 33.859 48.4011C34.25 48.7921 34.761 49.035 35.274 49.035C35.786 49.035 36.297 48.864 36.688 48.473L49.503 35.6721C49.878 35.2971 50.089 34.794 50.089 34.264C50.089 33.734 49.878 33.228 49.503 32.853L48.895 32.246C48.757 32.046 48.583 31.872 48.382 31.735L36.689 20.042C35.908 19.261 34.641 19.261 33.861 20.042C33.08 20.823 33.08 21.898 33.861 22.68L42.373 31H4.25C3.146 31 2.25 31.896 2.25 33C2.25 34.104 3.146 35 4.25 35ZM64.75 59.281V9.541C64.75 4.747 60.842 0 56.003 0H30.002C25.258 0 20.75 4.576 20.75 9.541V21.381C20.75 22.485 21.646 23.381 22.75 23.381C23.854 23.381 24.75 22.485 24.75 21.381V9.541C24.75 6.792 27.471 4 30.002 4H56.003C58.65 4 60.75 6.937 60.75 9.541V59.281C60.75 61.944 58.547 63 56.003 63H30.002C27.637 63 24.75 62.113 24.75 59.281V47.381C24.75 46.277 23.854 45.381 22.75 45.381C21.646 45.381 20.75 46.277 20.75 47.381V59.281C20.75 63.974 24.931 67 30.002 67H56.003C61.188 67 64.75 63.823 64.75 59.281Z"
-      />
-      Login
-    </a>
+    <Link className="nav__modal_link_menu" to="/login">
+      <NavImage src="" /> Login
+    </Link>
   );
 };
 
@@ -103,11 +87,11 @@ export const ModalSearchContent = ({ entries }) => {
     <div className="nav__modal__search-content">
       <NavSpan className="nav__modal__search-content-label">Riwayat</NavSpan>
       {entries.map((entry, index) => (
-        <a key={index} href={entry.link}>
-          <button type="button" className="nav__modal__search-content-entry">
+        <Link key={index} to={entry.link}>
+          <NavButton type="button" className="nav__modal__search-content-entry">
             {entry.label}
-          </button>
-        </a>
+          </NavButton>
+        </Link>
       ))}
     </div>
   );
@@ -115,19 +99,19 @@ export const ModalSearchContent = ({ entries }) => {
 
 export const CartBadge = ({ NavItemCount }) => {
   return (
-    <React.Fragment>
+    <>
       {NavItemCount > 0 ? (
-        <Link
+        <a
           className="nav__button nav__cart-badge"
           data-count={NavItemCount}
-          to="carts"
+          href="/user/itemOrder"
         >
           <NavImage
             className="nav__cart"
             src="https://kyou.id/static/img/icon/cart.svg"
             alt="Cart Icon"
           />
-        </Link>
+        </a>
       ) : (
         <a className="nav__button" href="/login">
           <NavImage
@@ -137,6 +121,80 @@ export const CartBadge = ({ NavItemCount }) => {
           />
         </a>
       )}
-    </React.Fragment>
+    </>
+  );
+};
+
+export const NavUserInfo = ({ username }) => {
+  return (
+    <div className="nav__menu_user-info">
+      <NavImage
+        className="nav__menu_user-info-face"
+        src="https://kyou.id/static/img/icon/face.png"
+        alt="Face Kyou"
+      />
+      <div className="nav__menu_user-info-detail">
+        <NavSpan className="nav__menu_user-info-detail-name">
+          {username}
+        </NavSpan>
+        <NavSpan className="nav__menu_user-info-detail-email">
+          3480819118900278
+        </NavSpan>
+      </div>
+    </div>
+  );
+};
+
+export const NavFriendShip = () => {
+  return (
+    <div className="nav__menu_friend-ship">
+      <div className="nav__menu_friend-ship_detail">
+        <NavSpan className="nav__menu_friend-ship_detail_title">
+          Friendship Points
+        </NavSpan>
+        <NavSpan className="nav__menu_friend-ship_detail_points">
+          0 Points
+        </NavSpan>
+      </div>
+      <Link className="nav__menu_friend-ship_button" to="/friend-ship">
+        FP Shop
+      </Link>
+    </div>
+  );
+};
+
+export const DropDownLinkList = () => {
+  return (
+    <div className="nav__menu_dropdown_list">
+      <Link className="nav__menu_dropdown_link" to="">
+        <OrderHistorySVG/>
+        Order History
+      </Link>
+      <Link className="nav__menu_dropdown_link" to="">
+        <UniqueRequestSVG/>
+        Unique Request
+      </Link>
+      <Link className="nav__menu_dropdown_link" to="">
+        <AdressBookSVG/>
+        Adress Book
+      </Link>
+      <Link className="nav__menu_dropdown_link" to="">
+        <MyAccountSVG/>
+        My Account
+      </Link>
+    </div>
+  );
+};
+
+export const BtnLogout = ({ onClick }) => {
+  return (
+    <NavButton
+      type="button"
+      className="nav__menu_dropdown_link"
+      onClick={onClick}
+    >
+      <UniqueRequestSVG />
+      Log Out
+    </NavButton>
   );
 };
