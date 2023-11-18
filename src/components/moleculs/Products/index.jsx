@@ -8,15 +8,16 @@ const Products = ({ data, loadMore, visibleItems }) => {
   };
   return (
     <>
-      {data.map((product) => (
+      {data.map((product, index) => (
         <Card
-          key={product.id}
+          key={index}
           img={product.img}
           title={product.title}
           titleDate={product.titleDate}
           reviews={product.reviews}
           prevPrice={product.prevPrice}
           newPrice={product.newPrice}
+          {...product}
         />
       ))}
     </>

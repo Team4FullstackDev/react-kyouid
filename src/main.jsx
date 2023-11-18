@@ -10,6 +10,7 @@ import { store } from "./redux/store.js";
 import LoginPage from "./components/pages/LoginPage.jsx";
 import RegisterPage from "./components/pages/RegisterPage.jsx";
 import ResetPasswordPage from "./components/pages/ResetPasswordPage.jsx";
+import WishlistPage from "./components/pages/WishlistPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,16 @@ const router = createBrowserRouter([
       {
         path: "/items/:id",
         element: <ItemDetail />,
+      },
+    ],
+  },
+  {
+    path: "/wishlist",
+    element: <NavbarFooter />,
+    children: [
+      {
+        path: "",
+        element: <WishlistPage />,
       },
     ],
   },

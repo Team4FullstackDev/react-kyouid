@@ -67,8 +67,8 @@ const Section7 = () => {
             Flash Pre Order | Arrives in 2-5 Weeks
           </h3>
           <div className="section__7-gallery-slider__more">
-            <a className="" href="wishlist.html">
-              Lihat Semua {""}
+            <Link className="" to="/wishlist">
+              Lihat Semua
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="14"
@@ -83,7 +83,7 @@ const Section7 = () => {
                   transform="translate(0 -4.674)"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
 

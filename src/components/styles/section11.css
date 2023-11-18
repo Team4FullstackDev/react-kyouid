@@ -129,6 +129,7 @@ input[type="checkbox"] {
   border: 1px solid rgb(59, 59, 59);
   background-color: white;
   border-radius: 4px;
+  margin-right: 10px;
 }
 
 input[type="checkbox"]:checked {
@@ -323,13 +324,16 @@ input[type="checkbox"]::before {
   justify-content: center;
   list-style-type: none;
 }
-.section_11__pagination__paging li {
+.section_11__pagination__button {
   display: block;
-  margin: 0px 8px;
+  margin: 0px 10px;
   z-index: 1;
   transition: 0.2s;
   border-radius: 4px;
   text-decoration: none;
+  padding: 8px;
+  border: none;
+  background: none;
 }
 .section_11__pagination__paging li a {
   display: block;
@@ -341,16 +345,73 @@ input[type="checkbox"]::before {
 }
 .section_11__disabled {
   background: #d1d3d4;
+  margin: 0px 10px;
+  padding: 8px;
+  border-radius: 5px;
 }
 
 .section_11__active {
   background: #fc4c02;
   border-color: #fc4c02;
   z-index: 3;
+  padding: 10px;
+  border-radius: 5px;
+  color: #ffffff;
 }
 .section_11__active .section_11__undefined {
   color: #ffffff;
   cursor: default;
+}
+.section_11_filter_mobile {
+  background: #ffffff;
+  display: none;
+  position: inherit;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  z-index: 1000;
+  padding: 0px;
+  width: 100%;
+  transition: opacity 5.3s ease-in-out, transform 5.3s ease-in-out;
+}
+.section_11_filter_mobile_content {
+  margin-left: 20px;
+  margin-top: 10px;
+}
+.section_11_filter_head_mobile {
+  background: white;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+  padding: 14px 20px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  position: relative;
+  margin-bottom: 10px;
+}
+.section_11_filter_mobile_back {
+  width: 24px;
+  height: 24px;
+  padding: 4px;
+  background: none;
+  border: none;
+  box-sizing: border-box;
+  margin-right: 16px;
+  cursor: pointer;
+  color: black;
+}
+.section_11_filter_mobile_back img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: brightness(0.3);
+}
+.section_11_filter_mobile_back span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #565252;
+  flex-grow: 1;
 }
 
 @media screen and (max-width: 1024px) {
@@ -360,6 +421,9 @@ input[type="checkbox"]::before {
   }
   .section_11_filter {
     display: none;
+  }
+  .section_11_filter_mobile {
+    display: block;
   }
   .section_11_heading {
     border-bottom: none;
