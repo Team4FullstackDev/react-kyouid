@@ -2,10 +2,22 @@
 
 import "../../styles/section10.css";
 
-const Card = ({ img, title, titleDate, reviews, prevPrice, newPrice, onClickHandler }) => {
+const Card = ({
+  img,
+  title,
+  titleDate,
+  reviews,
+  prevPrice,
+  newPrice,
+  onClickHandler,
+  idr,
+  dp,
+}) => {
   const reviewStyle = {
     backgroundColor: reviews.backgroundColor,
   };
+
+  console.log(newPrice);
 
   return (
     <div className="section__10_card" onClick={onClickHandler}>
@@ -20,9 +32,22 @@ const Card = ({ img, title, titleDate, reviews, prevPrice, newPrice, onClickHand
         <p className="section__10_card-date">{titleDate}</p>
         <section className="section__10_card-price">
           <div className="section__10_price">
-            <span> {prevPrice}</span>
+            <span>
+              {idr}{" "}
+              {prevPrice.toLocaleString("id-ID", {
+                styles: "currency",
+                currency: "IDR",
+              })}
+            </span>
             <br />
-            <span className="section__10_dp">{newPrice}</span>
+            <span className="section__10_dp">
+              {dp} {idr}{" "}
+              {newPrice &&
+                newPrice.toLocaleString("id-ID", {
+                  styles: "currency",
+                  currency: "IDR",
+                })}
+            </span>
           </div>
         </section>
       </div>

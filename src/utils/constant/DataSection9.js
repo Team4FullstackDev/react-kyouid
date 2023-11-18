@@ -8,8 +8,8 @@ export const productSection9 = [
     prevPrice: 200000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -21,8 +21,8 @@ export const productSection9 = [
     prevPrice: 540000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -34,8 +34,8 @@ export const productSection9 = [
     prevPrice: 300000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -48,8 +48,8 @@ export const productSection9 = [
     prevPrice: 450000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -58,11 +58,11 @@ export const productSection9 = [
 
     title: "PVC Figure 1/7 Ganyu - Plenilune Gaze Ver. Genshin Impact",
     titleDate: "27 September 2023",
-    prevPrice: 3600000,
-    newPrice: 1000000,
+    prevPrice: 360000,
+    newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -75,8 +75,8 @@ export const productSection9 = [
     prevPrice: 230000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -88,8 +88,8 @@ export const productSection9 = [
     prevPrice: 1000000,
     newPrice: 900000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -101,8 +101,8 @@ export const productSection9 = [
     prevPrice: 500000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -114,8 +114,8 @@ export const productSection9 = [
     prevPrice: 1200000,
     newPrice: 500000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -128,8 +128,8 @@ export const productSection9 = [
     prevPrice: 450000,
     newPrice: 100000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -142,8 +142,8 @@ export const productSection9 = [
     prevPrice: 760000,
     newPrice: 200000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
   {
@@ -155,8 +155,8 @@ export const productSection9 = [
     prevPrice: 850000,
     newPrice: 200000,
     reviews: {
-      text: "Late Pre Order",
-      backgroundColor: "#D3647A",
+      text: "Ready Stock",
+      backgroundColor: "rgb(65, 183, 116)",
     },
   },
 ];

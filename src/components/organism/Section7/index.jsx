@@ -3,18 +3,32 @@ import Slider from "react-slick";
 import Card from "../../atoms/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from "react-router-dom";
+import { useRef } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
+import ButtonSlider from "../../atoms/ButtonSlider";
 
 const Section7 = () => {
+  const sliderRef = useRef(null);
+
+  const next = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
+    }
+  };
+
+  const previous = () => {
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
+    }
+  };
   const settings = {
-    dots: false,
-    infinite: true,
     arrows: true,
-    speed: 500,
-    slidesToShow: 5,
-    slidesToScroll: 5,
+    infinite: true,
+    slidesToShow: 6,
+    slidesToScroll: 6,
+    variableWidth: true,
     responsive: [
       {
         breakpoint: 1024,
@@ -53,7 +67,7 @@ const Section7 = () => {
             Flash Pre Order | Arrives in 2-5 Weeks
           </h3>
           <div className="section__7-gallery-slider__more">
-            <a className="" href="wishlist.html">
+            <Link className="" to="/wishlist">
               Lihat Semua
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -69,11 +83,22 @@ const Section7 = () => {
                   transform="translate(0 -4.674)"
                 ></path>
               </svg>
-            </a>
+            </Link>
           </div>
         </div>
+
         <div className="section__7-gallery-slider__content">
-          <Slider className="section__7-container-card" {...settings}>
+          <ButtonSlider
+            onClickHandler={previous}
+            classname="section__7-button-slider-prev
+            "
+            text="‹"
+          />
+          <Slider
+            className="section__7-container-card"
+            ref={sliderRef}
+            {...settings}
+          >
             {productSection7.map((product) => (
               <Link key={product.id} to={`/items/${product.id}`}>
                 <Card
@@ -83,11 +108,20 @@ const Section7 = () => {
                   reviews={product.reviews}
                   prevPrice={product.prevPrice}
                   newPrice={product.newPrice}
-                  onClickHandler={()=>dispatch(getProductDetail(product))}
+                  onClickHandler={() => dispatch(getProductDetail(product))}
+                  dp="DP"
+                  idr="IDR"
                 />
               </Link>
             ))}
           </Slider>
+
+          <ButtonSlider
+            onClickHandler={next}
+            classname="section__7-button-slider-next
+            "
+            text="›"
+          />
         </div>
       </div>
     </section>

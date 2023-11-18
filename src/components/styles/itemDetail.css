@@ -2,8 +2,7 @@
   max-width: 1195px;
   display: flex;
   box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
-  margin: 0 auto;
-  margin-top: 2rem;
+  margin: 6rem auto;
 }
 .itemDetail_child_first {
   flex: 1;
