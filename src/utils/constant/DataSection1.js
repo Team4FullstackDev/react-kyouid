@@ -1,5 +1,4 @@
-// Untuk {href} {alt} link-nya sama
-export const Section1 = [
+export const section1 = [
   {
     id: 1,
     className: "section__1-images",

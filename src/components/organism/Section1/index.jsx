@@ -2,14 +2,15 @@ import ButtonCarousel from "../../atoms/ButtonCarousel";
 import Section1ImageCarousel from "../../moleculs/Section1Carousels";
 import { ButtonCarouselType } from "../../../utils/constant/DataSection2";
 import useSliderRef from "../../../hooks/UseSliderRef";
+import { section__1Settings } from "../../js-slicks/section1";
+import { section1 } from "../../../utils/constant/DataSection1";
 
-function Section__1({ data, sliderSetting }) {
-    
+export default function Section1() {
   const {
-      sliderRef: sliderRef1,
-      nextSlide: nextSlide1,
-      prevSlide: prevSlide1,
-    } = useSliderRef();
+    sliderRef: sliderRef1,
+    nextSlide: nextSlide1,
+    prevSlide: prevSlide1,
+  } = useSliderRef();
 
   return (
     <section className="section__1">
@@ -24,8 +25,8 @@ function Section__1({ data, sliderSetting }) {
               />
               <Section1ImageCarousel
                 ref={sliderRef1}
-                data={data}
-                sliderSetting={sliderSetting}
+                data={section1}
+                sliderSetting={section__1Settings}
               />
               <ButtonCarousel
                 type={ButtonCarouselType.NEXT}
@@ -39,5 +40,3 @@ function Section__1({ data, sliderSetting }) {
     </section>
   );
 }
-
-export default Section__1;
