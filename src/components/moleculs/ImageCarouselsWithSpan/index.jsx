@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import DescImageCarousel from '../../atoms/DescImageCorousel';
 import Slider from 'react-slick';
 import UseMediaQuery from '../../atoms/MediaQuery';
@@ -6,6 +6,8 @@ import ImageCarousel from '../../atoms/ImageCarousel';
 
 const ImageCarouselsWithSpan = (props) => {
 	const { data } = props;
+
+	const sliderRef = useRef(null);
 
 	const settingMobile = {
 		arrows: false,
@@ -28,31 +30,61 @@ const ImageCarouselsWithSpan = (props) => {
 
 	const mobile = UseMediaQuery('(min-width: 426px)');
 
+	console.log(mobile);
+
 	return (
 		<>
-			<Slider {...settingDesktop}>
-				{data.map((item, index) => {
-					return (
-						<>
-							<div
-								key={index}
-								className="overlay_image_section_6"
-								draggable="false"
-							>
-								<img src={item.src} alt={item.alt} key={index} />
-								<div className="overlay_image_section_6">
-									<DescImageCarousel
-										to="/"
-										className="image_overlay_text_section_6"
-									>
-										{item.description}
-									</DescImageCarousel>
+			{mobile ? (
+				<>
+					<Slider ref={sliderRef} {...settingDesktop}>
+						{data.map((item, index) => {
+							return (
+								<>
+									<div key={index} className="overlay_image_section_6">
+										<ImageCarousel
+											src={item.src}
+											alt={item.alt}
+											className={item.className}
+										/>
+										<div className="container_overlay_section_6">
+											<DescImageCarousel
+												to="/"
+												className="image_overlay_text_section_6"
+											>
+												{item.description}
+											</DescImageCarousel>
+										</div>
+									</div>
+								</>
+							);
+						})}
+					</Slider>
+				</>
+			) : (
+				<Slider {...settingMobile}>
+					{data.map((item, index) => {
+						return (
+							<>
+								<div key={index} className="overlay_image_section_6">
+									<ImageCarousel
+										src={item.src}
+										alt={item.alt}
+										className={item.className}
+									/>
+									<div className="container_overlay_section_6">
+										<DescImageCarousel
+											to="/"
+											className="image_overlay_text_section_6"
+										>
+											{item.description}
+										</DescImageCarousel>
+									</div>
 								</div>
-							</div>
-						</>
-					);
-				})}
-			</Slider>
+							</>
+						);
+					})}
+				</Slider>
+			)}
 		</>
 	);
 };

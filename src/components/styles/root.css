@@ -1,24 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,300;0,400;0,500;0,600;0,700;1,800&display=swap');
+
 :root {
-  --body-margin: 0px;
-  --primary-color: #fc4c02;
-  --ready-stock: #41B774;
-  --pre-order: #657996;
-  --late-pre-order: #D3647A;
-  --white-color: #ffffff;
+	--body-margin: 0px;
+	--primary-color: #fc4c02;
+	--ready-stock: #41b774;
+	--pre-order: #657996;
+	--late-pre-order: #d3647a;
+	--white-color: #ffffff;
 }
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Nunito', sans-serif;
 }
 body {
-  margin: var(--body-margin);
-  font-family: "Nunito", sans-serif;
+	margin: var(--body-margin);
+	font-family: 'Nunito', sans-serif;
 }
 textarea,
 select,
 input,
 button,
 a {
-  outline: none;
+	outline: none;
 }

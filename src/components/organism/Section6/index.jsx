@@ -2,6 +2,8 @@ import React from 'react';
 import HeadingMain from '../../moleculs/HeadingMain';
 import ImageCarouselsWithSpan from '../../moleculs/ImageCarouselsWithSpan';
 import { section6 } from '../../../utils/constant/DataSection6';
+import '../../../../node_modules/slick-carousel/slick/slick.css';
+import '../../../../node_modules/slick-carousel/slick/slick-theme.css';
 
 const Section6 = () => {
 	return (
@@ -17,8 +19,10 @@ const Section6 = () => {
 						className="section__6_link_see_all"
 					/>
 				</div>
-				<div className="section_6_lazyload_wrapper">
-					<ImageCarouselsWithSpan data={section6} />
+				<div className="container__section_6_lazyload">
+					<div>
+						<ImageCarouselsWithSpan data={section6} />
+					</div>
 				</div>
 			</section>
 		</React.Fragment>

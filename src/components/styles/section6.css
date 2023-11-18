@@ -27,17 +27,20 @@
 	text-align: right;
 	color: rgb(252, 76, 2);
 	font-size: 14px;
-	font-weight: 600;
+	font-weight: 500;
 }
 
 .section_6_lazyload_wrapper {
-	background-color: #fff;
-	box-shadow: -1px -1px 15px 3px #e5e5e5;
 	border-radius: 4px;
-	padding: 24px;
 	display: flex;
 	flex-direction: row;
 	overflow-x: scroll;
+}
+
+.container__section_6_lazyload {
+	padding: 24px;
+	box-shadow: -1px -1px 15px 3px #e5e5e5;
+	background-color: #fff;
 }
 
 .section_6_lazyload_wrapper.dragging {
@@ -49,23 +52,24 @@
 	user-select: none;
 }
 
-.section_6_lazyload_wrapper img {
+.image_carousel_section_6 {
 	width: 280px;
 	height: 280px;
+	vertical-align: middle;
 }
 
 .overlay_image_section_6 {
-	margin: 0 auto;
-	display: flex;
-	flex-direction: column;
+	display: inline-block;
 	position: relative;
 	width: 100%;
-	/* animation: 1s scroll linear infinite; */
+	height: 280px;
+	background-color: black;
 }
+
 .overlay_image_section_6:hover .image_overlay_text_section_6 {
-	color: rgb(252, 76, 2);
 	background-color: rgba(0, 0, 0, 0.6);
 	transition: all 0.1s ease-in;
+	color: white;
 }
 
 .overlay_image_section_6.slick-slide {
@@ -75,16 +79,20 @@
 }
 
 .image_overlay_text_section_6 {
-	font-family: 'nunito', sans-serif;
 	text-align: center;
 	text-decoration: underline;
 	font-weight: 700;
+	font-size: 14px;
 	width: 100%;
 	position: absolute;
 	bottom: 0;
 	padding: 5px inherit;
 	background-color: transparent;
 	color: transparent;
+}
+
+.overlay_image_section_6 .image_overlay_text_section_6:hover {
+	color: rgb(252, 76, 2);
 }
 
 @keyframes scroll {
