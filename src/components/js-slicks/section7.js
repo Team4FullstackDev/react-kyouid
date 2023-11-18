@@ -1,5 +1,4 @@
 // js untuk section 7 created by ahmad fahmi faza
-
 export const settingsSection7 = {
   infinite: true,
   autoplaySpeed: 1500,
