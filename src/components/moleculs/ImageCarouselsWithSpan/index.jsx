@@ -30,8 +30,6 @@ const ImageCarouselsWithSpan = (props) => {
 
 	const mobile = UseMediaQuery('(min-width: 426px)');
 
-	console.log(mobile);
-
 	return (
 		<>
 			{mobile ? (

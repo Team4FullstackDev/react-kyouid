@@ -4,7 +4,18 @@ import ImageCarousels from "../../moleculs/ImageCarousels";
 import { section__2Settings } from "../../js-slicks/section2";
 import { section2, storeData } from "../../../utils/constant/DataSection2";
 import ListStoreItem from "../../moleculs/ListStoreItem";
-export default function Section2({ sliderRef, nextSlide, prevSlide }) {
+import { useRef } from "react";
+export default function Section2() {
+  const sliderRef = useRef(null);
+
+  const nextSlide = () => {
+    sliderRef.current.slickNext();
+  };
+
+  const prevSlide = () => {
+    sliderRef.current.slickPrev();
+  };
+
   return (
     <section className="section__2">
       <div className="section__2-container">
