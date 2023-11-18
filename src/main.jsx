@@ -11,6 +11,7 @@ import LoginPage from "./components/pages/LoginPage.jsx";
 import RegisterPage from "./components/pages/RegisterPage.jsx";
 import ResetPasswordPage from "./components/pages/ResetPasswordPage.jsx";
 import WishlistPage from "./components/pages/WishlistPage.jsx";
+import CartPage from "./components/pages/CartPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -25,15 +26,13 @@ const router = createBrowserRouter([
         path: "/items/:id",
         element: <ItemDetail />,
       },
-    ],
-  },
-  {
-    path: "/wishlist",
-    element: <NavbarFooter />,
-    children: [
       {
-        path: "",
+        path: "/wishlist",
         element: <WishlistPage />,
+      },
+      {
+        path: "/carts",
+        element: <CartPage />,
       },
     ],
   },

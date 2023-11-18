@@ -15,4 +15,5 @@
 @import "./components/styles/reset.css";
 @import "./components/styles/section11.css";
 @import "./components/styles/root.css";
-@import "./components/styles/itemDetail.css"
+@import "./components/styles/itemDetail.css";
+@import "./components/styles/carts.css";
