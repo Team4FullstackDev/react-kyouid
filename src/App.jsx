@@ -5,6 +5,7 @@ import { useRef, useState } from 'react';
 import Section10 from './components/organism/Section10';
 import Section2 from './components/organism/Section2';
 import Section4 from './components/organism/Section4';
+import Section5 from './components/organism/Section5';
 import Section6 from './components/organism/Section6';
 import Section7 from './components/organism/Section7';
 import Section8 from './components/organism/Section8';
@@ -54,6 +55,8 @@ function App() {
 						nextSlide={nextSlide}
 						prevSlide={prevSlide}
 					/>
+					<Section5 />
+					
 					{/* Effenril Agung Section 6 */}
 					<Section6 />
 					{/* End Section 6 Effenril Agung */}

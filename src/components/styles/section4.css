@@ -94,3 +94,22 @@
   margin-left: 15px;
   background: transparent !important;
 }
+
+/* @media screen and ((max-width: 1024px)) {
+  .section__4-title{
+    margin-bottom: 0;
+  }
+}
+@media screen and ((max-width: 720px)) {
+  .section__4-container{
+    padding-top: 47.83%;
+  }
+} */
+
+
+
+/* @media (max-width: 1024px) {
+  .section__4-container{
+    padding-top: 47.83%;
+  }
+} */
