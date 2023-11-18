@@ -8,9 +8,9 @@ const Products = ({ data, loadMore, visibleItems }) => {
   };
   return (
     <>
-      {data.map((product, index) => (
+      {data.map((product) => (
         <Card
-          key={index}
+          key={product.id}
           img={product.img}
           title={product.title}
           titleDate={product.titleDate}

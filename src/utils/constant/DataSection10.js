@@ -1,5 +1,6 @@
 const products = [
   {
+    id: 1,
     img: "https://cdn.kyou.id/thumbnail/items/234030-pvc-figure-17-klee-spark-knight-ver-genshin-impact.jpg",
     title: "[Exclusive Sale] PVC Figure 1/7 Klee - S...",
     reviews: {
@@ -11,8 +12,10 @@ const products = [
     company: "ReadyStock",
     color: "white",
     category: "exclusive",
+    likes: 15,
   },
   {
+    id: 2,
     img: "https://cdn.kyou.id/thumbnail/items/102336-hu-tao-ghost-night-lamp-15x14cm-genshin-impact.jpg",
     title: "[Exclusive Sale] Hu Tao Ghost Night...",
     reviews: {
@@ -25,9 +28,11 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "exclusive",
+    likes: 20,
   },
 
   {
+    id: 3,
     img: "https://cdn.kyou.id/thumbnail/items/82990-3rd-release-jumpy-dumpty-klee-mug-genshin-impact-360ml-11x15cm.jpg",
     title: "[Shukaku SALE] Jumpy Dumpty Klee...",
     reviews: {
@@ -40,8 +45,10 @@ const products = [
     company: "ReadyStock",
     color: "green",
     category: "exclusive",
+    likes: 22,
   },
   {
+    id: 4,
     img: "https://cdn.kyou.id/thumbnail/items/247366-ichiban-kuji-figure-gojo-satoru-jujutsu-kaisen-shibuya-incident-vol1-last-one-prize-19cm.jpg",
     title: "[Exclusive Sale] Ichiban Kuji Figure...",
     reviews: {
@@ -53,9 +60,11 @@ const products = [
     newPrice: "DP IDR 1.950.000",
     company: "PreOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 18,
   },
   {
+    id: 5,
     img: "https://cdn.kyou.id/thumbnail/items/243557-lookup-figure-mayuzumi-fuyuko-the-idolmaster-shiny-colors.jpg",
     title: "[Limited Edition] Figure mayuzumi...",
     reviews: {
@@ -66,8 +75,10 @@ const products = [
     company: "Showcase",
     color: "green",
     category: "Limited",
+    likes: 2,
   },
   {
+    id: 6,
     img: "https://cdn.kyou.id/thumbnail/items/247367-ichiban-kuji-figure-uruti-one-piece-beast-pirates-tobi-rokusou-a-prize-11cm.jpg",
     title: "[Limited Edition] Ichiban Kuji Figure...",
     reviews: {
@@ -79,10 +90,12 @@ const products = [
     newPrice: "DP IDR 300.000",
     company: "PreOrder",
     color: "black",
-    category: "Limited",
+    category: "latest",
+    likes: 10,
   },
 
   {
+    id: 7,
     img: "https://cdn.kyou.id/thumbnail/items/243556-lookup-figure-serizawa-asahi-the-idolmaster-shiny-colors.jpg",
     title: "[Limited Production] Lookup Figure...",
     reviews: {
@@ -93,9 +106,11 @@ const products = [
     company: "Showcase",
     color: "white",
     category: "Limited",
+    likes: 15,
   },
 
   {
+    id: 8,
     img: "https://cdn.kyou.id/thumbnail/items/106989-feb-2022-release-taroumaru-inazuma-plush-genshin-impact.jpg",
     title: "[Exclusive Sale] Taroumaru Thoma...",
     reviews: {
@@ -108,9 +123,11 @@ const products = [
     company: "ReadyStock",
     color: "green",
     category: "exclusive",
+    likes: 20,
   },
 
   {
+    id: 9,
     img: "https://cdn.kyou.id/thumbnail/items/247363-ichiban-kuji-figure-itadori-yuji-jujutsu-kaisen-shibuya-incident-vol1-a-prize-16cm.jpg",
     title: "[Exclusive Sale] Ichiban Kuji Figure...",
     reviews: {
@@ -122,10 +139,12 @@ const products = [
     newPrice: "DP IDR 100.000",
     company: "PreOrder",
     color: "blue",
-    category: "exclusive",
+    category: "latest",
+    likes: 30,
   },
 
   {
+    id: 10,
     img: "https://cdn.kyou.id/thumbnail/items/204312-bloodline-of-combat-tapestry-b-60x40cm-arknigts.jpg",
     title: "[Exclusive Sale] Bloodline of Combat...",
     reviews: {
@@ -137,9 +156,11 @@ const products = [
     newPrice: "IDR 100.000 ",
     company: "BackOrder",
     color: "green",
-    category: "exclusive",
+    category: "latest",
+    likes: 15,
   },
   {
+    id: 11,
     img: "https://cdn.kyou.id/thumbnail/items/204303-muelsyse-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Muelsyse Elite 2 Ver...",
     reviews: {
@@ -151,9 +172,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "red",
-    category: "exclusive",
+    category: "latest",
+    likes: 10,
   },
   {
+    id: 12,
     img: "https://cdn.kyou.id/thumbnail/items/204304-hoolheyak-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Ho'olheyak Elite 2...",
     reviews: {
@@ -165,9 +188,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 12,
   },
   {
+    id: 13,
     img: "https://cdn.kyou.id/thumbnail/items/204305-silence-the-paradigmatic-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Silence ELite 2 Ver...",
     reviews: {
@@ -179,9 +204,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "white",
-    category: "exclusive",
+    category: "latest",
+    likes: 13,
   },
   {
+    id: 14,
     img: "https://cdn.kyou.id/thumbnail/items/204306-lone-trail-oil-filled-acrylic-brick-panel-21x12cm-arknights.jpg",
     title: "[Exclusive Sale] Lone Trail Oil-filled...",
     reviews: {
@@ -193,10 +220,12 @@ const products = [
     newPrice: "DP IDR 100.000",
     company: "BackOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 16,
   },
 
   {
+    id: 15,
     img: "https://cdn.kyou.id/thumbnail/items/204298-chen-the-holungday-ten-thousand-mountains-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Ch'en the Holungday: Ten...",
     reviews: {
@@ -208,9 +237,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "green",
-    category: "exclusive",
+    category: "latest",
+    likes: 19,
   },
   {
+    id: 16,
     img: "https://cdn.kyou.id/thumbnail/items/243541-lookup-figure-kita-ikuyo-bocchi-the-rock.jpg",
     title: "[Limited Edition] Lookup Figure Kita...",
     reviews: {
@@ -221,8 +252,10 @@ const products = [
     company: "Showcase",
     color: "red",
     category: "Limited",
+    likes: 29,
   },
   {
+    id: 17,
     img: "https://cdn.kyou.id/thumbnail/items/243542-lookup-figure-yamada-ryo-bocchi-the-rock.jpg",
     title: "Lookup Figure Yamada Ryo - Bocchi the Rock!",
     reviews: {
@@ -233,8 +266,10 @@ const products = [
     company: "Showcase",
     color: "white",
     category: "Bonus",
+    likes: 2,
   },
   {
+    id: 18,
     img: "https://cdn.kyou.id/thumbnail/items/243540-lookup-figure-hitori-gotoh-bocchi-the-rock.jpg",
     title: "Lookup Figure Hitori Gotoh - Bocchi...",
     reviews: {
@@ -245,8 +280,10 @@ const products = [
     company: "Showcase",
     color: "blue",
     category: "Bonus",
+    likes: 5,
   },
   {
+    id: 19,
     img: "https://cdn.kyou.id/thumbnail/items/153621-raiden-shogun-figure-statue-of-her-excellency-the-almighty-narukami-ogosho-god-of-thunder-11cm.jpg",
     title: "[Shukaku SALE] PVC Figure 1/7 Ganyu - ...",
     reviews: {
@@ -259,8 +296,10 @@ const products = [
     company: "ReadyStock",
     color: "black",
     category: "Bonus",
+    likes: 7,
   },
   {
+    id: 20,
     img: "https://cdn.kyou.id/thumbnail/items/243543-lookup-figure-ijichi-nijika-bocchi-the-rock.jpg",
     title: "Lookup Figure Ijichi Nijika - Bocchi the Rock!",
     reviews: {
@@ -271,8 +310,10 @@ const products = [
     company: "Showcase",
     color: "black",
     category: "Revive",
+    likes: 8,
   },
   {
+    id: 21,
     img: "https://cdn.kyou.id/thumbnail/items/113549-limited-production-nendoroid-venti-genshin-impact.jpg",
     title: "[Shukaku Sale] Nendor...",
     reviews: {
@@ -285,8 +326,10 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "Revive",
+    likes: 9,
   },
   {
+    id: 22,
     img: "https://cdn.kyou.id/thumbnail/items/163039-limited-production-nendoroid-traveler-lumine-genshin-impact.jpg",
     title: "[Exclusive Sale] Nendoro...",
     reviews: {
@@ -299,9 +342,11 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "exclusive",
+    likes: 9,
   },
 
   {
+    id: 23,
     img: "https://cdn.kyou.id/thumbnail/items/140557-limited-production-nendoroid-traveler-aether-genshin-impact.jpg",
     title: "[Shukaku SALE] Nendoro...",
     reviews: {
@@ -314,8 +359,10 @@ const products = [
     company: "ReadyStock",
     color: "black",
     category: "Revive",
+    likes: 10,
   },
   {
+    id: 24,
     img: "https://cdn.kyou.id/thumbnail/items/247371-ichiban-kuji-figure-whos-who-one-piece-beast-pirates-tobi-rokusou-e-prize-12cm.jpg",
     title: "Ichiban Kuji Figure Who's Who - One Pi...",
     reviews: {
@@ -327,9 +374,11 @@ const products = [
     newPrice: "IDR 200.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 10,
   },
   {
+    id: 25,
     img: "https://cdn.kyou.id/thumbnail/items/247365-ichiban-kuji-figure-gojo-satoru-jujutsu-kaisen-shibuya-incident-vol1-c-prize-19cm.jpg",
     title: "Ichiban Kuji Figure Gojo Satoru - Jujutsu Kai...",
     reviews: {
@@ -341,9 +390,11 @@ const products = [
     newPrice: "DP IDR 550.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 10,
   },
   {
+    id: 26,
     img: "https://cdn.kyou.id/thumbnail/items/247369-ichiban-kuji-figure-x-drake-one-piece-beast-pirates-tobi-rokusou-c-prize-12cm.jpg",
     title: "Ichiban Kuji Figure X Drake - One Piece Be...",
     reviews: {
@@ -355,9 +406,11 @@ const products = [
     newPrice: "DP IDR 200.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 10,
   },
   {
+    id: 27,
     img: "https://cdn.kyou.id/thumbnail/items/247372-ichiban-kuji-figure-black-maria-one-piece-beast-pirates-tobi-rokusou-f-prize-18cm.jpg",
     title: "[Limited Production] Ichiban Kuji Figure...",
     reviews: {
@@ -369,9 +422,11 @@ const products = [
     newPrice: "DP IDR 900.000",
     company: "PreOrder",
     color: "black",
-    category: "Limited",
+    category: "latest",
+    likes: 10,
   },
   {
+    id: 28,
     img: "https://cdn.kyou.id/thumbnail/items/234030-pvc-figure-17-klee-spark-knight-ver-genshin-impact.jpg",
     title: "[Exclusive Sale] PVC Figure 1/7 Klee - S...",
     reviews: {
@@ -384,8 +439,10 @@ const products = [
     company: "ReadyStock",
     color: "white",
     category: "exclusive",
+    likes: 10,
   },
   {
+    id: 29,
     img: "https://cdn.kyou.id/thumbnail/items/102336-hu-tao-ghost-night-lamp-15x14cm-genshin-impact.jpg",
     title: "[Exclusive Sale] Hu Tao Ghost Night...",
     reviews: {
@@ -398,9 +455,11 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "exclusive",
+    likes: 12,
   },
 
   {
+    id: 30,
     img: "https://cdn.kyou.id/thumbnail/items/82990-3rd-release-jumpy-dumpty-klee-mug-genshin-impact-360ml-11x15cm.jpg",
     title: "[Shukaku SALE] Jumpy Dumpty Klee...",
     reviews: {
@@ -413,8 +472,10 @@ const products = [
     company: "ReadyStock",
     color: "green",
     category: "exclusive",
+    likes: 13,
   },
   {
+    id: 31,
     img: "https://cdn.kyou.id/thumbnail/items/247366-ichiban-kuji-figure-gojo-satoru-jujutsu-kaisen-shibuya-incident-vol1-last-one-prize-19cm.jpg",
     title: "[Exclusive Sale] Ichiban Kuji Figure...",
     reviews: {
@@ -426,9 +487,11 @@ const products = [
     newPrice: "DP IDR 1.950.000",
     company: "PreOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 14,
   },
   {
+    id: 32,
     img: "https://cdn.kyou.id/thumbnail/items/243557-lookup-figure-mayuzumi-fuyuko-the-idolmaster-shiny-colors.jpg",
     title: "[Limited Edition] Figure mayuzumi...",
     reviews: {
@@ -439,8 +502,10 @@ const products = [
     company: "Showcase",
     color: "green",
     category: "Limited",
+    likes: 15,
   },
   {
+    id: 33,
     img: "https://cdn.kyou.id/thumbnail/items/247367-ichiban-kuji-figure-uruti-one-piece-beast-pirates-tobi-rokusou-a-prize-11cm.jpg",
     title: "[Limited Edition] Ichiban Kuji Figure...",
     reviews: {
@@ -452,10 +517,12 @@ const products = [
     newPrice: "DP IDR 300.000",
     company: "PreOrder",
     color: "black",
-    category: "Limited",
+    category: "latest",
+    likes: 16,
   },
 
   {
+    id: 34,
     img: "https://cdn.kyou.id/thumbnail/items/243556-lookup-figure-serizawa-asahi-the-idolmaster-shiny-colors.jpg",
     title: "[Limited Production] Lookup Figure...",
     reviews: {
@@ -466,9 +533,11 @@ const products = [
     company: "Showcase",
     color: "white",
     category: "Limited",
+    likes: 17,
   },
 
   {
+    id: 35,
     img: "https://cdn.kyou.id/thumbnail/items/106989-feb-2022-release-taroumaru-inazuma-plush-genshin-impact.jpg",
     title: "[Exclusive Sale] Taroumaru Thoma...",
     reviews: {
@@ -481,9 +550,11 @@ const products = [
     company: "ReadyStock",
     color: "green",
     category: "exclusive",
+    likes: 18,
   },
 
   {
+    id: 36,
     img: "https://cdn.kyou.id/thumbnail/items/247363-ichiban-kuji-figure-itadori-yuji-jujutsu-kaisen-shibuya-incident-vol1-a-prize-16cm.jpg",
     title: "[Exclusive Sale] Ichiban Kuji Figure...",
     reviews: {
@@ -495,10 +566,12 @@ const products = [
     newPrice: "DP IDR 100.000",
     company: "PreOrder",
     color: "blue",
-    category: "exclusive",
+    category: "latest",
+    likes: 30,
   },
 
   {
+    id: 37,
     img: "https://cdn.kyou.id/thumbnail/items/204312-bloodline-of-combat-tapestry-b-60x40cm-arknigts.jpg",
     title: "[Exclusive Sale] Bloodline of Combat...",
     reviews: {
@@ -510,9 +583,11 @@ const products = [
     newPrice: "IDR 100.000 ",
     company: "BackOrder",
     color: "green",
-    category: "exclusive",
+    category: "latest",
+    likes: 29,
   },
   {
+    id: 38,
     img: "https://cdn.kyou.id/thumbnail/items/204303-muelsyse-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Muelsyse Elite 2 Ver...",
     reviews: {
@@ -524,9 +599,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "red",
-    category: "exclusive",
+    category: "latest",
+    likes: 28,
   },
   {
+    id: 39,
     img: "https://cdn.kyou.id/thumbnail/items/204304-hoolheyak-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Ho'olheyak Elite 2...",
     reviews: {
@@ -538,9 +615,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 27,
   },
   {
+    id: 40,
     img: "https://cdn.kyou.id/thumbnail/items/204305-silence-the-paradigmatic-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Silence ELite 2 Ver...",
     reviews: {
@@ -552,9 +631,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "white",
-    category: "exclusive",
+    category: "latest",
+    likes: 26,
   },
   {
+    id: 41,
     img: "https://cdn.kyou.id/thumbnail/items/204306-lone-trail-oil-filled-acrylic-brick-panel-21x12cm-arknights.jpg",
     title: "[Exclusive Sale] Lone Trail Oil-filled...",
     reviews: {
@@ -566,10 +647,12 @@ const products = [
     newPrice: "DP IDR 100.000",
     company: "BackOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 25,
   },
 
   {
+    id: 42,
     img: "https://cdn.kyou.id/thumbnail/items/204298-chen-the-holungday-ten-thousand-mountains-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Ch'en the Holungday: Ten...",
     reviews: {
@@ -581,9 +664,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "green",
-    category: "exclusive",
+    category: "latest",
+    likes: 24,
   },
   {
+    id: 43,
     img: "https://cdn.kyou.id/thumbnail/items/243541-lookup-figure-kita-ikuyo-bocchi-the-rock.jpg",
     title: "[Limited Edition] Lookup Figure Kita...",
     reviews: {
@@ -594,8 +679,10 @@ const products = [
     company: "Showcase",
     color: "red",
     category: "Limited",
+    likes: 23,
   },
   {
+    id: 44,
     img: "https://cdn.kyou.id/thumbnail/items/243542-lookup-figure-yamada-ryo-bocchi-the-rock.jpg",
     title: "Lookup Figure Yamada Ryo - Bocchi the Rock!",
     reviews: {
@@ -606,8 +693,10 @@ const products = [
     company: "Showcase",
     color: "white",
     category: "Bonus",
+    likes: 22,
   },
   {
+    id: 45,
     img: "https://cdn.kyou.id/thumbnail/items/243540-lookup-figure-hitori-gotoh-bocchi-the-rock.jpg",
     title: "Lookup Figure Hitori Gotoh - Bocchi...",
     reviews: {
@@ -618,8 +707,10 @@ const products = [
     company: "Showcase",
     color: "blue",
     category: "Bonus",
+    likes: 21,
   },
   {
+    id: 46,
     img: "https://cdn.kyou.id/thumbnail/items/153621-raiden-shogun-figure-statue-of-her-excellency-the-almighty-narukami-ogosho-god-of-thunder-11cm.jpg",
     title: "[Shukaku SALE] PVC Figure 1/7 Ganyu - ...",
     reviews: {
@@ -632,8 +723,10 @@ const products = [
     company: "ReadyStock",
     color: "black",
     category: "Bonus",
+    likes: 20,
   },
   {
+    id: 47,
     img: "https://cdn.kyou.id/thumbnail/items/243543-lookup-figure-ijichi-nijika-bocchi-the-rock.jpg",
     title: "Lookup Figure Ijichi Nijika - Bocchi the Rock!",
     reviews: {
@@ -644,8 +737,10 @@ const products = [
     company: "Showcase",
     color: "black",
     category: "Revive",
+    likes: 13,
   },
   {
+    id: 48,
     img: "https://cdn.kyou.id/thumbnail/items/113549-limited-production-nendoroid-venti-genshin-impact.jpg",
     title: "[Shukaku Sale] Nendor...",
     reviews: {
@@ -658,8 +753,10 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "Revive",
+    likes: 13,
   },
   {
+    id: 49,
     img: "https://cdn.kyou.id/thumbnail/items/163039-limited-production-nendoroid-traveler-lumine-genshin-impact.jpg",
     title: "[Exclusive Sale] Nendoro...",
     reviews: {
@@ -672,9 +769,11 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "exclusive",
+    likes: 13,
   },
 
   {
+    id: 50,
     img: "https://cdn.kyou.id/thumbnail/items/140557-limited-production-nendoroid-traveler-aether-genshin-impact.jpg",
     title: "[Shukaku SALE] Nendoro...",
     reviews: {
@@ -687,8 +786,10 @@ const products = [
     company: "ReadyStock",
     color: "black",
     category: "Revive",
+    likes: 13,
   },
   {
+    id: 51,
     img: "https://cdn.kyou.id/thumbnail/items/247371-ichiban-kuji-figure-whos-who-one-piece-beast-pirates-tobi-rokusou-e-prize-12cm.jpg",
     title: "Ichiban Kuji Figure Who's Who - One Pi...",
     reviews: {
@@ -700,9 +801,11 @@ const products = [
     newPrice: "IDR 200.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 13,
   },
   {
+    id: 52,
     img: "https://cdn.kyou.id/thumbnail/items/247365-ichiban-kuji-figure-gojo-satoru-jujutsu-kaisen-shibuya-incident-vol1-c-prize-19cm.jpg",
     title: "Ichiban Kuji Figure Gojo Satoru - Jujutsu Kai...",
     reviews: {
@@ -714,9 +817,11 @@ const products = [
     newPrice: "DP IDR 550.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 13,
   },
   {
+    id: 53,
     img: "https://cdn.kyou.id/thumbnail/items/247369-ichiban-kuji-figure-x-drake-one-piece-beast-pirates-tobi-rokusou-c-prize-12cm.jpg",
     title: "Ichiban Kuji Figure X Drake - One Piece Be...",
     reviews: {
@@ -728,9 +833,11 @@ const products = [
     newPrice: "DP IDR 200.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 13,
   },
   {
+    id: 54,
     img: "https://cdn.kyou.id/thumbnail/items/247372-ichiban-kuji-figure-black-maria-one-piece-beast-pirates-tobi-rokusou-f-prize-18cm.jpg",
     title: "[Limited Production] Ichiban Kuji Figure...",
     reviews: {
@@ -742,9 +849,11 @@ const products = [
     newPrice: "DP IDR 900.000",
     company: "PreOrder",
     color: "black",
-    category: "Limited",
+    category: "latest",
+    likes: 13,
   },
   {
+    id: 55,
     img: "https://cdn.kyou.id/thumbnail/items/234030-pvc-figure-17-klee-spark-knight-ver-genshin-impact.jpg",
     title: "[Exclusive Sale] PVC Figure 1/7 Klee - S...",
     reviews: {
@@ -757,8 +866,10 @@ const products = [
     company: "ReadyStock",
     color: "white",
     category: "exclusive",
+    likes: 13,
   },
   {
+    id: 56,
     img: "https://cdn.kyou.id/thumbnail/items/102336-hu-tao-ghost-night-lamp-15x14cm-genshin-impact.jpg",
     title: "[Exclusive Sale] Hu Tao Ghost Night...",
     reviews: {
@@ -771,9 +882,11 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "exclusive",
+    likes: 12,
   },
 
   {
+    id: 57,
     img: "https://cdn.kyou.id/thumbnail/items/82990-3rd-release-jumpy-dumpty-klee-mug-genshin-impact-360ml-11x15cm.jpg",
     title: "[Shukaku SALE] Jumpy Dumpty Klee...",
     reviews: {
@@ -786,8 +899,10 @@ const products = [
     company: "ReadyStock",
     color: "green",
     category: "exclusive",
+    likes: 12,
   },
   {
+    id: 58,
     img: "https://cdn.kyou.id/thumbnail/items/247366-ichiban-kuji-figure-gojo-satoru-jujutsu-kaisen-shibuya-incident-vol1-last-one-prize-19cm.jpg",
     title: "[Exclusive Sale] Ichiban Kuji Figure...",
     reviews: {
@@ -799,9 +914,11 @@ const products = [
     newPrice: "DP IDR 1.950.000",
     company: "PreOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 20,
   },
   {
+    id: 59,
     img: "https://cdn.kyou.id/thumbnail/items/243557-lookup-figure-mayuzumi-fuyuko-the-idolmaster-shiny-colors.jpg",
     title: "[Limited Edition] Figure mayuzumi...",
     reviews: {
@@ -812,8 +929,10 @@ const products = [
     company: "Showcase",
     color: "green",
     category: "Limited",
+    likes: 40,
   },
   {
+    id: 60,
     img: "https://cdn.kyou.id/thumbnail/items/247367-ichiban-kuji-figure-uruti-one-piece-beast-pirates-tobi-rokusou-a-prize-11cm.jpg",
     title: "[Limited Edition] Ichiban Kuji Figure...",
     reviews: {
@@ -825,10 +944,12 @@ const products = [
     newPrice: "DP IDR 300.000",
     company: "PreOrder",
     color: "black",
-    category: "Limited",
+    category: "latest",
+    likes: 45,
   },
 
   {
+    id: 61,
     img: "https://cdn.kyou.id/thumbnail/items/243556-lookup-figure-serizawa-asahi-the-idolmaster-shiny-colors.jpg",
     title: "[Limited Production] Lookup Figure...",
     reviews: {
@@ -839,9 +960,11 @@ const products = [
     company: "Showcase",
     color: "white",
     category: "Limited",
+    likes: 46,
   },
 
   {
+    id: 62,
     img: "https://cdn.kyou.id/thumbnail/items/106989-feb-2022-release-taroumaru-inazuma-plush-genshin-impact.jpg",
     title: "[Exclusive Sale] Taroumaru Thoma...",
     reviews: {
@@ -854,9 +977,11 @@ const products = [
     company: "ReadyStock",
     color: "green",
     category: "exclusive",
+    likes: 56,
   },
 
   {
+    id: 63,
     img: "https://cdn.kyou.id/thumbnail/items/247363-ichiban-kuji-figure-itadori-yuji-jujutsu-kaisen-shibuya-incident-vol1-a-prize-16cm.jpg",
     title: "[Exclusive Sale] Ichiban Kuji Figure...",
     reviews: {
@@ -868,10 +993,12 @@ const products = [
     newPrice: "DP IDR 100.000",
     company: "PreOrder",
     color: "blue",
-    category: "exclusive",
+    category: "latest",
+    likes: 57,
   },
 
   {
+    id: 64,
     img: "https://cdn.kyou.id/thumbnail/items/204312-bloodline-of-combat-tapestry-b-60x40cm-arknigts.jpg",
     title: "[Exclusive Sale] Bloodline of Combat...",
     reviews: {
@@ -883,9 +1010,11 @@ const products = [
     newPrice: "IDR 100.000 ",
     company: "BackOrder",
     color: "green",
-    category: "exclusive",
+    category: "latest",
+    likes: 60,
   },
   {
+    id: 65,
     img: "https://cdn.kyou.id/thumbnail/items/204303-muelsyse-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Muelsyse Elite 2 Ver...",
     reviews: {
@@ -897,9 +1026,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "red",
-    category: "exclusive",
+    category: "latest",
+    likes: 100,
   },
   {
+    id: 66,
     img: "https://cdn.kyou.id/thumbnail/items/204304-hoolheyak-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Ho'olheyak Elite 2...",
     reviews: {
@@ -911,9 +1042,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 2,
   },
   {
+    id: 67,
     img: "https://cdn.kyou.id/thumbnail/items/204305-silence-the-paradigmatic-elite-2-ver-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Silence ELite 2 Ver...",
     reviews: {
@@ -925,9 +1058,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "white",
-    category: "exclusive",
+    category: "latest",
+    likes: 3,
   },
   {
+    id: 68,
     img: "https://cdn.kyou.id/thumbnail/items/204306-lone-trail-oil-filled-acrylic-brick-panel-21x12cm-arknights.jpg",
     title: "[Exclusive Sale] Lone Trail Oil-filled...",
     reviews: {
@@ -939,10 +1074,12 @@ const products = [
     newPrice: "DP IDR 100.000",
     company: "BackOrder",
     color: "black",
-    category: "exclusive",
+    category: "latest",
+    likes: 4,
   },
 
   {
+    id: 69,
     img: "https://cdn.kyou.id/thumbnail/items/204298-chen-the-holungday-ten-thousand-mountains-shikishi-15x21cm-arknights.jpg",
     title: "[Exclusive Sale] Ch'en the Holungday: Ten...",
     reviews: {
@@ -954,9 +1091,11 @@ const products = [
     newPrice: "DP IDR 50.000",
     company: "BackOrder",
     color: "green",
-    category: "exclusive",
+    category: "latest",
+    likes: 5,
   },
   {
+    id: 70,
     img: "https://cdn.kyou.id/thumbnail/items/243541-lookup-figure-kita-ikuyo-bocchi-the-rock.jpg",
     title: "[Limited Edition] Lookup Figure Kita...",
     reviews: {
@@ -967,8 +1106,10 @@ const products = [
     company: "Showcase",
     color: "red",
     category: "Limited",
+    likes: 10,
   },
   {
+    id: 71,
     img: "https://cdn.kyou.id/thumbnail/items/243542-lookup-figure-yamada-ryo-bocchi-the-rock.jpg",
     title: "Lookup Figure Yamada Ryo - Bocchi the Rock!",
     reviews: {
@@ -979,8 +1120,10 @@ const products = [
     company: "Showcase",
     color: "white",
     category: "Bonus",
+    likes: 20,
   },
   {
+    id: 72,
     img: "https://cdn.kyou.id/thumbnail/items/243540-lookup-figure-hitori-gotoh-bocchi-the-rock.jpg",
     title: "Lookup Figure Hitori Gotoh - Bocchi...",
     reviews: {
@@ -991,8 +1134,10 @@ const products = [
     company: "Showcase",
     color: "blue",
     category: "Bonus",
+    likes: 90,
   },
   {
+    id: 73,
     img: "https://cdn.kyou.id/thumbnail/items/153621-raiden-shogun-figure-statue-of-her-excellency-the-almighty-narukami-ogosho-god-of-thunder-11cm.jpg",
     title: "[Shukaku SALE] PVC Figure 1/7 Ganyu - ...",
     reviews: {
@@ -1005,8 +1150,10 @@ const products = [
     company: "ReadyStock",
     color: "black",
     category: "Bonus",
+    likes: 70,
   },
   {
+    id: 74,
     img: "https://cdn.kyou.id/thumbnail/items/243543-lookup-figure-ijichi-nijika-bocchi-the-rock.jpg",
     title: "Lookup Figure Ijichi Nijika - Bocchi the Rock!",
     reviews: {
@@ -1017,8 +1164,10 @@ const products = [
     company: "Showcase",
     color: "black",
     category: "Revive",
+    likes: 60,
   },
   {
+    id: 75,
     img: "https://cdn.kyou.id/thumbnail/items/113549-limited-production-nendoroid-venti-genshin-impact.jpg",
     title: "[Shukaku Sale] Nendor...",
     reviews: {
@@ -1031,8 +1180,10 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "Revive",
+    likes: 60,
   },
   {
+    id: 76,
     img: "https://cdn.kyou.id/thumbnail/items/163039-limited-production-nendoroid-traveler-lumine-genshin-impact.jpg",
     title: "[Exclusive Sale] Nendoro...",
     reviews: {
@@ -1045,9 +1196,11 @@ const products = [
     company: "ReadyStock",
     color: "red",
     category: "exclusive",
+    likes: 60,
   },
 
   {
+    id: 77,
     img: "https://cdn.kyou.id/thumbnail/items/140557-limited-production-nendoroid-traveler-aether-genshin-impact.jpg",
     title: "[Shukaku SALE] Nendoro...",
     reviews: {
@@ -1060,8 +1213,10 @@ const products = [
     company: "ReadyStock",
     color: "black",
     category: "Revive",
+    likes: 60,
   },
   {
+    id: 78,
     img: "https://cdn.kyou.id/thumbnail/items/247371-ichiban-kuji-figure-whos-who-one-piece-beast-pirates-tobi-rokusou-e-prize-12cm.jpg",
     title: "Ichiban Kuji Figure Who's Who - One Pi...",
     reviews: {
@@ -1073,9 +1228,11 @@ const products = [
     newPrice: "IDR 200.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 60,
   },
   {
+    id: 79,
     img: "https://cdn.kyou.id/thumbnail/items/247365-ichiban-kuji-figure-gojo-satoru-jujutsu-kaisen-shibuya-incident-vol1-c-prize-19cm.jpg",
     title: "Ichiban Kuji Figure Gojo Satoru - Jujutsu Kai...",
     reviews: {
@@ -1087,9 +1244,11 @@ const products = [
     newPrice: "DP IDR 550.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 60,
   },
   {
+    id: 80,
     img: "https://cdn.kyou.id/thumbnail/items/247369-ichiban-kuji-figure-x-drake-one-piece-beast-pirates-tobi-rokusou-c-prize-12cm.jpg",
     title: "Ichiban Kuji Figure X Drake - One Piece Be...",
     reviews: {
@@ -1101,9 +1260,11 @@ const products = [
     newPrice: "DP IDR 200.000",
     company: "PreOrder",
     color: "black",
-    category: "Revive",
+    category: "latest",
+    likes: 60,
   },
   {
+    id: 81,
     img: "https://cdn.kyou.id/thumbnail/items/247372-ichiban-kuji-figure-black-maria-one-piece-beast-pirates-tobi-rokusou-f-prize-18cm.jpg",
     title: "[Limited Production] Ichiban Kuji Figure...",
     reviews: {
@@ -1115,7 +1276,8 @@ const products = [
     newPrice: "DP IDR 900.000",
     company: "PreOrder",
     color: "black",
-    category: "Limited",
+    category: "latest",
+    likes: 1,
   },
 ];
 

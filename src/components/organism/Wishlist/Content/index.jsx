@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import FilterDropdown from "../../../moleculs/FilterDropdown";
+import FilterDropdown from "../../../moleculs/FilterDropdown/FilterDropdown";
+import FilterDropdownMobile from "../../../moleculs/FilterDropdown/FilterDropdownMobile";
 import FilterSortButtons from "../../../moleculs/FilterSortButtons";
 import productsData from "../../../../utils/constant/DataSection10";
 import { getPaginatedData } from "../../../../utils/constant/DataSection10";
@@ -14,16 +15,29 @@ const getTotalPages = (totalItems, pageSize) => {
 
 const Content = () => {
   const filterOptions = [
-    { value: "relevance", label: "Relevance", selected: false },
-    { value: "newest", label: "Latest", selected: true },
-    { value: "oldest", label: "Oldest", selected: false },
+    { value: "all", label: "Relevance", selected: false },
+    { value: "latest", label: "Latest", selected: true },
+    { value: "Limited", label: "Oldest", selected: false },
     { value: "highest_price", label: "Highest Price", selected: false },
     { value: "lowest_price", label: "Lowest Price", selected: false },
-    { value: "wishlists", label: "Most Liked", selected: false },
+    { value: "likes", label: "Most Liked", selected: false },
   ];
 
   const [pageNumber, setPageNumber] = useState(1);
   const [showSidebarMobile, setShowSidebarMobile] = useState(false);
+  const [selectedFilter, setSelectedFilter] = useState("all");
+  const [showFilterDropdown, setShowFilterDropdown] = useState(false);
+  const [activePanel, setActivePanel] = useState("none");
+
+  const filteredData =
+    selectedFilter === "all"
+      ? productsData
+      : productsData.filter((product) => product.category === selectedFilter);
+
+  const handleFilterChange = (selectedValue) => {
+    setSelectedFilter(selectedValue);
+    setPageNumber(1);
+  };
 
   const handlePrevPage = () => {
     setPageNumber((prevPage) => Math.max(prevPage - 1, 1));
@@ -38,11 +52,22 @@ const Content = () => {
     setPageNumber(page);
   };
 
-  const paginatedData = getPaginatedData(productsData, pageNumber, PAGE_SIZE);
+  const cardsToRender = getPaginatedData(filteredData, pageNumber, PAGE_SIZE);
   const totalPages = getTotalPages(productsData, PAGE_SIZE);
 
   const handleFilterClick = () => {
     setShowSidebarMobile(!showSidebarMobile);
+    setActivePanel("sidebar");
+  };
+  const handleFilterDropdownClick = () => {
+    setShowFilterDropdown(!showFilterDropdown);
+    setActivePanel("filter");
+  };
+
+  const handleSortClick = () => {
+    setShowSidebarMobile(false);
+    setShowFilterDropdown(false);
+    setActivePanel("none");
   };
 
   return (
@@ -52,19 +77,32 @@ const Content = () => {
           <h3>All Items</h3>
           <span className="section_11_count">Showing 1 — 4 of 70</span>
         </div>
-        <div className="section_11_right">
-          <span>Sort By</span>
-          <FilterDropdown options={filterOptions} />
-        </div>
+
+        <FilterDropdown
+          options={filterOptions}
+          selectedValue={selectedFilter}
+          handleChange={handleFilterChange}
+        />
       </header>
 
-      <FilterSortButtons onFilterClick={handleFilterClick} />
+      <FilterSortButtons
+        onFilterClick={handleFilterClick}
+        onSortClick={handleFilterDropdownClick}
+      />
 
-      {showSidebarMobile && <SidebarMobile handlechange={() => {}} />}
-
+      {showSidebarMobile && activePanel === "sidebar" && (
+        <SidebarMobile handlechange={() => {}} />
+      )}
+      {showFilterDropdown && activePanel === "filter" && (
+        <FilterDropdownMobile
+          options={filterOptions}
+          selectedValue={selectedFilter}
+          handleChange={handleFilterChange}
+        />
+      )}
       <div className="section__10_filterable-card">
-        {paginatedData.map((product, index) => (
-          <Card key={index} {...product} />
+        {cardsToRender.map((product) => (
+          <Card key={product.id} {...product} />
         ))}
       </div>
 
