@@ -51,7 +51,7 @@ export default function ItemDetail() {
 
         <p className="itemDetail_by">By Bandai Spirits</p>
 
-        <hr />
+        <hr className="desktop-only" />
 
         <div className="itemDetail_price_container">
           <h3 className="itemDetail_price">{product.prevPrice}</h3>
@@ -60,12 +60,20 @@ export default function ItemDetail() {
           </span>
         </div>
 
+        <span className="product-view__content__fp-discount mobileOnly">
+          Pay in Full, save IDR 10,000!
+        </span>
+
+        <hr className="product-view__content__divider mobileOnly"></hr>
+
+        <h3 className="itemDetail_preOrder-title">Pre-Order Information</h3>
+
         <div className="itemDetail_dp_container">
           <div className="itemDetail_dp">
             <p className="itemDetail_dp_title">Minumun DP</p>
             <p className="itemDetail_dp_price">{product.newPrice}</p>
           </div>
-          <div className="itemDetail_fullpayment_discount">
+          <div className="itemDetail_fullpayment_discount desktop-only">
             <p className="itemDetail_fullpayment_discount_title">
               Fullpayment Discount
             </p>
@@ -98,6 +106,40 @@ export default function ItemDetail() {
         </div>
 
         <div className="itemDetail_button_container">
+          <div className="mobileOnly">
+            <div className="product-view__content__share">
+              <button type="button" className="shareButton">
+                <img src="https://kyou.id/static/img/icon/share.svg" alt="" />
+                <span>Share</span>
+              </button>
+              <div className="sharer ">
+                <a
+                  href="https://www.facebook.com/dialog/share?app_id=997410520391321&amp;display=popup&amp;href=https://kyou.id/items/104806/pop-up-parade-figure-ayanami-rei-long-hair-ver-rebuild-of-evangelion-rerelease"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img
+                    src="https://kyou.id/static/img/icon/Facebook_glyph.svg"
+                    alt="facebook"
+                  />
+                </a>
+                <a
+                  href="https://social-plugins.line.me/lineit/share?url=https://kyou.id/items/104806/pop-up-parade-figure-ayanami-rei-long-hair-ver-rebuild-of-evangelion-rerelease"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="https://kyou.id/static/img/icon/Line_glyph.svg" alt="line" />
+                </a>
+                <a
+                  href="https://twitter.com/intent/tweet?text=Ayo cek item Ayanami Rei ini dan puluhan ribu Anime Figure %26 Goods lainnya hanya di Kyou.id!&amp;url=https://kyou.id/items/104806/pop-up-parade-figure-ayanami-rei-long-hair-ver-rebuild-of-evangelion-rerelease"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <img src="https://kyou.id/static/img/icon/Twitter_glyph.svg" alt="twitter" />
+                </a>
+              </div>
+            </div>
+          </div>
           <button className="itemDetail_wishlist" id="AddToWishlist">
             <div>
               <img
@@ -107,7 +149,7 @@ export default function ItemDetail() {
             </div>
             <span>
               20
-              <span>&nbsp;Wishlist</span>
+              <span className="desktop-only">&nbsp;Wishlist</span>
             </span>
           </button>
           <button
@@ -115,12 +157,19 @@ export default function ItemDetail() {
             onClick={() => dispatch(addToCart(product))}
           >
             <span>
-              Add to Cart <img src="/Spinner-1s-100px.gif" alt="spinner" className="itemDetail_spinner" style={{ display: loading ? "block" : "none" }} />
+              Add to Cart{" "}
+              <img
+                src="/Spinner-1s-100px.gif"
+                alt="spinner"
+                className="itemDetail_spinner"
+                style={{ display: loading ? "block" : "none" }}
+              />
             </span>
           </button>
         </div>
 
-        <hr />
+        <hr className="desktop-only"/>
+        <hr className="product-view__content__divider mobileOnly"></hr>
 
         <div className="itemDetail_description">
           <div className="itemDetail_content_description">

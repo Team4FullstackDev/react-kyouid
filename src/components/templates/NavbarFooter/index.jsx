@@ -1,18 +1,12 @@
 import Footer from "../../organism/Footer";
-import {
-  Navigation,
-  ModalHamburger,
-  ModalSearch,
-} from "../../organism/Navbar/index";
+import NavigationAndModal from "../../organism/Navbar/index";
 import { Outlet } from "react-router";
 export default function NavbarFooter() {
   return (
     <>
       {/* <!-- Header By Harymahayana07 --> */}
       <header>
-        <ModalHamburger />
-        <ModalSearch />
-        <Navigation />
+        <NavigationAndModal />
       </header>
       {/* <!-- End Header --> */}
       <div className="navFooter__outlet">

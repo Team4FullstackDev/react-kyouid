@@ -34,7 +34,7 @@ form .nav__input_search {
   border-top-right-radius: 4px;
   border-bottom-right-radius: 4px;
   box-sizing: border-box;
-  
+
   height: 36px;
   width: 36px;
   cursor: pointer;
@@ -62,7 +62,7 @@ form .nav__input_search {
     min-width: 20px;
     height: 20px;
     font-size: 10px;
-    background: #FC4C02;
+    background: #fc4c02;
     border-radius: 20px;
     color: #ffffff;
     align-items: center;
@@ -135,7 +135,122 @@ a.nav__icons .nav__mascot {
 .nav__modal__search {
   display: none;
 }
+ .nav__button-signin {
+          display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    min-width: 172px;
+    padding-left: 24px;
+    cursor: pointer;
+        }
+        .nav__face-signin {
+          width: 24px;
+    height: 24px;
+    margin-right: 8px;
+        }
+        .nav__name-signin {
+          font-size: 14px;
+    color: #FC4C02;
+        }
+        .nav__triangle-signin {
+        margin-left: 8px;
+    box-sizing: border-box;
+    width: 8px;
+    height: 4px;
+        }
+        .nav__menu-dropdown {
+          position: absolute;
+    top: 48px;
+    right: 48px;
+    filter: drop-shadow(0px 1px 4px rgba(0, 0, 0, 0.5));
+    width: 320px;
+        }
+        .nav__menu_top {
+              height: 8px;
+    -webkit-clip-path: polygon(0 100%, 0% 100%, 100% 100%, 100% 100%, 85% 100%, 80% 0, 75% 100%);
+    clip-path: polygon(0 100%, 0% 100%, 100% 100%, 100% 100%, 92.5% 100%, 90% 0, 87.5% 100%);
+    background: #ffffff;
+        }
+        .nav__menu_inner,.nav__menu_inner_mobile {
+              background: #ffffff;
+    border-radius: 4px;
+        }
+        .nav__menu_user-info {
+              padding: 24px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+        }
+        .nav__menu_user-info-face {
+    width: 30px;
+    height: 30px;
+    margin-right: 12px;
+        }
+        .nav__menu_user-info-detail {
+    display: flex;
+    flex-direction: column;
+    max-width: 216px;
+        }
+        .nav__menu_user-info-detail-name {
+    font-size: 16px;
+    color: #565252;
+    font-weight: bold;
+        }
+        .nav__menu_user-info-detail-email {
+              font-size: 14px;
+    color: #808080;
 
+        }
+        .nav__menu_friend-ship {
+              padding: 16px 20px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+        }
+        .nav__menu_friend-ship_detail {
+              display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+        }
+        .nav__menu_friend-ship_detail_title {
+          font-size: 12px;
+    color: #808080;
+        }
+        .nav__menu_friend-ship_detail_points {
+font-size: 16px;
+    color: #565252;
+    font-weight: bold;
+        }
+        .nav__menu_friend-ship_button {
+              border: 1px solid #FC4C02;
+    border-radius: 4px;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+    color: #FC4C02;
+        }
+        .nav__menu_dropdown_link {
+          display: flex;
+    padding: 16px 20px;
+    align-items: center;
+    color: #565252;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    box-sizing: border-box;
+        }
+        .nav__menu_dropdown_svg {
+          width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    fill: #808080;
+        }
 
 @media screen and (max-width: 1024px) {
   .nav__navigation {
@@ -270,7 +385,7 @@ a.nav__icons .nav__mascot {
     width: 40px;
     margin-right: 16px;
   }
- 
+
   .nav__modal_username {
     font-size: 16px;
     color: #565252;
@@ -327,6 +442,12 @@ a.nav__icons .nav__mascot {
     cursor: pointer;
     width: 100%;
     text-align: left;
+  }
+  .nav__menu-dropdown {
+    display: none;
+  }
+  .nav__button-signin {
+    display: none;
   }
 }
 /* End Nav */

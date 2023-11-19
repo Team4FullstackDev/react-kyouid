@@ -1,63 +1,17 @@
 import React, { useEffect, useState } from "react";
-import {
-  NavButton,
-  NavForm,
-  NavHR,
-  NavImage,
-  NavInput,
-  NavSpan,
-} from "../../atoms/Navbar";
-import {
-  ModalButtonBack,
-  ModalInfoCard,
-  ModalLinkMenu,
-  ModalSearchForm,
-  ModalSearchContent,
-  CartBadge,
-} from "../../moleculs/Navbar";
-import { SearchEntries } from "../../../utils/constant/RiwayatSearching";
-import { NavModalFormSearch } from "../../atoms/Navbar";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsCart } from "../../../redux/actions/carts.action";
+import { Link } from "react-router-dom";
+import useAuthentication from "../../../hooks/UseAuth";
+import { NavButton,NavForm,NavHR,NavImage,NavInput,NavSpan } from "../../atoms/Navbar";
+import {ModalButtonBack,ModalInfoCard,ModalLinkMenu,ModalSearchForm,ModalSearchContent,CartBadge,NavUserInfo,NavFriendShip,DropDownLinkList,BtnLogout } from "../../moleculs/Navbar";
+import { SearchEntries } from "../../../utils/constant/RiwayatSearching";
 
-// ModalHamburger Organism
-export const ModalHamburger = ({ isVisible, onToggle }) => {
-  const hamburgerStyle = {
-    display: isVisible ? "block" : "none",
-  };
-
-  return (
-    <nav className="nav__modal__hamburger" style={hamburgerStyle}>
-      <div className="nav__modal-container nav__modal__menu">
-        <ModalButtonBack onBack={onToggle} />
-        <ModalInfoCard />
-        <NavHR />
-        <ModalLinkMenu />
-      </div>
-    </nav>
-  );
-};
-
-// ModalSearch Organism
-export const ModalSearch = ({ isVisible, onToggle }) => {
-  const searchStyle = {
-    display: isVisible ? "block" : "none",
-  };
-
-  return (
-    <nav className="nav__modal__search" style={searchStyle}>
-      <div className="nav__modal__search-container nav__modal__search_menu">
-        <ModalSearchForm onBack={onToggle} />
-        <ModalSearchContent entries={SearchEntries} />
-      </div>
-    </nav>
-  );
-};
-
-// Navigation Organism
-export const Navigation = () => {
+export default function NavigationAndModal () {
+  const { isLoggedIn, user, logout } = useAuthentication();
   const [isHamburgerVisible, setHamburgerVisible] = useState(false);
   const [isSearchVisible, setSearchVisible] = useState(false);
+  const [isDropdownOpen, setDropdownOpen] = useState(false);
 
   const toggleHamburger = () => {
     setHamburgerVisible(!isHamburgerVisible);
@@ -67,10 +21,10 @@ export const Navigation = () => {
     setSearchVisible(!isSearchVisible);
   };
 
-  // Jika User Ada Cart Testing
-  // const [cartItems, setCartItems] = useState(3);
+  const toggleDropDown = () => {
+    setDropdownOpen(!isDropdownOpen);
+  };
 
-  // Jika User Tidak Ada Cart Testing
   const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.user.carts);
 
@@ -81,6 +35,13 @@ export const Navigation = () => {
     }
   }, [dispatch, cartItems]);
 
+  const hamburgerStyle = {
+    display: isHamburgerVisible ? "block" : "none",
+  };
+
+  const searchStyle = {
+    display: isSearchVisible ? "block" : "none",
+  };
 
   return (
     <nav className="nav__navigation">
@@ -135,38 +96,98 @@ export const Navigation = () => {
           <NavImage
             className="nav__search_mobile_img"
             src="https://kyou.id/static/img/icon/search_orange.svg"
-            alt="Searc Icon"
+            alt="Search Icon"
           />
         </NavButton>
-        {/*  */}
         <CartBadge NavItemCount={cartItems.length} />
-        <a className="nav__button" href="/login">
+        <Link className="nav__button" to="/transactions">
           <NavImage
             src="https://kyou.id/static/img/icon/transactions.svg"
             alt="Transactions Icon"
           />
-        </a>
-        <a className="nav__button nav__wishlist_mobile" href="#">
+        </Link>
+        <Link className="nav__button nav__wishlist_mobile">
           <NavImage
             src="https://kyou.id/static/img/icon/wishlist_navbar.svg"
             alt="Wishlist Icon"
           />
-        </a>
+        </Link>
       </div>
-      <div className="nav__signin">
-        <a className="nav__text_signin" href="/login">
-          Sign in
-        </a>
-      </div>
-
+      {isLoggedIn ? (
+        <div>
+          <NavButton
+            type="button"
+            className="nav__button-signin"
+            onClick={toggleDropDown}
+          >
+            <NavImage
+              className="nav__menu_user-info-face"
+              src="https://kyou.id/static/img/icon/face.png"
+              alt="Face Kyou"
+            />
+            <NavSpan className="nav__name-signin">
+              Hello {user && user.name}
+            </NavSpan>
+            <NavImage
+              className="nav__triangle-signin"
+              src="https://kyou.id/static/img/icon/triangle-down.png"
+              alt="Triangle-down"
+            />
+          </NavButton>
+          {isDropdownOpen && (
+            <div className="nav__menu-dropdown">
+              <div className="nav__menu_top"></div>
+              <div className="nav__menu_inner_mobile">
+                <NavUserInfo username={user && user.name} />
+                <NavHR />
+                <NavFriendShip />
+                <NavHR />
+                <DropDownLinkList />
+                <NavHR />
+                <BtnLogout onClick={logout} />
+              </div>
+            </div>
+          )}
+        </div>
+      ) : (
+        <div className="nav__signin">
+          <Link className="nav__text_signin" to="/login">
+            Sign in
+          </Link>
+        </div>
+      )}
       {/* ModalHamburger */}
-      <ModalHamburger
-        isVisible={isHamburgerVisible}
-        onToggle={toggleHamburger}
-      />
+      <nav className="nav__modal__hamburger" style={hamburgerStyle}>
+        <div className="nav__modal-container nav__modal__menu">
+          <ModalButtonBack onBack={toggleHamburger} />
+          {isLoggedIn ? (
+            <div className="nav__menu_inner_mobile">
+              <NavUserInfo username={user && user.name} />
+              <NavHR />
+              <NavFriendShip />
+              <NavHR />
+              <DropDownLinkList />
+              <NavHR />
+              <BtnLogout onClick={logout} />
+            </div>
+          ) : (
+            <>
+              <ModalInfoCard />
+              <NavHR />
+              <ModalLinkMenu />
+            </>
+          )}
+        </div>
+      </nav>
 
       {/* ModalSearch */}
-      <ModalSearch isVisible={isSearchVisible} onToggle={toggleSearch} />
+      <nav className="nav__modal__search" style={searchStyle}>
+        <div className="nav__modal__search-container nav__modal__search_menu">
+          <ModalSearchForm onBack={toggleSearch} />
+          <ModalSearchContent entries={SearchEntries} />
+        </div>
+      </nav>
     </nav>
   );
 };
+

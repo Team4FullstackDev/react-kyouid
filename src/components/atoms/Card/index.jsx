@@ -17,8 +17,6 @@ const Card = ({
     backgroundColor: reviews.backgroundColor,
   };
 
-  console.log(newPrice);
-
   return (
     <div className="section__10_card" onClick={onClickHandler}>
       <img src={img} alt={title} className="section__10_image" />

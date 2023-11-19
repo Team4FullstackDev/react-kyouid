@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { addToCart, getProductsCart } from "../actions/carts.action";
+import { addToCart, deleteCart, getProductsCart } from "../actions/carts.action";
 
 const initialState = {
   user: {
@@ -28,6 +28,9 @@ const userSlice = createSlice({
     })
     builder.addCase(getProductsCart.fulfilled, (state, action) => {
       state.carts = action.payload;
+    })
+    builder.addCase(deleteCart.fulfilled, (state, action) => {
+      state.carts = state.carts.filter((item) => item.id != action.payload);
     })
   }
 });
