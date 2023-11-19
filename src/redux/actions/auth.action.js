@@ -25,3 +25,16 @@ export const login = createAsyncThunk(
     }
   }
 );
+
+export const register = createAsyncThunk(
+  "auth/register",
+  async (body, { rejectWithValue }) => {
+    try {
+      const response = await axios.post("http://localhost:3000/users", body);
+      return response.data;
+    } catch (error) {
+      // Handle other errors, e.g., network issues
+      return rejectWithValue("An error occurred");
+    }
+  }
+)

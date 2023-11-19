@@ -6,6 +6,13 @@
       "username": "Bret",
       "email": "kxj5i@example.com",
       "password": 123456
+    },
+    {
+      "id": 2,
+      "name": "Mujahid",
+      "username": "hitzvera",
+      "email": "aoidjwj@gmail.com",
+      "password": 123456
     }
   ],
   "carts": [
