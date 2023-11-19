@@ -425,6 +425,15 @@ input[type="checkbox"]::before {
   .section_11_filter_mobile {
     display: block;
   }
+  .section_11_right_mobile {
+    display: flex;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  .section_11_right_mobile select {
+    padding: 10px 20px;
+    border-radius: 10px;
+  }
   .section_11_heading {
     border-bottom: none;
   }
