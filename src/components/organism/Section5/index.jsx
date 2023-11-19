@@ -61,9 +61,7 @@ const Section5 = () => {
     <section id="section__5">
       <div className="section__5-gallery-slider">
         <div className="section__5-container-col">
-          <h3 className="section__5-gallery-slider__tittle">
-          Most Liked
-          </h3>
+          <h3 className="section__5-gallery-slider__tittle">Most Liked</h3>
           <div className="section__5-gallery-slider__more">
             <Link className="" to="/wishlist">
               Lihat Semua
@@ -85,7 +83,7 @@ const Section5 = () => {
           </div>
         </div>
 
-         <div class="section__5-gallery-slider__content">
+        <div className="section__5-gallery-slider__content">
           <ButtonSlider
             onClickHandler={previous}
             classname="section__5-button-slider-prev

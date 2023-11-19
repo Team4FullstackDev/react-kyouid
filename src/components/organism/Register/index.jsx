@@ -1,33 +1,59 @@
-import ButtonLogin from "../../atoms/ButtonLogin"
-import { Link } from "react-router-dom"
-import HeadLogin from "../../moleculs/HeadLogin"
-import RegisterInput from "../../moleculs/RegisterInput"
-export default function Register(){
-    return(
-        <section className="register">
-        <div className="register_content">
-            <HeadLogin/>
+import ButtonLogin from "../../atoms/ButtonLogin";
+import { Link } from "react-router-dom";
+import HeadLogin from "../../moleculs/HeadLogin";
+import RegisterInput from "../../moleculs/RegisterInput";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../../redux/actions/auth.action";
+export default function Register() {
 
-            <form className="register_form_content" action="">
-                <div className="register_fb">
-                <ButtonLogin type="button" src="https://kyou.id/static/img/icon/Facebook_glyph.svg" tittle="Register with facebook" className="login_button_fb"/>
+  const registerForm = useSelector((state) => state.register.formFill);
+  const dispatch = useDispatch();
+  const { error, message } = useSelector((state) => state.register);
 
-                    <span className="register_content_label">
-                        Or
-                    </span>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(register(registerForm));
+    if (error) {
+      alert('Register failed');
+    } else {
+      alert('Register success');
+    }
+  }
 
-                </div>
+  return (
+    <section className="register">
+      <div className="register_content">
+        <HeadLogin />
 
-                <RegisterInput/>
+        <form
+          className="register_form_content"
+          onSubmit={(e) => handleSubmit(e)}
+        >
+          <div className="register_fb">
+            <ButtonLogin
+              type="button"
+              src="https://kyou.id/static/img/icon/Facebook_glyph.svg"
+              tittle="Register with facebook"
+              className="login_button_fb"
+            />
 
-                <div className="register_button">
-                <ButtonLogin type="submit" tittle="Register" className="register_btn"/>
-                </div>
-                <Link className="register_ready" to="/login">Already have an account? Click here!</Link>
-            </form>
+            <span className="register_content_label">Or</span>
+          </div>
 
-        </div>
+          <RegisterInput />
 
+          <div className="register_button">
+            <ButtonLogin
+              type="submit"
+              tittle="Register"
+              className="register_btn"
+            />
+          </div>
+          <Link className="register_ready" to="/login">
+            Already have an account? Click here!
+          </Link>
+        </form>
+      </div>
     </section>
-    )
+  );
 }
