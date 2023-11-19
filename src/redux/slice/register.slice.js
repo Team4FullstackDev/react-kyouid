@@ -10,7 +10,7 @@ const initialState = {
         username: '',
         email: '',
         password: '',
-        birthDate: '',
+        birthdate: '',
     }
 }
 
@@ -24,7 +24,6 @@ const registerSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder.addCase(register.fulfilled, (state, action) => {
-            console.log(action.payload)
             state.currentUser = action.payload
             state.loading = false
             state.message = 'Register success'

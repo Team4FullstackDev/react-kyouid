@@ -101,17 +101,17 @@ export const CartBadge = ({ NavItemCount }) => {
   return (
     <>
       {NavItemCount > 0 ? (
-        <a
+        <Link
           className="nav__button nav__cart-badge"
           data-count={NavItemCount}
-          href="/user/itemOrder"
+          to={"/carts"}
         >
           <NavImage
             className="nav__cart"
             src="https://kyou.id/static/img/icon/cart.svg"
             alt="Cart Icon"
           />
-        </a>
+        </Link>
       ) : (
         <a className="nav__button" href="/login">
           <NavImage

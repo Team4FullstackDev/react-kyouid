@@ -2,13 +2,33 @@ import ButtonLogin from "../../atoms/ButtonLogin";
 import { Link } from "react-router-dom";
 import HeadLogin from "../../moleculs/HeadLogin";
 import RegisterInput from "../../moleculs/RegisterInput";
+import { useDispatch, useSelector } from "react-redux";
+import { register } from "../../../redux/actions/auth.action";
 export default function Register() {
+
+  const registerForm = useSelector((state) => state.register.formFill);
+  const dispatch = useDispatch();
+  const { error, message } = useSelector((state) => state.register);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(register(registerForm));
+    if (error) {
+      alert('Register failed');
+    } else {
+      alert('Register success');
+    }
+  }
+
   return (
     <section className="register">
       <div className="register_content">
         <HeadLogin />
 
-        <form className="register_form_content" action="">
+        <form
+          className="register_form_content"
+          onSubmit={(e) => handleSubmit(e)}
+        >
           <div className="register_fb">
             <ButtonLogin
               type="button"

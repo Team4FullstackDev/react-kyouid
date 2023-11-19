@@ -1,0 +1,135 @@
+.error-404 {
+    background: #ffffff;
+    padding: 64px 72px;
+    position: relative;
+    border-top: 10px solid #FC4C02;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.1);
+}
+
+.error-404 .error {
+    margin: 0 auto 48px;
+    text-align: center;
+}
+
+.error-404 .selector {
+    margin-top: 64px;
+    text-align: center;
+}
+
+.error-404 .error h1.number {
+    font-size: 128px;
+    margin: 0px;
+    color: #FC4C02;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.error-404 .error h1.number img {
+    width: 96px;
+    height: 110px;
+    background: #FC4C02;
+    border-radius: 64px;
+    margin-left: 8px;
+    object-fit: cover;
+    margin-top: -8px;
+}
+
+.error-404 .error p.quote {
+    font-size: 24px;
+    color: #565252;
+    position: relative;
+    margin: 0px auto;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    letter-spacing: 1.6px;
+    max-width: 40%;
+}
+
+.error-404 .error p.quote::before {
+    content: "\201C";
+    color: #a2a2a2;
+    font-size: 256px;
+    position: absolute;
+    opacity: 0.15;
+    top: -72px;
+    margin-left: -64px;
+}
+
+.error-404 .error span.characterName {
+    color: #565252;
+}
+
+.error-404 .error span.series {
+    color: #a2a2a2;
+}
+
+.error-404 .error p.notice {
+    margin-top: 64px;
+    font-size: 18px;
+    box-sizing: border-box;
+    color: #565252;
+}
+
+.error-404 .error a {
+    font-size: 16px;
+    padding: 8px;
+    border: 1px solid #FC4C02;
+    box-sizing: border-box;
+    display: inline-block;
+    border-radius: 4px;
+    text-decoration: none;
+    margin-top: 8px;
+}
+
+.error-404 .selector {
+    margin-top: 64px;
+    text-align: center;
+}
+
+.error-404 .selector span {
+    font-size: 20px;
+    color: #565252;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0px auto;
+}
+
+.error-404 .selector span .select {
+    min-width: 256px;
+    margin: 0px 8px;
+}
+
+.css-yk16xz-control {
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgb(255, 255, 255);
+    border-color: rgb(204, 204, 204);
+    border-radius: 4px;
+    border-style: solid;
+    border-width: 1px;
+    cursor: default;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: justify;
+    justify-content: space-between;
+    min-height: 38px;
+    position: relative;
+    transition: all 100ms ease 0s;
+    box-sizing: border-box;
+    outline: 0px !important;
+}
+
+.css-1hwfws3 {
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex: 1 1 0%;
+    flex-wrap: wrap;
+    padding: 2px 8px;
+    position: relative;
+    overflow: hidden;
+    box-sizing: border-box;
+}
