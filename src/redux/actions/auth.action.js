@@ -1,24 +1,18 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL;
 export const login = createAsyncThunk(
   "auth/login",
   async (body, { rejectWithValue }) => {
     try {
-      const response = await axios.get("http://localhost:3000/users");
-      const data = response.data;
       const { username, password } = body;
+      const response = await axios.post(`${baseUrl}/login`, {
+        username,
+        password,
+      });
 
-      const isUserFound = data.find(
-        (user) => user.username == username && user.password == password
-      );
-
-      if (!isUserFound) {
-        // Handle rejection with a specific value
-        return rejectWithValue("User not found");
-      }
-
-      return isUserFound;
+      return response.data;
     } catch (error) {
       // Handle other errors, e.g., network issues
       return rejectWithValue("An error occurred");
@@ -30,11 +24,12 @@ export const register = createAsyncThunk(
   "auth/register",
   async (body, { rejectWithValue }) => {
     try {
-      const response = await axios.post("http://localhost:3000/users", body);
+      console.log(body)
+      const response = await axios.post(`${baseUrl}/users`, {...body, phoneNumber: ''});
       return response.data;
     } catch (error) {
       // Handle other errors, e.g., network issues
-      return rejectWithValue("An error occurred");
+      return rejectWithValue(error);
     }
   }
-)
+);

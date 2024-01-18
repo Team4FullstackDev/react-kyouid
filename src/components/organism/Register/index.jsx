@@ -12,9 +12,14 @@ export default function Register() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    try {
+      dispatch(register(registerForm));
+    } catch (error) {
+      console.log(error);
+    }
     dispatch(register(registerForm));
     if (error) {
-      alert('Register failed');
+      alert(message);
     } else {
       alert('Register success');
     }
@@ -33,7 +38,7 @@ export default function Register() {
             <ButtonLogin
               type="button"
               src="https://kyou.id/static/img/icon/Facebook_glyph.svg"
-              tittle="Register with facebook"
+              title="Register with facebook"
               className="login_button_fb"
             />
 
@@ -45,7 +50,7 @@ export default function Register() {
           <div className="register_button">
             <ButtonLogin
               type="submit"
-              tittle="Register"
+              title="Register"
               className="register_btn"
             />
           </div>

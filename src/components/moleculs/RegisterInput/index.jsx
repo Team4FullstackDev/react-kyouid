@@ -14,9 +14,9 @@ export default function RegisterInput() {
       <Input
         type="text"
         label="Full Name"
-        name="name"
-        htmlFor="fullname"
-        value={registerForm?.name}
+        name="fullName"
+        htmlFor="fullName"
+        value={registerForm?.fullName}
         onChangeHandler={(e) => onChangeHandler(e)}
       />
 
@@ -50,9 +50,9 @@ export default function RegisterInput() {
       <Input
         type="date"
         label="Birth Date"
-        name="birthdate"
+        name="birthDate"
         htmlFor="birthdate"
-        value={registerForm?.birthdate}
+        value={registerForm?.birthDate}
         onChangeHandler={(e) => onChangeHandler(e)}
       />
     </>

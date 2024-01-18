@@ -6,11 +6,11 @@ const initialState = {
     message: '',
     loading: false,
     formFill: {
-        name: '',
+        fullName: '',
         username: '',
         email: '',
         password: '',
-        birthdate: '',
+        birthDate: '',
     }
 }
 
