@@ -4,7 +4,6 @@ import { deleteCart } from "../../../redux/actions/carts.action";
 import { useState } from "react";
 
 export default function CartItemCard({ itemCart }) {
-  let selectedId = null;
   const dispatch = useDispatch();
 
   return (
@@ -30,10 +29,7 @@ export default function CartItemCard({ itemCart }) {
               <span className="cartsPage__list-item-price desktop-only">
                 {itemCart.prevPrice}
               </span>
-              <div
-                className="cartsPage__list-item-buttons desktop-only"
-                style={{ minWidth: "76px" }}
-              >
+              <div className="cartsPage__list-item-buttons desktop-only">
                 <button>
                   <img
                     src="https://kyou.id/static/img/icon/wishlist_active.svg"
