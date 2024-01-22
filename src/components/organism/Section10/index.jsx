@@ -3,34 +3,44 @@ import FilterButtons from "../../moleculs/FilterButtons";
 import Products from "../../moleculs/Products";
 import productsData from "../../../utils/constant/DataSection10";
 import "../../styles/section10.css";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../../../redux/slice/products.slice";
 
 const Section10 = ({ handleClick, selectedCategory }) => {
   const [filteredProducts, setFilteredProducts] = useState([]);
   const [visibleItems, setVisibleItems] = useState(24);
   const [noMoreItems, setNoMoreItems] = useState(false);
 
+  const product = useSelector((state) => state.products);
+  console.log(product);
+
+  const dispatch = useDispatch();
   useEffect(() => {
-    filterData();
-  }, [selectedCategory]);
+    dispatch(getProducts());
+  }, [dispatch]);
 
-  const filterData = () => {
-    let filteredProducts = productsData;
+  // useEffect(() => {
+  //   filterData();
+  // }, [selectedCategory]);
 
-    if (selectedCategory) {
-      filteredProducts = filteredProducts.filter(
-        ({ category, color, company, newPrice, title }) =>
-          category === selectedCategory ||
-          color === selectedCategory ||
-          company === selectedCategory ||
-          newPrice === selectedCategory ||
-          title === selectedCategory
-      );
-    }
+  // const filterData = () => {
+  //   let filteredProducts = { product };
 
-    setFilteredProducts(filteredProducts);
-    setVisibleItems(24);
-    setNoMoreItems(false);
-  };
+  //   if (selectedCategory) {
+  //     filteredProducts = filteredProducts.filter(
+  //       ({ category, color, company, newPrice, title }) =>
+  //         category === selectedCategory ||
+  //         color === selectedCategory ||
+  //         company === selectedCategory ||
+  //         newPrice === selectedCategory ||
+  //         title === selectedCategory
+  //     );
+  //   }
+
+  //   setFilteredProducts(filteredProducts);
+  //   setVisibleItems(24);
+  //   setNoMoreItems(false);
+  // };
 
   const loadMore = () => {
     if (visibleItems >= filteredProducts.length) {
@@ -55,7 +65,7 @@ const Section10 = ({ handleClick, selectedCategory }) => {
         />
         <div className="section__10_filterable-card">
           <Products
-            data={filteredProducts.slice(0, visibleItems)}
+            data={product.products}
             loadMore={loadMore}
             visibleItems={visibleItems}
           />

@@ -1,15 +1,22 @@
 import { DataSection5 } from "../../../utils/constant/DataSection5";
 import Slider from "react-slick";
 import Card from "../../atoms/Card";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import ButtonSlider from "../../atoms/ButtonSlider";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
+import { getProducts } from "../../../redux/slice/products.slice";
 
 const Section5 = () => {
   const sliderRef = useRef(null);
+  const product = useSelector((state) => state.products);
+  console.log(product);
 
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
   const next = () => {
     if (sliderRef.current) {
       sliderRef.current.slickNext();
@@ -55,8 +62,6 @@ const Section5 = () => {
     ],
   };
 
-  const dispatch = useDispatch();
-
   return (
     <section id="section__5">
       <div className="section__5-gallery-slider">
@@ -95,15 +100,20 @@ const Section5 = () => {
             ref={sliderRef}
             {...settings}
           >
-            {DataSection5.map((product) => (
+            {product.products.map((product) => (
               <Link key={product.id} to={`/items/${product.id}`}>
                 <Card
-                  img={product.img}
+                  key={product.id}
+                  img={
+                    product.Image_Products &&
+                    product.Image_Products[0] &&
+                    product.Image_Products[0].thumbnail
+                  }
                   title={product.title}
-                  titleDate={product.titleDate}
-                  reviews={product.reviews}
-                  prevPrice={product.prevPrice}
-                  newPrice={product.newPrice}
+                  titleDate={product.createdAt}
+                  status={product.status}
+                  price={product.price}
+                  minimumCredits={product.minimumCredits}
                   onClickHandler={() => dispatch(getProductDetail(product))}
                   dp="DP"
                   idr="IDR"
