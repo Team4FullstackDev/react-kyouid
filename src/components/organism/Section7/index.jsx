@@ -1,15 +1,24 @@
-import { productSection7 } from "../../../utils/constant/DataSection7";
 import Slider from "react-slick";
 import Card from "../../atoms/Card";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRef } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
+import { getProductById } from "../../../redux/slice/productById.slice";
+import { getProducts } from "../../../redux/slice/products.slice";
 import ButtonSlider from "../../atoms/ButtonSlider";
+import { useEffect } from "react";
 
 const Section7 = () => {
+  const product = useSelector((state) => state.products);
+  console.log(product);
+
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, [dispatch]);
+
   const sliderRef = useRef(null);
 
   const next = () => {
@@ -57,8 +66,6 @@ const Section7 = () => {
     ],
   };
 
-  const dispatch = useDispatch();
-
   return (
     <section id="section__7">
       <div className="section__7-gallery-slider">
@@ -94,27 +101,38 @@ const Section7 = () => {
             "
             text="‹"
           />
-          <Slider
-            className="section__7-container-card"
-            ref={sliderRef}
-            {...settings}
-          >
-            {productSection7.map((product) => (
-              <Link key={product.id} to={`/items/${product.id}`}>
-                <Card
-                  img={product.img}
-                  title={product.title}
-                  titleDate={product.titleDate}
-                  reviews={product.reviews}
-                  prevPrice={product.prevPrice}
-                  newPrice={product.newPrice}
-                  onClickHandler={() => dispatch(getProductDetail(product))}
-                  dp="DP"
-                  idr="IDR"
-                />
-              </Link>
-            ))}
-          </Slider>
+          {product.loading && <p>Loading</p>}
+          {!product.loading && product.error ? (
+            <p> error :{product.error}</p>
+          ) : null}
+          {!product.loading && product.products.length ? (
+            <Slider
+              className="section__8-container-card"
+              ref={sliderRef}
+              {...settings}
+            >
+              {product.products.map((product) => (
+                <Link key={product.id} to={`/items/${product.id}`}>
+                  <Card
+                    key={product.id}
+                    img={
+                      product.Image_Products &&
+                      product.Image_Products[0] &&
+                      product.Image_Products[0].thumbnail
+                    }
+                    title={product.title}
+                    titleDate={product.createdAt}
+                    status={product.status}
+                    price={product.price}
+                    minimumCredits={product.minimumCredits}
+                    onClickHandler={() => dispatch(getProductById(product))}
+                    dp="DP"
+                    idr="IDR"
+                  />
+                </Link>
+              ))}
+            </Slider>
+          ) : null}
 
           <ButtonSlider
             onClickHandler={next}

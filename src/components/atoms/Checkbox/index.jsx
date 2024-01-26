@@ -6,10 +6,22 @@ export default function Checkbox({
   name,
   id,
   title,
+  handlechecked,
 }) {
+  const handleChecked = (title, name) => {
+    if (handlechecked) {
+      handlechecked(title, name);
+    }
+  };
   return (
     <label className={className} htmlFor={htmlFor}>
-      <input onClick={handlechange} type={type} name={name} id={id} />
+      <input
+        onChange={() => handleChecked(title, name)}
+        type={type}
+        name={name}
+        title={title}
+        id={id}
+      />
       <span>{title}</span>
     </label>
   );
