@@ -1,17 +1,122 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ResetButton, CategoryItem } from "../../atoms/ButtonCategory";
 import "../../styles/section11.css";
+import { useDispatch } from "react-redux";
+import { getProductsByFilter } from "../../../redux/slice/productsFilter";
 
 const Category = () => {
+  const [activeCategory, setActiveCategory] = useState("");
+  const [filterData, setFilterData] = useState({
+    status: [],
+    category: [],
+    character: [],
+    series: [],
+  });
+  const dispatch = useDispatch();
+
   const handleReset = () => {
-    // Logika untuk mereset semua
-    // ...
+    setFilterData({
+      status: [],
+      category: [],
+      character: [],
+      series: [],
+    });
+    setActiveCategory("");
   };
 
-  const handleItemClick = (item) => {
-    // Logika untuk menangani pemilihan item
-    // ...
+  const handleFilterChange = (title, name) => {
+    setFilterData((prevData) => {
+      return {
+        ...prevData,
+        [name]: prevData[name].includes(title)
+          ? prevData[name].filter((item) => item !== title)
+          : [...prevData[name], title],
+      };
+    });
+    setActiveCategory(title);
   };
+
+  useEffect(() => {
+    dispatch(getProductsByFilter(filterData));
+  });
+  const category = [
+    {
+      title: "Merchandise",
+      name: "category",
+    },
+    {
+      title: "Prize Figure",
+      name: "category",
+    },
+    {
+      title: "Nendoroid",
+      name: "category",
+    },
+    {
+      title: "Scaled Figure",
+      name: "category",
+    },
+    {
+      title: "Pop Up Parade",
+      name: "category",
+    },
+    {
+      title: "Model Kit",
+      name: "category",
+    },
+    {
+      title: "Figma",
+      name: "category",
+    },
+    {
+      title: "Plush",
+      name: "category",
+    },
+    {
+      title: "Light Novel",
+      name: "category",
+    },
+    {
+      title: "Manga",
+      name: "category",
+    },
+  ];
+  const series = [
+    {
+      title: "Jujutsu Kaisen",
+      name: "series",
+    },
+    {
+      title: "Genshin Impact",
+      name: "series",
+    },
+    {
+      title: "Chainsaw Man",
+      name: "series",
+    },
+    {
+      title: "Kimetsu No Yaiba",
+      name: "series",
+    },
+  ];
+  const character = [
+    {
+      title: "Gojo Satoru",
+      name: "character",
+    },
+    {
+      title: "Hatsune Miku",
+      name: "character",
+    },
+    {
+      title: "Muichiro Tokito",
+      name: "character",
+    },
+    {
+      title: "Itadori Yuji",
+      name: "character",
+    },
+  ];
 
   return (
     <>
@@ -19,6 +124,8 @@ const Category = () => {
         Character & Series
         <ResetButton onClick={handleReset}>Reset All</ResetButton>
       </span>
+
+      {/* filter by category */}
       <CategoryItem
         clasname="section_11_subcategory"
         item="Category"
@@ -26,20 +133,25 @@ const Category = () => {
       >
         <ResetButton>Reset</ResetButton>
       </CategoryItem>
+
       <div className="section_11_gory">
-        <CategoryItem
-          item="Merchandise - Acrylic (15470)"
-          onClick={() => handleItemClick("Merchandise - Acrylic (15470)")}
-        />
-        <CategoryItem
-          item="Merchandise (12572)"
-          onClick={() => handleItemClick("Merchandise (12572)")}
-        />
-        <CategoryItem
-          item="Prize Figure (8122)"
-          onClick={() => handleItemClick("Prize Figure (8122)")}
-        />
+        {category.map((cat) => (
+          <CategoryItem
+            item={cat.title}
+            name={cat.name}
+            key={cat.title}
+            onClick={() => handleFilterChange(cat.title, cat.name)}
+            clasname={
+              cat.title === activeCategory
+                ? "section_11__filterActive"
+                : "section_11__filter"
+            }
+          />
+        ))}
       </div>
+      {/* end filter by category */}
+
+      {/* filter by series */}
       <CategoryItem
         clasname="section_11_subcategory"
         item="Series"
@@ -48,19 +160,18 @@ const Category = () => {
         <ResetButton>Reset</ResetButton>
       </CategoryItem>
       <div className="section_11_gory">
-        <CategoryItem
-          item="Kimetsu no Yaiba (4415)"
-          onClick={() => handleItemClick("Kimetsu no Yaiba (4415)")}
-        />
-        <CategoryItem
-          item="Fate (4312)"
-          onClick={() => handleItemClick("Fate (4312)")}
-        />
-        <CategoryItem
-          item="Hololive (3643)"
-          onClick={() => handleItemClick("Hololive (3643)")}
-        />
+        {series.map((series) => (
+          <CategoryItem
+            item={series.title}
+            name={series.name}
+            key={series.title}
+            onClick={() => handleFilterChange(series.title, series.name)}
+          />
+        ))}
       </div>
+      {/* end filter by series */}
+
+      {/* filter by character */}
       <CategoryItem
         clasname="section_11_subcategory"
         item="Character"
@@ -69,40 +180,16 @@ const Category = () => {
         <ResetButton>Reset</ResetButton>
       </CategoryItem>
       <div className="section_11_gory">
-        <CategoryItem
-          item="Non Character (1994)"
-          onClick={() => handleItemClick("Non Character (1994)")}
-        />
-        <CategoryItem
-          item="Hatsune Miku (1466)"
-          onClick={() => handleItemClick("Hatsune Miku (1466)")}
-        />
-        <CategoryItem
-          item="Original Character (814)"
-          onClick={() => handleItemClick("Original Character (814)")}
-        />
+        {character.map((char) => (
+          <CategoryItem
+            item={char.title}
+            name={char.name}
+            key={char.title}
+            onClick={() => handleFilterChange(char.title, char.name)}
+          />
+        ))}
       </div>
-      <CategoryItem
-        clasname="section_11_subcategory"
-        item="Brand"
-        onClick={handleReset}
-      >
-        <ResetButton>Reset</ResetButton>
-      </CategoryItem>
-      <div className="section_11_gory">
-        <CategoryItem
-          item="COSPA (4764)"
-          onClick={() => handleItemClick("COSPA (4764)")}
-        />
-        <CategoryItem
-          item="Bandai Spirits (4692)"
-          onClick={() => handleItemClick("Bandai Spirits (4692)")}
-        />
-        <CategoryItem
-          item="Good Smile Company (4585)"
-          onClick={() => handleItemClick("Good Smile Company (4585)")}
-        />
-      </div>
+      {/* end filter by character */}
     </>
   );
 };

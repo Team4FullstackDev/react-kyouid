@@ -4,49 +4,32 @@ import Products from "../../moleculs/Products";
 import productsData from "../../../utils/constant/DataSection10";
 import "../../styles/section10.css";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../../../redux/slice/products.slice";
 
-const Section10 = ({ handleClick, selectedCategory }) => {
-  const [filteredProducts, setFilteredProducts] = useState([]);
+import { getProductsByFilter } from "../../../redux/slice/productsFilter";
+
+const Section10 = ({ selectedCategory }) => {
   const [visibleItems, setVisibleItems] = useState(24);
   const [noMoreItems, setNoMoreItems] = useState(false);
 
-  const product = useSelector((state) => state.products);
+  const product = useSelector((state) => state.productsFilter);
+  const dispatch = useDispatch();
+
+  const handleFilterChange = (filterCategory, filterName) => {
+    const filterParams = { [filterName]: filterCategory };
+    dispatch(getProductsByFilter(filterParams));
+    console.log(filterParams);
+  };
+
+  useEffect(() => {
+    dispatch(getProductsByFilter());
+  }, [dispatch]);
   console.log(product);
 
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProducts());
-  }, [dispatch]);
-
-  // useEffect(() => {
-  //   filterData();
-  // }, [selectedCategory]);
-
-  // const filterData = () => {
-  //   let filteredProducts = { product };
-
-  //   if (selectedCategory) {
-  //     filteredProducts = filteredProducts.filter(
-  //       ({ category, color, company, newPrice, title }) =>
-  //         category === selectedCategory ||
-  //         color === selectedCategory ||
-  //         company === selectedCategory ||
-  //         newPrice === selectedCategory ||
-  //         title === selectedCategory
-  //     );
-  //   }
-
-  //   setFilteredProducts(filteredProducts);
-  //   setVisibleItems(24);
-  //   setNoMoreItems(false);
-  // };
-
   const loadMore = () => {
-    if (visibleItems >= filteredProducts.length) {
+    if (visibleItems >= product.products.length) {
       setNoMoreItems(true);
     } else {
-      setVisibleItems((prev) => Math.min(prev + 24, filteredProducts.length));
+      setVisibleItems((prev) => Math.min(prev + 24, product.products.length));
     }
   };
 
@@ -60,15 +43,11 @@ const Section10 = ({ handleClick, selectedCategory }) => {
       <h3 className="section__10_filter-tittle">Newest Items</h3>
       <div className="section__10_filter">
         <FilterButtons
-          handleClick={handleClick}
+          handleClick={handleFilterChange}
           selectedCategory={selectedCategory}
         />
         <div className="section__10_filterable-card">
-          <Products
-            data={product.products}
-            loadMore={loadMore}
-            visibleItems={visibleItems}
-          />
+          <Products data={product.productsFilter} loadMore={loadMore} />
         </div>
         <div className="section__10_btnn-next">
           {noMoreItems ? (

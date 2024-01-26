@@ -1,36 +1,23 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-// Define an initial filter state
-const initialFilterState = {
-  status: "",
-  category: "",
-  character: "",
-  series: "",
-};
+const baseUrl = import.meta.env.VITE_BACKEND_BASE_URL;
 
-// Define the initial state
 const initialState = {
   products: [],
   loading: false,
   error: "",
-  filter: initialFilterState,
 };
 
-// Modify getProducts to accept filter parameters
-export const getProducts = createAsyncThunk(
-  "products/",
-  async (filterParams) => {
-    const response = await axios.get("http://localhost:9001/products", {
-      params: filterParams,
-    });
-    const data = response.data.data.map((product) => ({
-      ...product,
-      createdAt: formatDate(product.createdAt),
-    }));
-    return data;
-  }
-);
+export const getProducts = createAsyncThunk("products/", async () => {
+  const response = await axios.get(`${baseUrl}/products`);
+  const data = response.data.data.map((product) => ({
+    ...product,
+    createdAt: formatDate(product.createdAt),
+  }));
+  return data;
+});
+
 const formatDate = function formatDate(dateString) {
   const options = { year: "numeric", month: "long" };
   const formattedDate = new Date(dateString).toLocaleDateString(
@@ -40,14 +27,14 @@ const formatDate = function formatDate(dateString) {
   return formattedDate;
 };
 
-// Create the product slice
 const productSlice = createSlice({
   name: "product",
   initialState,
   reducers: {
-    // Add a reducer to reset the filter
     resetFilter: (state) => {
-      state.filter = initialFilterState;
+      state.products = [];
+      state.loading = false;
+      state.error = "";
     },
   },
   extraReducers: (builder) => {

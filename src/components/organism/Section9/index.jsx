@@ -5,7 +5,7 @@ import { useEffect, useRef } from "react";
 import ButtonSlider from "../../atoms/ButtonSlider";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getProductDetail } from "../../../redux/slice/itemdetail.slice";
+import { getProductById } from "../../../redux/slice/productById.slice";
 import { getProducts } from "../../../redux/slice/products.slice";
 const Section9 = () => {
   const sliderRef = useRef(null);
@@ -122,7 +122,7 @@ const Section9 = () => {
                     status={product.status}
                     price={product.price}
                     minimumCredits={product.minimumCredits}
-                    onClickHandler={() => dispatch(getProductDetail(product))}
+                    onClickHandler={() => dispatch(getProductById(product))}
                     dp="DP"
                     idr="IDR"
                   />

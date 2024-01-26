@@ -1,81 +1,84 @@
+import { useEffect, useState } from "react";
 import Checkbox from "../../atoms/Checkbox";
+import { useDispatch } from "react-redux";
 
-export default function CheckboxGroup({ handlechange }) {
+import { getProductsByFilter } from "../../../redux/slice/productsFilter";
+
+export default function CheckboxGroup() {
+  const [filterData, setFilterData] = useState({
+    status: [],
+    category: [],
+    character: [],
+    series: [],
+  });
+  const dispatch = useDispatch();
+
+  const handleReset = () => {
+    setFilterData({
+      status: [],
+      category: [],
+      character: [],
+    });
+  };
+
+  const handleFilterChange = (title, name) => {
+    setFilterData((prevData) => {
+      if (title !== "All Item") {
+        return {
+          ...prevData,
+          [name]: prevData[name].includes(title)
+            ? prevData[name].filter((item) => item !== title)
+            : [...prevData[name], title],
+        };
+      } else {
+        handleReset();
+      }
+    });
+  };
+
+  useEffect(() => {
+    dispatch(getProductsByFilter(filterData));
+  });
+  const availability = [
+    {
+      title: "All Item",
+      name: "status",
+      id: "section_11_all",
+      className: "section_11_radiodb",
+    },
+    {
+      title: "Ready Stock",
+      name: "status",
+      id: "section_11_ready",
+      className: "section_11_radiodb indented",
+    },
+    {
+      title: "Late pre-order",
+      name: "status",
+      id: "section_11_po",
+      className: "section_11_radiodb indented",
+    },
+    {
+      title: "Pre-Order",
+      name: "status",
+      id: "section_11_bo",
+      className: "section_11_radiodb indented",
+    },
+  ];
   return (
     <>
       <h2 className="section_11_category">Availability</h2>
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb"
-        htmlFor="all"
-        type="checkbox"
-        name="Availability"
-        id="section_11_all"
-        title=" All Items"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb indented"
-        htmlFor="Ready"
-        type="checkbox"
-        name="Availability"
-        id="section_11_ready"
-        title=" Ready Stock"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb indented"
-        htmlFor="po"
-        type="checkbox"
-        name="Availability"
-        id="section_11_ready"
-        title=" Pre Order"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb indented"
-        htmlFor="bo"
-        type="checkbox"
-        name="Availability"
-        id="section_11_bo"
-        title=" Back Order"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb"
-        htmlFor="hideclose"
-        type="checkbox"
-        name="hideclose"
-        id="section_11_hideclose"
-        title=" Hide Sold Items"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb"
-        htmlFor="hideshowcase"
-        type="checkbox"
-        name="hideshowcase"
-        id="section_11_hideshowcase"
-        title=" Hide ShowCase Items"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb"
-        htmlFor="enableprice"
-        type="checkbox"
-        name="enableprice"
-        id="section_11_enableprice"
-        title=" Enable Price Filter"
-      />
-      <Checkbox
-        handlechange={handlechange}
-        className="section_11_radiodb"
-        htmlFor="showcass"
-        type="checkbox"
-        name="showcase"
-        id="section_11_showcase"
-        title=" Only ShowCase Items"
-      />
+      {availability.map((avail) => (
+        <Checkbox
+          handlechecked={handleFilterChange}
+          className={avail.className}
+          htmlFor="all"
+          type="checkbox"
+          name={avail.name}
+          id={avail.id}
+          title={avail.title}
+        />
+      ))}
     </>
   );
 }
