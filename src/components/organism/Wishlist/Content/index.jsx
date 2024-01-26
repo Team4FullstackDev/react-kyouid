@@ -6,6 +6,8 @@ import productsData from "../../../../utils/constant/DataSection10";
 import { getPaginatedData } from "../../../../utils/constant/DataSection10";
 import Card from "../../../atoms/Card";
 import SidebarMobile from "../Sidebar/SidebarMobile";
+import { getProductsByFilter } from "../../../../redux/slice/productsFilter";
+import { useDispatch, useSelector } from "react-redux";
 
 const PAGE_SIZE = 24;
 
@@ -23,6 +25,18 @@ const Content = () => {
     { value: "likes", label: "Most Liked", selected: false },
   ];
 
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.productsFilter);
+  const filters = useSelector((state) => state.productsFilter.filter);
+
+  useEffect(() => {
+    dispatch(getProductsByFilter());
+  }, [dispatch]);
+  console.log(product);
+
+  console.log("cek123", product);
+  // console.log("cek12345", JSON.stringify(filter, null, 2));
+
   const [pageNumber, setPageNumber] = useState(1);
   const [showSidebarMobile, setShowSidebarMobile] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -37,6 +51,7 @@ const Content = () => {
   const handleFilterChange = (selectedValue) => {
     setSelectedFilter(selectedValue);
     setPageNumber(1);
+    console.log(selectedFilter);
   };
 
   const handlePrevPage = () => {
@@ -100,9 +115,24 @@ const Content = () => {
           handleChange={handleFilterChange}
         />
       )}
-      <div className="section__10_filterable-card">
-        {cardsToRender.map((product) => (
-          <Card key={product.id} {...product} />
+      <div className="section__11_filterable-card">
+        {product.productsFilter.map((product) => (
+          <Card
+            key={product.id}
+            img={
+              product.Image_Products &&
+              product.Image_Products[0] &&
+              product.Image_Products[0].thumbnail
+            }
+            title={product.title}
+            titleDate={product.createdAt}
+            status={product.status}
+            price={product.price}
+            minimumCredits={product.minimumCredits}
+            dp="DP"
+            idr="IDR"
+            {...product}
+          />
         ))}
       </div>
 

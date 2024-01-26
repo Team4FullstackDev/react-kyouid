@@ -1,11 +1,27 @@
-import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addToCart } from "../../redux/actions/carts.action";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import axios from "axios";
+
+import { useParams } from "react-router";
 
 export default function ItemDetail() {
-  const product = useSelector((state) => state.itemDetail.detailProducts);
-  const loading = useSelector((state) => state.user.loading);
-  const dispatch = useDispatch();
+  const [product, setProduct] = useState([]);
+  const { id } = useParams();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          `http://localhost:9001/api/v1/products/${id}`
+        );
+        setProduct(response.data.data);
+      } catch (error) {
+        console.error("Error fetching product:", error);
+      }
+    };
+
+    fetchData();
+  }, [id]);
+
   const [quantity, setQuantity] = useState(1);
 
   const onChangeQuantity = (e) => {
@@ -26,21 +42,32 @@ export default function ItemDetail() {
       setQuantity(quantity - 1);
     }
   };
-
+  console.log(product);
   return (
     <div className="itemDetail_parent_container">
       <div className="itemDetail_child_first">
         <div className="itemDetail_first_imageContainer">
-          <img src={product.img} alt="image item" />
+          <img
+            src={
+              product.Image_Products &&
+              product.Image_Products[0] &&
+              product.Image_Products[0].thumbnail
+            }
+            alt="image item"
+          />
         </div>
       </div>
       <div className="itemDetail_child_second">
         <div className="itemDetail_status_container">
           <div
             className="itemDetail_status"
-            style={{ backgroundColor: product.reviews?.backgroundColor }}
+            style={
+              product.status === "Ready Stock"
+                ? { background: "green" }
+                : { color: "red" }
+            }
           >
-            <span>{product.reviews?.text}</span>
+            <span>{product.status}</span>
           </div>
           <div className="itemDetail_share">
             <p>Share</p>
@@ -49,12 +76,19 @@ export default function ItemDetail() {
 
         <h2 className="itemDetail_title">{product.title}</h2>
 
-        <p className="itemDetail_by">By Bandai Spirits</p>
+        <p className="itemDetail_by">{product.manufacture}</p>
 
         <hr className="desktop-only" />
 
         <div className="itemDetail_price_container">
-          <h3 className="itemDetail_price">{product.prevPrice}</h3>
+          <h3 className="itemDetail_price">
+            IDR {"  "}
+            {+product.price &&
+              product.price.toLocaleString("id-ID", {
+                style: "decimal",
+                currency: "IDR",
+              })}
+          </h3>
           <span className="itemDetail_pointFriendship">
             Earn 140 Friendship point
           </span>
@@ -71,7 +105,7 @@ export default function ItemDetail() {
         <div className="itemDetail_dp_container">
           <div className="itemDetail_dp">
             <p className="itemDetail_dp_title">Minumun DP</p>
-            <p className="itemDetail_dp_price">{product.newPrice}</p>
+            <p className="itemDetail_dp_price">{product.minimumCredits}</p>
           </div>
           <div className="itemDetail_fullpayment_discount desktop-only">
             <p className="itemDetail_fullpayment_discount_title">
@@ -97,7 +131,7 @@ export default function ItemDetail() {
         <div className="itemDetail_release_eta">
           <div className="itemDetail_release">
             <span className="release_key">Releases</span>
-            <span className="release_value">{product.titleDate}</span>
+            <span className="release_value">{product.createdAt}</span>
           </div>
           <div className="itemDetail_eta">
             <span className="eta_key">Estimated Arrival</span>
@@ -128,14 +162,20 @@ export default function ItemDetail() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="https://kyou.id/static/img/icon/Line_glyph.svg" alt="line" />
+                  <img
+                    src="https://kyou.id/static/img/icon/Line_glyph.svg"
+                    alt="line"
+                  />
                 </a>
                 <a
                   href="https://twitter.com/intent/tweet?text=Ayo cek item Ayanami Rei ini dan puluhan ribu Anime Figure %26 Goods lainnya hanya di Kyou.id!&amp;url=https://kyou.id/items/104806/pop-up-parade-figure-ayanami-rei-long-hair-ver-rebuild-of-evangelion-rerelease"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <img src="https://kyou.id/static/img/icon/Twitter_glyph.svg" alt="twitter" />
+                  <img
+                    src="https://kyou.id/static/img/icon/Twitter_glyph.svg"
+                    alt="twitter"
+                  />
                 </a>
               </div>
             </div>
@@ -162,18 +202,19 @@ export default function ItemDetail() {
                 src="/Spinner-1s-100px.gif"
                 alt="spinner"
                 className="itemDetail_spinner"
-                style={{ display: loading ? "block" : "none" }}
+                // style={{ display: loading ? "block" : "none" }}
               />
             </span>
           </button>
         </div>
 
-        <hr className="desktop-only"/>
+        <hr className="desktop-only" />
         <hr className="product-view__content__divider mobileOnly"></hr>
 
         <div className="itemDetail_description">
           <div className="itemDetail_content_description">
             <h3>About this item</h3>
+            <p>{product.description}</p>
             <div>
               <span>
                 <br />
@@ -185,25 +226,25 @@ export default function ItemDetail() {
             <li>
               <h4>Character</h4>
               <div className="info">
-                <a href="#">Hinana Ichikawa</a>
+                <a href="#">{product.character}</a>
               </div>
             </li>
             <li>
               <h4>Series</h4>
               <div className="info">
-                <a href="#">The iDOLM@STER</a>
+                <a href="#">{product.series}</a>
               </div>
             </li>
             <li>
               <h4>Category</h4>
               <div className="info">
-                <a href="#">Prize Figure</a>
+                <a href="#">{product.category}</a>
               </div>
             </li>
             <li>
               <h4>Manufacture</h4>
               <div className="info">
-                <a href="#">Bandai Spirits</a>
+                <a href="#">{product.manufacture}</a>
               </div>
             </li>
           </ul>

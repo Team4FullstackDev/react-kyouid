@@ -110,7 +110,7 @@
 }
 .section_11_gory span {
   font-size: 14px;
-  color: #606060;
+
   display: inline-flex;
   align-items: center;
   box-sizing: border-box;
@@ -358,6 +358,12 @@ input[type="checkbox"]::before {
   border-radius: 5px;
   color: #ffffff;
 }
+.section_11__filterActive {
+  color: #fc4c02;
+}
+.section_11__filter {
+  cursor: pointer;
+}
 .section_11__active .section_11__undefined {
   color: #ffffff;
   cursor: default;
@@ -412,6 +418,14 @@ input[type="checkbox"]::before {
   font-weight: bold;
   color: #565252;
   flex-grow: 1;
+}
+.section__11_filterable-card {
+  margin-top: 25px;
+  display: grid;
+  gap: 2px;
+  grid-template-columns: repeat(5, 177px);
+  overflow: hidden;
+  justify-content: center;
 }
 
 @media screen and (max-width: 1024px) {
