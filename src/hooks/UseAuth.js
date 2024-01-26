@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
-
+import { setCurrentUser } from "../redux/slice/auth.slice";
+import { useDispatch } from "react-redux";
 export default function useAuthentication() {
+
+
+  const dispatch = useDispatch();
+
   const [authState, setAuthState] = useState({
     isLoggedIn: false,
     user: null,
@@ -20,6 +25,7 @@ export default function useAuthentication() {
       isLoggedIn: false,
       user: null,
     });
+    dispatch(setCurrentUser(null));
   };
 
   useEffect(() => {
