@@ -15,6 +15,7 @@ import CartPage from "./components/pages/CartPage.jsx";
 import NotFound from "./components/pages/404.jsx";
 import Health from "./components/pages/Health.jsx";
 import TransactionsPage from "./components/pages/TransactionsPage.jsx";
+import ShipmentsPage from "./components/pages/ShipmentPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,10 @@ const router = createBrowserRouter([
       {
         path: "/transactions",
         element: <TransactionsPage />,
+      },
+      {
+        path: "/shipment",
+        element: <ShipmentsPage />,
       },
       {
         path: "/*",
