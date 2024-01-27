@@ -25,7 +25,7 @@ export const getProductsByFilter = createAsyncThunk(
     const response = await axios.get(`${baseUrl}/products`, {
       params: filterParams,
     });
-    const data = response.data.data.map((product) => ({
+    const data = response.data.data.products.map((product) => ({
       ...product,
       createdAt: formatDate(product.createdAt),
     }));

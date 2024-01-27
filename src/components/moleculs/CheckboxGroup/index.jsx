@@ -70,6 +70,7 @@ export default function CheckboxGroup() {
       <h2 className="section_11_category">Availability</h2>
       {availability.map((avail) => (
         <Checkbox
+          key={avail.id}
           handlechecked={handleFilterChange}
           className={avail.className}
           htmlFor="all"
