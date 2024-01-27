@@ -15,7 +15,7 @@ export const login = createAsyncThunk(
       return response.data;
     } catch (error) {
       // Handle other errors, e.g., network issues
-      return rejectWithValue("An error occurred");
+      return rejectWithValue("an errro occured");
     }
   }
 );
@@ -25,7 +25,8 @@ export const register = createAsyncThunk(
   async (body, { rejectWithValue }) => {
     try {
       console.log(body)
-      const response = await axios.post(`${baseUrl}/users`, {...body, phoneNumber: ''});
+      const response = await axios.post(`${baseUrl}/users`, {...body, phoneNumber: '0'});
+      console.log(response.data)
       return response.data;
     } catch (error) {
       // Handle other errors, e.g., network issues

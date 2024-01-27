@@ -6,6 +6,8 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../redux/actions/auth.action";
 import axios from "axios";
+import { setMessage } from "../../../redux/slice/auth.slice";
+import { setPassword, setUsername } from "../../../redux/slice/login.slice";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -24,6 +26,23 @@ export default function Login() {
   useEffect(() => {
     testApi();
   }, []);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      dispatch(setMessage(null));
+      dispatch(setUsername(null));
+      dispatch(setPassword(null));
+    }, 3000)
+
+    return () => clearTimeout(timeoutId)
+  }, [dispatch, message])
+
+  useEffect(() => {
+    if(error || message) {
+      dispatch(setUsername(null));
+      dispatch(setPassword(null));
+    }
+  }, [error, message, dispatch])
 
   const onSubmit = (event) => {
     event.preventDefault();
