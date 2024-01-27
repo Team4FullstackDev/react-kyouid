@@ -6,24 +6,30 @@ const Card = ({
   img,
   title,
   titleDate,
-  reviews,
-  prevPrice,
-  newPrice,
+  status,
+  price,
+  minimumCredits,
   onClickHandler,
   idr,
   dp,
 }) => {
-  const reviewStyle = {
-    backgroundColor: reviews.backgroundColor,
-  };
-
   return (
     <div className="section__10_card" onClick={onClickHandler}>
       <img src={img} alt={title} className="section__10_image" />
       <div className="section__10_card-boody">
         <section className="card-btn">
-          <span className="section__10_btn_status" style={reviewStyle}>
-            {reviews.text}
+          <span
+            className={
+              status === "Ready Stock"
+                ? "section__10_card-ready-stock"
+                : status === "Pre-Order"
+                ? "section__10_card-pre-order"
+                : status === "Late Pre-Order"
+                ? "section__10_btn_status"
+                : "section__10_btn_status"
+            }
+          >
+            {status}
           </span>
         </section>
         <h3 className="section__10_card-tittle">{title.substring(0, 30)}...</h3>
@@ -32,19 +38,22 @@ const Card = ({
           <div className="section__10_price">
             <span>
               {idr}{" "}
-              {prevPrice.toLocaleString("id-ID", {
-                styles: "currency",
+              {price.toLocaleString("id-ID", {
+                style: "decimal",
                 currency: "IDR",
               })}
             </span>
             <br />
             <span className="section__10_dp">
-              {dp} {idr}{" "}
-              {newPrice &&
-                newPrice.toLocaleString("id-ID", {
-                  styles: "currency",
-                  currency: "IDR",
-                })}
+              {minimumCredits > 0 ? (
+                <>
+                  {dp} {idr} {"  "}
+                  {minimumCredits.toLocaleString("id-ID", {
+                    style: "decimal",
+                    currency: "IDR",
+                  })}
+                </>
+              ) : null}
             </span>
           </div>
         </section>

@@ -5,11 +5,14 @@ import HeadLogin from "../../moleculs/HeadLogin";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../../redux/actions/auth.action";
+import axios from "axios";
+import { setMessage } from "../../../redux/slice/auth.slice";
+import { setPassword, setUsername } from "../../../redux/slice/login.slice";
 export default function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const loginState = useSelector((state) => state.login);
-  const { currentUser, error, message } = useSelector((state) => state.auth);
+  const { currentUser, error, message, loading } = useSelector((state) => state.auth);
   const { username, password } = loginState;
 
   useEffect(() => {
@@ -18,14 +21,44 @@ export default function Login() {
       navigate("/", { replace: true });
       return;
     }
-    console.log(error, message);
   }, [currentUser, navigate, error, message]); // Run this effect whenever the user changes
+
+  useEffect(() => {
+    testApi();
+  }, []);
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      dispatch(setMessage(null));
+      dispatch(setUsername(null));
+      dispatch(setPassword(null));
+    }, 3000)
+
+    return () => clearTimeout(timeoutId)
+  }, [dispatch, message])
+
+  useEffect(() => {
+    if(error || message) {
+      dispatch(setUsername(null));
+      dispatch(setPassword(null));
+    }
+  }, [error, message, dispatch])
 
   const onSubmit = (event) => {
     event.preventDefault();
     dispatch(login({ username, password }));
-    console.log(currentUser);
   };
+
+  async function testApi() {
+    await axios
+      .get(`${import.meta.env.VITE_BACKEND_BASE_URL}/health`)
+      .then((response) => {
+        console.log(response.data.message.healthCheck);
+      })
+      .catch((error) => {
+        console.log("error ", error);
+      });
+  }
 
   return (
     //<!-- create by dosma rina br manik -->
@@ -37,7 +70,8 @@ export default function Login() {
           <Link className="login_forgot" to="/resetpassword">
             Forgot your password
           </Link>
-
+          {loading && <div className="login_loading">Loading...</div>}
+          {(error || message) && <div className="login_error">{message}</div>}
           <div className="login_button">
             <FormButton />
           </div>

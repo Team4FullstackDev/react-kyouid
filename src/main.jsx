@@ -13,6 +13,8 @@ import ResetPasswordPage from "./components/pages/ResetPasswordPage.jsx";
 import WishlistPage from "./components/pages/WishlistPage.jsx";
 import CartPage from "./components/pages/CartPage.jsx";
 import NotFound from "./components/pages/404.jsx";
+import Health from "./components/pages/Health.jsx";
+import TransactionsPage from "./components/pages/TransactionsPage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -36,6 +38,10 @@ const router = createBrowserRouter([
         element: <CartPage />,
       },
       {
+        path: "/transactions",
+        element: <TransactionsPage />,
+      },
+      {
         path: "/*",
         element: <NotFound />,
       },
@@ -52,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/resetpassword",
     element: <ResetPasswordPage />,
+  },
+  {
+    path: "/health",
+    element: <Health />,
   },
 ]);
 

@@ -3,11 +3,12 @@ import FilterDropdown from "../../../moleculs/FilterDropdown/FilterDropdown";
 import FilterDropdownMobile from "../../../moleculs/FilterDropdown/FilterDropdownMobile";
 import FilterSortButtons from "../../../moleculs/FilterSortButtons";
 import productsData from "../../../../utils/constant/DataSection10";
-import { getPaginatedData } from "../../../../utils/constant/DataSection10";
 import Card from "../../../atoms/Card";
 import SidebarMobile from "../Sidebar/SidebarMobile";
+import { getProductsByFilter } from "../../../../redux/slice/productsFilter";
+import { useDispatch, useSelector } from "react-redux";
 
-const PAGE_SIZE = 24;
+const PAGE_SIZE = 20;
 
 const getTotalPages = (totalItems, pageSize) => {
   return Math.ceil(totalItems.length / pageSize);
@@ -23,6 +24,13 @@ const Content = () => {
     { value: "likes", label: "Most Liked", selected: false },
   ];
 
+  const dispatch = useDispatch();
+  const product = useSelector((state) => state.productsFilter);
+
+  useEffect(() => {
+    dispatch(getProductsByFilter());
+  }, [dispatch]);
+
   const [pageNumber, setPageNumber] = useState(1);
   const [showSidebarMobile, setShowSidebarMobile] = useState(false);
   const [selectedFilter, setSelectedFilter] = useState("all");
@@ -31,8 +39,10 @@ const Content = () => {
 
   const filteredData =
     selectedFilter === "all"
-      ? productsData
-      : productsData.filter((product) => product.category === selectedFilter);
+      ? product.productsFilter
+      : product.productsFilter.filter(
+          (product) => product.category === selectedFilter
+        );
 
   const handleFilterChange = (selectedValue) => {
     setSelectedFilter(selectedValue);
@@ -44,7 +54,7 @@ const Content = () => {
   };
 
   const handleNextPage = () => {
-    const totalPages = getTotalPages(productsData, PAGE_SIZE);
+    const totalPages = getTotalPages(filteredData, PAGE_SIZE);
     setPageNumber((prevPage) => Math.min(prevPage + 1, totalPages));
   };
 
@@ -52,13 +62,18 @@ const Content = () => {
     setPageNumber(page);
   };
 
-  const cardsToRender = getPaginatedData(filteredData, pageNumber, PAGE_SIZE);
-  const totalPages = getTotalPages(productsData, PAGE_SIZE);
+  const cardsToRender = filteredData.slice(
+    (pageNumber - 1) * PAGE_SIZE,
+    pageNumber * PAGE_SIZE
+  );
+
+  const totalPages = getTotalPages(filteredData, PAGE_SIZE);
 
   const handleFilterClick = () => {
     setShowSidebarMobile(!showSidebarMobile);
     setActivePanel("sidebar");
   };
+
   const handleFilterDropdownClick = () => {
     setShowFilterDropdown(!showFilterDropdown);
     setActivePanel("filter");
@@ -75,7 +90,11 @@ const Content = () => {
       <header className="section_11_heading">
         <div className="section_11_left">
           <h3>All Items</h3>
-          <span className="section_11_count">Showing 1 — 4 of 70</span>
+          <span className="section_11_count">
+            Showing {(pageNumber - 1) * PAGE_SIZE + 1} —{" "}
+            {Math.min(pageNumber * PAGE_SIZE, filteredData.length)} of{" "}
+            {filteredData.length}
+          </span>
         </div>
 
         <FilterDropdown
@@ -100,22 +119,35 @@ const Content = () => {
           handleChange={handleFilterChange}
         />
       )}
-      <div className="section__10_filterable-card">
+      <div className="section__11_filterable-card">
         {cardsToRender.map((product) => (
-          <Card key={product.id} {...product} />
+          <Card
+            key={product.id}
+            img={
+              product.Image_Products &&
+              product.Image_Products[0] &&
+              product.Image_Products[0].thumbnail
+            }
+            title={product.title}
+            titleDate={product.createdAt}
+            status={product.status}
+            price={product.price}
+            minimumCredits={product.minimumCredits}
+            dp="DP"
+            idr="IDR"
+            {...product}
+          />
         ))}
       </div>
 
       <div className="section_11__pagination">
         <div className="section_11__pagination__paging">
-          <button
-            className="section_11__disabled"
-            type="button"
-            onClick={handlePrevPage}
-            disabled={pageNumber === 1}
-          >
-            ⟨
-          </button>
+          {pageNumber > 1 && (
+            <button type="button" onClick={handlePrevPage}>
+              ⟨
+            </button>
+          )}
+
           {[...Array(totalPages).keys()].map((page) => (
             <button
               key={page + 1}
@@ -130,14 +162,12 @@ const Content = () => {
               {page + 1}
             </button>
           ))}
-          <button
-            className="section_11__disabled"
-            type="button"
-            onClick={handleNextPage}
-            disabled={pageNumber === totalPages}
-          >
-            ⟩
-          </button>
+
+          {pageNumber < totalPages && (
+            <button type="button" onClick={handleNextPage}>
+              ⟩
+            </button>
+          )}
         </div>
       </div>
     </div>
