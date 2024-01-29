@@ -1,11 +1,10 @@
 import { useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import CartItemCard from "../moleculs/CartItemCard";
 
 export default function CartPage() {
 
   const carts = useSelector((state) => state.user.carts);
-  
+  console.log(carts)  
 
   return (
     <div className="cartsPage__parent-container">

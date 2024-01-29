@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
-import { setCurrentUser } from "../redux/slice/auth.slice";
+import { setCurrentUser, setIsLoggedIn } from "../redux/slice/auth.slice";
 import { useDispatch } from "react-redux";
+import { logout } from "../redux/actions/auth.action";
 export default function useAuthentication() {
 
 
@@ -19,13 +20,10 @@ export default function useAuthentication() {
     });
   };
 
-  const logout = () => {
+  const logoutAction = () => {
     localStorage.removeItem("user");
-    setAuthState({
-      isLoggedIn: false,
-      user: null,
-    });
     dispatch(setCurrentUser(null));
+    dispatch(setIsLoggedIn(false));
   };
 
   useEffect(() => {
@@ -38,5 +36,5 @@ export default function useAuthentication() {
     }
   }, []);
 
-  return { ...authState, login, logout };
+  return { ...authState, login, logoutAction };
 }

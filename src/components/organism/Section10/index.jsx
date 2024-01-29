@@ -17,13 +17,11 @@ const Section10 = ({ selectedCategory }) => {
   const handleFilterChange = (filterCategory, filterName) => {
     const filterParams = { [filterName]: filterCategory };
     dispatch(getProductsByFilter(filterParams));
-    console.log(filterParams);
   };
 
   useEffect(() => {
     dispatch(getProductsByFilter());
   }, [dispatch]);
-  console.log(product);
 
   const loadMore = () => {
     if (visibleItems >= product.products.length) {

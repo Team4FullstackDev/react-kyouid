@@ -1,26 +1,19 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import axios from "axios";
-
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router";
+import { getProductDetail } from "../../redux/actions/itemdetail.action";
+import { addToCart } from "../../redux/actions/itemdetail.action";
 
 export default function ItemDetail() {
-  const [product, setProduct] = useState([]);
+  const { detailProducts, loadingAddCart } = useSelector(
+    (state) => state.itemDetail
+  );
+  const dispatch = useDispatch();
   const { id } = useParams();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:9001/api/v1/products/${id}`
-        );
-        setProduct(response.data.data);
-      } catch (error) {
-        console.error("Error fetching product:", error);
-      }
-    };
 
-    fetchData();
-  }, [id]);
+  useEffect(() => {
+    dispatch(getProductDetail(id))
+  }, [])
 
   const [quantity, setQuantity] = useState(1);
 
@@ -42,16 +35,14 @@ export default function ItemDetail() {
       setQuantity(quantity - 1);
     }
   };
-  console.log(product);
+
   return (
     <div className="itemDetail_parent_container">
       <div className="itemDetail_child_first">
         <div className="itemDetail_first_imageContainer">
           <img
             src={
-              product.Image_Products &&
-              product.Image_Products[0] &&
-              product.Image_Products[0].thumbnail
+              detailProducts.data?.image
             }
             alt="image item"
           />
@@ -62,29 +53,29 @@ export default function ItemDetail() {
           <div
             className="itemDetail_status"
             style={
-              product.status === "Ready Stock"
+              detailProducts.data?.status === "Ready Stock"
                 ? { background: "green" }
                 : { color: "red" }
             }
           >
-            <span>{product.status}</span>
+            <span>{detailProducts.data?.status}</span>
           </div>
           <div className="itemDetail_share">
             <p>Share</p>
           </div>
         </div>
 
-        <h2 className="itemDetail_title">{product.title}</h2>
+        <h2 className="itemDetail_title">{detailProducts.data?.title}</h2>
 
-        <p className="itemDetail_by">{product.manufacture}</p>
+        <p className="itemDetail_by">{detailProducts.data?.manufacture}</p>
 
         <hr className="desktop-only" />
 
         <div className="itemDetail_price_container">
           <h3 className="itemDetail_price">
             IDR {"  "}
-            {+product.price &&
-              product.price.toLocaleString("id-ID", {
+            {+detailProducts.data?.price &&
+              detailProducts.data?.price.toLocaleString("id-ID", {
                 style: "decimal",
                 currency: "IDR",
               })}
@@ -105,7 +96,7 @@ export default function ItemDetail() {
         <div className="itemDetail_dp_container">
           <div className="itemDetail_dp">
             <p className="itemDetail_dp_title">Minumun DP</p>
-            <p className="itemDetail_dp_price">{product.minimumCredits}</p>
+            <p className="itemDetail_dp_price">{detailProducts.data?.minimumCredits}</p>
           </div>
           <div className="itemDetail_fullpayment_discount desktop-only">
             <p className="itemDetail_fullpayment_discount_title">
@@ -131,7 +122,7 @@ export default function ItemDetail() {
         <div className="itemDetail_release_eta">
           <div className="itemDetail_release">
             <span className="release_key">Releases</span>
-            <span className="release_value">{product.createdAt}</span>
+            <span className="release_value">{detailProducts.data?.createdAt}</span>
           </div>
           <div className="itemDetail_eta">
             <span className="eta_key">Estimated Arrival</span>
@@ -194,7 +185,18 @@ export default function ItemDetail() {
           </button>
           <button
             className="itemDetail_addtocart"
-            onClick={() => dispatch(addToCart(product))}
+            onClick={() => {
+              const userInfo = JSON.parse(localStorage.getItem("user")).user;
+              if(localStorage.getItem("user") === null) {
+                window.location.href = "/login"
+                return
+              }
+              dispatch(addToCart({
+                productId: detailProducts.data?.id || id,
+                userId: userInfo.id,
+                quantity
+              }))
+            }}
           >
             <span>
               Add to Cart{" "}
@@ -202,7 +204,7 @@ export default function ItemDetail() {
                 src="/Spinner-1s-100px.gif"
                 alt="spinner"
                 className="itemDetail_spinner"
-                // style={{ display: loading ? "block" : "none" }}
+                style={{ display: loadingAddCart ? "block" : "none" }}
               />
             </span>
           </button>
@@ -214,7 +216,7 @@ export default function ItemDetail() {
         <div className="itemDetail_description">
           <div className="itemDetail_content_description">
             <h3>About this item</h3>
-            <p>{product.description}</p>
+            <p>{detailProducts.data?.description}</p>
             <div>
               <span>
                 <br />
@@ -226,25 +228,25 @@ export default function ItemDetail() {
             <li>
               <h4>Character</h4>
               <div className="info">
-                <a href="#">{product.character}</a>
+                <a href="#">{detailProducts.data?.character}</a>
               </div>
             </li>
             <li>
               <h4>Series</h4>
               <div className="info">
-                <a href="#">{product.series}</a>
+                <a href="#">{detailProducts.data?.series}</a>
               </div>
             </li>
             <li>
               <h4>Category</h4>
               <div className="info">
-                <a href="#">{product.category}</a>
+                <a href="#">{detailProducts.data?.category}</a>
               </div>
             </li>
             <li>
               <h4>Manufacture</h4>
               <div className="info">
-                <a href="#">{product.manufacture}</a>
+                <a href="#">{detailProducts.data?.manufacture}</a>
               </div>
             </li>
           </ul>

@@ -12,7 +12,6 @@ import { useEffect } from "react";
 
 const Section7 = () => {
   const product = useSelector((state) => state.products);
-  console.log(product);
 
   const dispatch = useDispatch();
   useEffect(() => {

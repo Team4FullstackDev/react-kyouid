@@ -17,7 +17,6 @@ export default function Login() {
 
   useEffect(() => {
     if (currentUser) {
-      localStorage.setItem("user", JSON.stringify(currentUser));
       navigate("/", { replace: true });
       return;
     }
@@ -30,22 +29,14 @@ export default function Login() {
   useEffect(() => {
     const timeoutId = setTimeout(() => {
       dispatch(setMessage(null));
-      dispatch(setUsername(null));
-      dispatch(setPassword(null));
     }, 3000)
 
     return () => clearTimeout(timeoutId)
   }, [dispatch, message])
 
-  useEffect(() => {
-    if(error || message) {
-      dispatch(setUsername(null));
-      dispatch(setPassword(null));
-    }
-  }, [error, message, dispatch])
-
   const onSubmit = (event) => {
     event.preventDefault();
+    
     dispatch(login({ username, password }));
   };
 

@@ -1,17 +1,39 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { getProductsCart } from "../../../redux/actions/carts.action";
 import { Link } from "react-router-dom";
 import useAuthentication from "../../../hooks/UseAuth";
-import { NavButton,NavForm,NavHR,NavImage,NavInput,NavSpan } from "../../atoms/Navbar";
-import {ModalButtonBack,ModalInfoCard,ModalLinkMenu,ModalSearchForm,ModalSearchContent,CartBadge,NavUserInfo,NavFriendShip,DropDownLinkList,BtnLogout } from "../../moleculs/Navbar";
+import axios from "axios";
+import {
+  NavButton,
+  NavForm,
+  NavHR,
+  NavImage,
+  NavInput,
+  NavSpan,
+} from "../../atoms/Navbar";
+import {
+  ModalButtonBack,
+  ModalInfoCard,
+  ModalLinkMenu,
+  ModalSearchForm,
+  ModalSearchContent,
+  CartBadge,
+  NavUserInfo,
+  NavFriendShip,
+  DropDownLinkList,
+  BtnLogout,
+} from "../../moleculs/Navbar";
 import { SearchEntries } from "../../../utils/constant/RiwayatSearching";
+import { setCurrentUser, setIsLoggedIn } from "../../../redux/slice/auth.slice";
 
-export default function NavigationAndModal () {
-  const { isLoggedIn, user, logout } = useAuthentication();
+export default function NavigationAndModal() {
+  const { user, logoutAction } = useAuthentication();
+  const { isLoggedIn, currentUser } = useSelector((state) => state.auth);
   const [isHamburgerVisible, setHamburgerVisible] = useState(false);
   const [isSearchVisible, setSearchVisible] = useState(false);
   const [isDropdownOpen, setDropdownOpen] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleHamburger = () => {
     setHamburgerVisible(!isHamburgerVisible);
@@ -25,15 +47,22 @@ export default function NavigationAndModal () {
     setDropdownOpen(!isDropdownOpen);
   };
 
-  const dispatch = useDispatch();
   const cartItems = useSelector((state) => state.user.carts);
 
   useEffect(() => {
-    // Fetch data only if the cart is not already loaded
     if (!cartItems.length) {
       dispatch(getProductsCart());
     }
-  }, [dispatch, cartItems]);
+    if(localStorage.getItem("user")) {
+      dispatch(setCurrentUser(JSON.parse(localStorage.getItem("user")).user));
+      dispatch(setIsLoggedIn(true));
+    }
+  }, []);
+
+  const logoutTest = async () => {
+    localStorage.removeItem("user");
+    dispatch(logoutAction());
+  };
 
   const hamburgerStyle = {
     display: isHamburgerVisible ? "block" : "none",
@@ -99,7 +128,7 @@ export default function NavigationAndModal () {
             alt="Search Icon"
           />
         </NavButton>
-        <CartBadge NavItemCount={cartItems.length} />
+        <CartBadge NavItemCount={cartItems?.length} />
         <Link className="nav__button" to="/transactions">
           <NavImage
             src="https://kyou.id/static/img/icon/transactions.svg"
@@ -126,7 +155,7 @@ export default function NavigationAndModal () {
               alt="Face Kyou"
             />
             <NavSpan className="nav__name-signin">
-              Hello {user && user.name}
+              Hello {currentUser && currentUser.username}
             </NavSpan>
             <NavImage
               className="nav__triangle-signin"
@@ -144,7 +173,7 @@ export default function NavigationAndModal () {
                 <NavHR />
                 <DropDownLinkList />
                 <NavHR />
-                <BtnLogout onClick={logout} />
+                <BtnLogout onClick={logoutTest} />
               </div>
             </div>
           )}
@@ -168,7 +197,7 @@ export default function NavigationAndModal () {
               <NavHR />
               <DropDownLinkList />
               <NavHR />
-              <BtnLogout onClick={logout} />
+              <BtnLogout onClick={logoutAction} />
             </div>
           ) : (
             <>
@@ -189,5 +218,4 @@ export default function NavigationAndModal () {
       </nav>
     </nav>
   );
-};
-
+}

@@ -10,7 +10,6 @@ import { getProducts } from "../../../redux/slice/products.slice";
 const Section8 = () => {
   const sliderRef = useRef(null);
   const product = useSelector((state) => state.products);
-  console.log(product);
 
   const dispatch = useDispatch();
   useEffect(() => {
