@@ -4,7 +4,7 @@ import CartItemCard from "../moleculs/CartItemCard";
 export default function CartPage() {
 
   const carts = useSelector((state) => state.user.carts);
-  console.log(carts)  
+  console.log(carts, "dari carts")  
 
   return (
     <div className="cartsPage__parent-container">
@@ -12,8 +12,8 @@ export default function CartPage() {
         <div className="cartsPage__list">
           <h2>Shopping Cart</h2>
           {
-            carts.map((item, index) => (
-              <CartItemCard key={index} itemCart={item} />
+            carts.data.map((item, index) => (
+              <CartItemCard key={index} itemCart={item.Product} />
             ))
           }
         </div>

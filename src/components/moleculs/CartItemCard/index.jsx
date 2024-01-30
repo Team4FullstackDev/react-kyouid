@@ -10,7 +10,7 @@ export default function CartItemCard({ itemCart }) {
     <div className="cartsPage__list-item">
       <div className="cartsPage__list-item-info">
         <span className="cartsPage__list-item-category">
-          {itemCart.reviews?.text}
+          {itemCart.category}
         </span>
         <div className="cartsPage__list-cartlist">
           <div className="cartsPage__list-item-left">
@@ -54,7 +54,7 @@ export default function CartItemCard({ itemCart }) {
             </div>
             <div className="cartsPage__eta desktop-only">
               <span className="cartsPage__eta-label">Estimated Arrival</span>
-              <span className="cartsPage__eta-value">{itemCart.titleDate}</span>
+              <span className="cartsPage__eta-value">{itemCart.createdAt}</span>
             </div>
           </div>
           <div className="cartsPage__list-item-right">
@@ -75,7 +75,11 @@ export default function CartItemCard({ itemCart }) {
                 Subtotal
               </span>
               <span className="cartsPage__list-value desktop-only">
-                IDR 200,000
+                {"IDR "}
+                {itemCart.price.toLocaleString("id-ID", {
+                  style: "decimal",
+                  currency: "IDR",
+                })}
               </span>
               <span className="cartsPage__list-stock-alert">
                 <img
@@ -93,7 +97,13 @@ export default function CartItemCard({ itemCart }) {
           >
             <div className="cartlist__total" style={{ flexGrow: "1" }}>
               <span className="cartlist__total__label">Subtotal</span>
-              <span className="cartlist__total__value">IDR 200,000</span>
+              <span className="cartlist__total__value">
+                {" "}
+                {itemCart.price.toLocaleString("id-ID", {
+                  style: "decimal",
+                  currency: "IDR",
+                })}
+              </span>
             </div>
             <div className="cartlist__details__buttons">
               <button type="button">

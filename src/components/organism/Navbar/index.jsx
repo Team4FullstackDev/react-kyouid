@@ -50,9 +50,7 @@ export default function NavigationAndModal() {
   const cartItems = useSelector((state) => state.user.carts);
 
   useEffect(() => {
-    if (!cartItems.length) {
-      dispatch(getProductsCart());
-    }
+    dispatch(getProductsCart());
     if(localStorage.getItem("user")) {
       dispatch(setCurrentUser(JSON.parse(localStorage.getItem("user")).user));
       dispatch(setIsLoggedIn(true));

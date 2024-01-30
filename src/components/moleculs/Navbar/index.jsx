@@ -113,13 +113,13 @@ export const CartBadge = ({ NavItemCount }) => {
           />
         </Link>
       ) : (
-        <a className="nav__button" href="/login">
+        <Link className="nav__button" to={localStorage.getItem("user") ? "/carts" : "/login"}>
           <NavImage
             className="nav__cart"
             src="https://kyou.id/static/img/icon/cart.svg"
             alt="Cart Icon"
           />
-        </a>
+        </Link>
       )}
     </>
   );

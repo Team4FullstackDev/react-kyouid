@@ -11,7 +11,7 @@ const initialState = {
 
 export const getProducts = createAsyncThunk("products/", async () => {
   const response = await axios.get(`${baseUrl}/products`);
-  const data = response.data.data.map((product) => ({
+  const data = response.data.data.products.map((product) => ({
     ...product,
     createdAt: formatDate(product.createdAt),
   }));
